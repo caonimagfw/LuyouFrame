@@ -1,0 +1,1 @@
+ make V=99 CONFIG_ALL=y IGNORE_ERRORS=m
