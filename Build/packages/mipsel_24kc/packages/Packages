@@ -48,6 +48,58 @@ Description:  You can wake up WOL compliant Computers which have been powered do
  to turn on a computer from another location over a network connection.
  ether-wake also supports WOL passwords.
 
+Package: krb5-libs
+Version: 1.16.1-3
+Depends: libc, libncurses6, libss, libcomerr
+License: MIT
+Section: net
+Architecture: mipsel_24kc
+Installed-Size: 667531
+Filename: krb5-libs_1.16.1-3_mipsel_24kc.ipk
+Size: 659108
+SHA256sum: a023a8129352d6b5de1cd4b7bcc919d3999e536636b9bd5e79ce280aed922004
+Description:  Kerberos 5 Shared Libraries
+
+Package: libaio
+Version: 0.3.110-1
+Depends: libc
+License: LGPL-2.1
+Section: libs
+Architecture: mipsel_24kc
+Installed-Size: 1112
+Filename: libaio_0.3.110-1_mipsel_24kc.ipk
+Size: 1859
+SHA256sum: fee998017d74c43b5a2500a0cabc982791b5f55ff3db7cb7235ee3e8f76d00e2
+Description:  Linux kernel AIO interface access library
+
+Package: libcares
+Version: 1.14.0-1
+Depends: libc
+License: MIT
+Section: libs
+Architecture: mipsel_24kc
+Installed-Size: 26623
+Filename: libcares_1.14.0-1_mipsel_24kc.ipk
+Size: 27404
+SHA256sum: a9ee64f6d7fe18f55977398395d21f0d320767b81ed59f9a7566623e5ea68464
+Description:  c-ares is a C library for asynchronous DNS requests (including name resolves)
+ 
+ C89 compatibility, MIT licensed, builds for and runs on POSIX, Windows,
+ Netware, Android and many more operating systems.
+ 
+
+Package: libedit
+Version: 20170329-3.1-1
+Depends: libc, libncurses6
+License: BSD-3-Clause
+Section: libs
+Architecture: mipsel_24kc
+Installed-Size: 60641
+Filename: libedit_20170329-3.1-1_mipsel_24kc.ipk
+Size: 61436
+SHA256sum: 36a64fbcb2e5e25e151b2ee6f16fa564793960856c50f7d4fbf0b8916186b9d1
+Description:  Generic line editing, history, and tokenization functions similar to GNU Readline.
+
 Package: libev
 Version: 4.22-1
 Depends: libc
@@ -61,6 +113,49 @@ SHA256sum: 6c6f9bd215df7c85b9b4d3b6b7e069d6a2a4e472d3240ab1f1652634c005e067
 Description:  A full-featured and high-performance event loop that is loosely modelled after
  libevent, but without its limitations and bugs.
 
+Package: liblzma
+Version: 5.2.4-1
+Depends: libc, libpthread
+License: Public-Domain LGPL-2.1+ GPL-2.0+ GPL-3.0+
+Section: libs
+Architecture: mipsel_24kc
+Installed-Size: 48792
+Filename: liblzma_5.2.4-1_mipsel_24kc.ipk
+Size: 49669
+SHA256sum: 506f92c0c9e1bf27b561f674d6f0604f596d6e9c022d944637f022bb291323c4
+Description:  liblzma library from XZ Utils
+
+Package: libmariadb-plugin-auth-gssapi-client
+Version: 10.2.26-1
+Depends: libc, libmariadb, krb5-libs
+License: GPL-2.0 LGPL-2.1
+Section: libs
+Architecture: mipsel_24kc
+Installed-Size: 2788
+Filename: libmariadb-plugin-auth-gssapi-client_10.2.26-1_mipsel_24kc.ipk
+Size: 3609
+SHA256sum: 23f22f7d8596970836eb3d2c63e54fefcd139e394b3525ada4143403b708ed3a
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the auth_gssapi_client plugin.
+ 
+
+Package: libmariadb
+Version: 10.2.26-1
+Depends: libc, mariadb-common, libopenssl1.1, zlib
+Provides: libmariadbclient, libmysqlclient, libmysqlclient-r
+License: GPL-2.0 LGPL-2.1
+Section: libs
+Architecture: mipsel_24kc
+Installed-Size: 153542
+Filename: libmariadb_10.2.26-1_mipsel_24kc.ipk
+Size: 153229
+SHA256sum: 650bf2ec332b1e438237d2d7007c0e18b30eb435620999ced0d5dc219f63a7b9
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package includes the client library.
+ 
+
 Package: libminiupnpc
 Version: 2.0.20170509-1
 Depends: libc
@@ -71,6 +166,49 @@ Filename: libminiupnpc_2.0.20170509-1_mipsel_24kc.ipk
 Size: 18495
 SHA256sum: 77741d8b38bab4761f1fc6cf4470894593c04fa871ba225b6a5560527caa20f4
 Description:  Lightweight UPnP library
+
+Package: libmodbus
+Version: 3.1.4-1
+Depends: libc
+License: GPL-3.0+ LGPL-2.1+
+Section: libs
+Architecture: mipsel_24kc
+Installed-Size: 14621
+Filename: libmodbus_3.1.4-1_mipsel_24kc.ipk
+Size: 15378
+SHA256sum: 9de35cdc131f067ce136cd4ec5839ecb53409ea5b092309b582fec589fa20d46
+Description:  A Modbus library for Linux, Mac OS X, FreeBSD, QNX and Win32.
+
+Package: libmosquitto-ssl
+Version: 1.5.3-3
+Depends: libc, libpthread, librt, libcares, libopenssl1.1
+Provides: libmosquitto
+License: BSD-3-Clause
+Section: libs
+Architecture: mipsel_24kc
+Installed-Size: 21654
+Filename: libmosquitto-ssl_1.5.3-3_mipsel_24kc.ipk
+Size: 22612
+SHA256sum: 9096bd56180973cdfec82e492b4c79933a1178a0df292c924fa46f8c5a1f7048
+Description:  Library required for mosquitto's command line client tools, also for
+ use by any third party software that wants to communicate with a
+ mosquitto server.
+ 
+ Should be useable for communicating with any MQTT v3.1/3.1.1 compatible
+ server, such as IBM's RSMB, in addition to Mosquitto
+ This package is built with SSL support
+
+Package: libmosquittopp
+Version: 1.5.3-3
+Depends: libc, libmosquitto, libstdcpp
+License: BSD-3-Clause
+Section: libs
+Architecture: mipsel_24kc
+Installed-Size: 5298
+Filename: libmosquittopp_1.5.3-3_mipsel_24kc.ipk
+Size: 6043
+SHA256sum: 7aa886b94fbee1583dbe7b7f270d5c91260d8a619effab31b95ced56283bc854
+Description:  C++ Library wrapper for libmosquitto.
 
 Package: libnatpmp
 Version: 20150609-1
@@ -87,6 +225,29 @@ Description:  libnatpmp is an attempt to make a portable and fully compliant imp
  all calls of the API are asynchronous. It is therefore very easy to integrate
  the NAT-PMP code to any event driven code.
  This package contains the shared library.
+
+Package: liboping
+Version: 1.9.0-1
+Depends: libc
+License: LGPL-2.1+
+Section: libs
+Architecture: mipsel_24kc
+Installed-Size: 6580
+Filename: liboping_1.9.0-1_mipsel_24kc.ipk
+Size: 7314
+SHA256sum: 81c5035b890c4396a47c911d7881e7ff2e01690ca898999099c00ad755ca07b0
+Description:  C library to generate ICMP echo requests.
+
+Package: libpam
+Version: 1.2.0-2
+Depends: libc
+Section: libs
+Architecture: mipsel_24kc
+Installed-Size: 156931
+Filename: libpam_1.2.0-2_mipsel_24kc.ipk
+Size: 157485
+SHA256sum: 23666cfdea49f1974bee2015416c3f4e456a46b85ab1dd96c0194a915d4c6933
+Description:  The Linux-PAM Pluggable Authentication Modules.
 
 Package: libpcre
 Version: 8.41-2
@@ -117,6 +278,18 @@ Description:  NaCl (pronounced "salt") is a new easy-to-use high-speed software 
  The same cannot be said of NIST curves, where the specific origins of certain constants are not described by the standards.
  And despite the emphasis on higher security, primitives are faster across-the-board than most implementations of the NIST standards.
 
+Package: libxml2
+Version: 2.9.9-3
+Depends: libc, libpthread, zlib
+License: MIT
+Section: libs
+Architecture: mipsel_24kc
+Installed-Size: 430742
+Filename: libxml2_2.9.9-3_mipsel_24kc.ipk
+Size: 428520
+SHA256sum: 82e6c2488bf3963cefe56f99927acd2045429b192c281dfdb8dedb128d4ad822
+Description:  A library for manipulating XML and HTML resources.
+
 Package: luci-app-sqm
 Version: 1.3.0-1
 Depends: libc, lua, luci-base, sqm-scripts
@@ -128,6 +301,516 @@ Filename: luci-app-sqm_1.3.0-1_all.ipk
 Size: 4975
 SHA256sum: e75f0d5bc04af90d839bde1737c59d5f612cdf068cc4b7af5b9c75f8e67c6e03
 Description:  Luci interface for the SQM scripts queue management configuration package.
+
+Package: mariadb-client-base
+Version: 10.2.26-1
+Depends: libc, mariadb-common, libopenssl1.1, zlib, libatomic, libstdcpp, libedit
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 430
+Filename: mariadb-client-base_10.2.26-1_mipsel_24kc.ipk
+Size: 1386
+SHA256sum: fbf1806f5bf0373ea9834e8ec85757dbfadccf93cfd5de76ad85894caa7b145a
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the foundation for mariadb-client. It installs the
+ configuration and the dependencies.
+ 
+
+Package: mariadb-client-extra
+Version: 10.2.26-1
+Depends: libc, mariadb-client
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 5208486
+Filename: mariadb-client-extra_10.2.26-1_mipsel_24kc.ipk
+Size: 4986376
+SHA256sum: 2a4486844f8b85332d263708d1493120ba5bcc09b59a03f1c7f83cfa6a7f8a19
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package includes the following extra client binaries:
+ 
+ mysql_find_rows
+ mysql_waitpid
+ mysqlaccess
+ mysqladmin
+ mysqldump
+ mysqlimport
+ mysqlshow
+ mysqlslap
+ mytop
+ 
+
+Package: mariadb-client
+Version: 10.2.26-1
+Depends: libc, mariadb-client-base
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 1788695
+Filename: mariadb-client_10.2.26-1_mipsel_24kc.ipk
+Size: 1711813
+SHA256sum: d3c9e4bf9da1c0b005a28af56b938f44cbe75bd1e0afb5fc062f0216a25ba826
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package includes the following core client binaries:
+ 
+ mysql
+ mysqlcheck
+ 
+
+Package: mariadb-common
+Version: 10.2.26-1
+Depends: libc
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 591
+Filename: mariadb-common_10.2.26-1_mipsel_24kc.ipk
+Size: 1464
+SHA256sum: 779577b68a046e22b392b38209cace741897dcd337004c412407cfe3430c2396
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package includes shared files, for example /etc/mysql/my.cnf.
+ 
+
+Package: mariadb-server-base
+Version: 10.2.26-1
+Depends: libc, mariadb-common, libopenssl1.1, zlib, libatomic, libstdcpp, libaio, liblzma, libpcre, resolveip
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 194774
+Filename: mariadb-server-base_10.2.26-1_mipsel_24kc.ipk
+Size: 194950
+SHA256sum: e579c1f88c7571331ff0fa5de2754ca1c3622eab06455a00429b46d22ef0d8be
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the foundation for mariadb-server. It installs the
+ init script, support files (configuration etc.), the user "mariadb" and
+ the dependencies.
+ 
+
+Package: mariadb-server-extra
+Version: 10.2.26-1
+Depends: libc, mariadb-server
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 19160126
+Filename: mariadb-server-extra_10.2.26-1_mipsel_24kc.ipk
+Size: 18543805
+SHA256sum: ec6e3fee9cba25db096dba8ceac90a511785db1da81eb211f69f670e8b53b7b0
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package includes the following extra server binaries:
+ 
+ aria*
+ mariabackup
+ msql2mysql
+ myisam_ftdump
+ myisamchk
+ myisamlog
+ myisampack
+ mysql_convert_table_format
+ mysql_fix_extensions
+ mysql_plugin
+ mysql_secure_installation
+ mysql_setpermission
+ mysql_tzinfo_to_sql
+ mysqlbinlog
+ mysqld_multi
+ mysqldumpslow
+ mysqlhotcopy
+ perror
+ replace
+ resolve_stack_dump
+ wsrep_sst_*
+ 
+
+Package: mariadb-server-plugin-auth-ed25519
+Version: 10.2.26-1
+Depends: libc, mariadb-server
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 54175
+Filename: mariadb-server-plugin-auth-ed25519_10.2.26-1_mipsel_24kc.ipk
+Size: 55072
+SHA256sum: 28ec9abca3b8b9d8292a4c2d9fc9cbfb81f0d333300130426aa62d07fbe163c7
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the auth_ed25519 plugin.
+ 
+
+Package: mariadb-server-plugin-auth-gssapi
+Version: 10.2.26-1
+Depends: libc, mariadb-server, krb5-libs
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 4451
+Filename: mariadb-server-plugin-auth-gssapi_10.2.26-1_mipsel_24kc.ipk
+Size: 5292
+SHA256sum: 78e97341e1e7717eded3919f87ea2d28e2f998787cb93ced7fab6982764edbb7
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the auth_gssapi plugin.
+ 
+
+Package: mariadb-server-plugin-auth-pam
+Version: 10.2.26-1
+Depends: libc, mariadb-server, libpam
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 2417
+Filename: mariadb-server-plugin-auth-pam_10.2.26-1_mipsel_24kc.ipk
+Size: 3266
+SHA256sum: b979a1faa0877574f522d6cbd8428a9e4b517ac46edd164bd65dcc5b0a5e69b0
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the auth_pam plugin.
+ 
+
+Package: mariadb-server-plugin-disks
+Version: 10.2.26-1
+Depends: libc, mariadb-server
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 2235
+Filename: mariadb-server-plugin-disks_10.2.26-1_mipsel_24kc.ipk
+Size: 3085
+SHA256sum: b1552e01746e1fd7a40dd62705d46be6069a1f1bcd988a33d102c8649acf5c6b
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the disks plugin.
+ 
+
+Package: mariadb-server-plugin-feedback
+Version: 10.2.26-1
+Depends: libc, mariadb-server
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 21465
+Filename: mariadb-server-plugin-feedback_10.2.26-1_mipsel_24kc.ipk
+Size: 22270
+SHA256sum: 1a0fa5369cec8226e26d8881cce957c0cc18540309f7303eaa997b0c0bcf1127
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the feedback plugin.
+ 
+
+Package: mariadb-server-plugin-file-key-management
+Version: 10.2.26-1
+Depends: libc, mariadb-server
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 6784
+Filename: mariadb-server-plugin-file-key-management_10.2.26-1_mipsel_24kc.ipk
+Size: 7660
+SHA256sum: c3a6a9acd35bba2e6d8957c60c5f0ac29d7dc25134128ea21ae709a173d92388
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the file_key_management plugin.
+ 
+
+Package: mariadb-server-plugin-ha-archive
+Version: 10.2.26-1
+Depends: libc, mariadb-server
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 25236
+Filename: mariadb-server-plugin-ha-archive_10.2.26-1_mipsel_24kc.ipk
+Size: 25992
+SHA256sum: 6de2f117e07e6285f9979eae0ee058a2bda11697ac63efcb4797e8b910619b31
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the ha_archive plugin.
+ 
+
+Package: mariadb-server-plugin-ha-blackhole
+Version: 10.2.26-1
+Depends: libc, mariadb-server
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 9980
+Filename: mariadb-server-plugin-ha-blackhole_10.2.26-1_mipsel_24kc.ipk
+Size: 10784
+SHA256sum: 7ffba77d835fe7d3b157179c608c885182b7dfa7f8a283b6303c2ecf07a43eb2
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the ha_blackhole plugin.
+ 
+
+Package: mariadb-server-plugin-ha-connect
+Version: 10.2.26-1
+Depends: libc, mariadb-server, libxml2
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 441379
+Filename: mariadb-server-plugin-ha-connect_10.2.26-1_mipsel_24kc.ipk
+Size: 432814
+SHA256sum: 81b92d912b205ce425295c6720e20f9f9302834a251936027a211a26eb57fe22
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the ha_connect plugin.
+ 
+
+Package: mariadb-server-plugin-ha-federated
+Version: 10.2.26-1
+Depends: libc, mariadb-server
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 21908
+Filename: mariadb-server-plugin-ha-federated_10.2.26-1_mipsel_24kc.ipk
+Size: 22736
+SHA256sum: 53848ecf42d251ea5182d5483989ba2c1751987574962ff0d57948fb06bbc30c
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the ha_federated plugin.
+ 
+
+Package: mariadb-server-plugin-ha-federatedx
+Version: 10.2.26-1
+Depends: libc, mariadb-server
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 32727
+Filename: mariadb-server-plugin-ha-federatedx_10.2.26-1_mipsel_24kc.ipk
+Size: 33540
+SHA256sum: 50f125a4c0e770ec5e70f6297137310ee1376f10cd6a8f106fcc30b52c24ee7f
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the ha_federatedx plugin.
+ 
+
+Package: mariadb-server-plugin-ha-sphinx
+Version: 10.2.26-1
+Depends: libc, mariadb-server
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 38418
+Filename: mariadb-server-plugin-ha-sphinx_10.2.26-1_mipsel_24kc.ipk
+Size: 39233
+SHA256sum: eaea2824db3ad7d2a7b15098745fd7b3f582ae6efa137489e79cc8cb0c522458
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the ha_sphinx plugin.
+ 
+
+Package: mariadb-server-plugin-ha-spider
+Version: 10.2.26-1
+Depends: libc, mariadb-server
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 292531
+Filename: mariadb-server-plugin-ha-spider_10.2.26-1_mipsel_24kc.ipk
+Size: 292721
+SHA256sum: 4b209dae02fc47a4a3dd28aa17f566349e7765e7d87423e1493af4c954637be5
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the ha_spider plugin.
+ 
+
+Package: mariadb-server-plugin-handlersocket
+Version: 10.2.26-1
+Depends: libc, mariadb-server
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 49707
+Filename: mariadb-server-plugin-handlersocket_10.2.26-1_mipsel_24kc.ipk
+Size: 50574
+SHA256sum: 293764450b9cc4e387c053c0dcd18a4595cb7ea8e5d06bfafbc53b25543e9d7b
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the handlersocket plugin.
+ 
+
+Package: mariadb-server-plugin-locales
+Version: 10.2.26-1
+Depends: libc, mariadb-server
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 1973
+Filename: mariadb-server-plugin-locales_10.2.26-1_mipsel_24kc.ipk
+Size: 2826
+SHA256sum: f01304a2a9148614243645dd2770ee4786419474e7c1ba9cc788aaa1cdd1219f
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the locales plugin.
+ 
+
+Package: mariadb-server-plugin-metadata-lock-info
+Version: 10.2.26-1
+Depends: libc, mariadb-server
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 2545
+Filename: mariadb-server-plugin-metadata-lock-info_10.2.26-1_mipsel_24kc.ipk
+Size: 3366
+SHA256sum: 002fc372c6c2b5753e07477eb7363382720ac2ccf81a5b6cd74be0a5b17261c7
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the metadata_lock_info plugin.
+ 
+
+Package: mariadb-server-plugin-query-cache-info
+Version: 10.2.26-1
+Depends: libc, mariadb-server
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 3073
+Filename: mariadb-server-plugin-query-cache-info_10.2.26-1_mipsel_24kc.ipk
+Size: 3901
+SHA256sum: 1c9e213cf3290494308efa1699210071be070a1fe77ee0109cf3004d155fa768
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the query_cache_info plugin.
+ 
+
+Package: mariadb-server-plugin-query-response-time
+Version: 10.2.26-1
+Depends: libc, mariadb-server
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 4001
+Filename: mariadb-server-plugin-query-response-time_10.2.26-1_mipsel_24kc.ipk
+Size: 4835
+SHA256sum: 2592e40c5c0f268307a7c680438526aeb4b1feebbd7f5f82a85cb36e27c848f5
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the query_response_time plugin.
+ 
+
+Package: mariadb-server-plugin-semisync-master
+Version: 10.2.26-1
+Depends: libc, mariadb-server
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 14209
+Filename: mariadb-server-plugin-semisync-master_10.2.26-1_mipsel_24kc.ipk
+Size: 15052
+SHA256sum: 65295de4d1e86cb38ae9d47a9126c2d5e101471612bd36e935179dd160c09957
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the semisync_master plugin.
+ 
+
+Package: mariadb-server-plugin-semisync-slave
+Version: 10.2.26-1
+Depends: libc, mariadb-server
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 4484
+Filename: mariadb-server-plugin-semisync-slave_10.2.26-1_mipsel_24kc.ipk
+Size: 5318
+SHA256sum: ef33ffc018f64d8994817f46e2689c090d6c061216c6479db5ebf6ae77d5eb86
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the semisync_slave plugin.
+ 
+
+Package: mariadb-server-plugin-server-audit
+Version: 10.2.26-1
+Depends: libc, mariadb-server
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 17072
+Filename: mariadb-server-plugin-server-audit_10.2.26-1_mipsel_24kc.ipk
+Size: 17908
+SHA256sum: 1f8a867611318b61f2820da8220ffd10e2f4c1c9928e3479a5f898062d5833a5
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the server_audit plugin.
+ 
+
+Package: mariadb-server-plugin-simple-password-check
+Version: 10.2.26-1
+Depends: libc, mariadb-server
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 1806
+Filename: mariadb-server-plugin-simple-password-check_10.2.26-1_mipsel_24kc.ipk
+Size: 2676
+SHA256sum: 8af012d0b28a693669a024cfaa5e681c91f657915145586a04fc146d475ee14a
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the simple_password_check plugin.
+ 
+
+Package: mariadb-server-plugin-sql-errlog
+Version: 10.2.26-1
+Depends: libc, mariadb-server
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 1964
+Filename: mariadb-server-plugin-sql-errlog_10.2.26-1_mipsel_24kc.ipk
+Size: 2816
+SHA256sum: aa5d638b39583460ecb6dc329c62be043f0dff3f615fd780df78ede3262437b2
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the sql_errlog plugin.
+ 
+
+Package: mariadb-server-plugin-wsrep-info
+Version: 10.2.26-1
+Depends: libc, mariadb-server
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 3280
+Filename: mariadb-server-plugin-wsrep-info_10.2.26-1_mipsel_24kc.ipk
+Size: 4094
+SHA256sum: ba5d4fac873a864ab75ecd0c863030e3f8af22b8c0b450f44e263e939a25d7df
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package provides the wsrep_info plugin.
+ 
+
+Package: mariadb-server
+Version: 10.2.26-1
+Depends: libc, mariadb-server-base
+Provides: mysql-server
+License: GPL-2.0 LGPL-2.1
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 7152066
+Filename: mariadb-server_10.2.26-1_mipsel_24kc.ipk
+Size: 6994346
+SHA256sum: e67a6792540ba991c9c8a3101704e91bb1aead387064ee5775d92c0fd6069036
+Description:  MariaDB is a very fast and robust SQL database server.
+ 
+ This package includes the following core server binaries:
+ 
+ innochecksum
+ my_print_defaults
+ mysql_install_db
+ mysql_upgrade
+ mysqld
+ 
 
 Package: miniupnpd
 Version: 2.0.20170421-2
@@ -165,6 +848,18 @@ Size: 47307
 SHA256sum: d61688ea3fb2dbd9283e720583155a64f264f14c6c63d012e161e2d59671441d
 Description:  shadowsocks-libev ss-local
 
+Package: shadowsocks-libev-ss-redir
+Version: 3.3.4-1
+Depends: libc, libev, libmbedtls12, libpthread, libsodium
+License: GPL-3.0-or-later
+Section: net
+Architecture: mipsel_24kc
+Installed-Size: 40565
+Filename: shadowsocks-libev-ss-redir_3.3.4-1_mipsel_24kc.ipk
+Size: 40946
+SHA256sum: 94e4f0c49a4ba6add96430593ec6dc9518dedcaacc41cdf65bca7dfdbae47b94
+Description:  shadowsocks-libev ss-redir
+
 Package: sqm-scripts
 Version: 1.3.0-1
 Depends: libc, tc, kmod-sched-core, kmod-sched-cake, kmod-ifb, iptables, iptables-mod-ipopt, iptables-mod-conntrack-extra
@@ -176,6 +871,44 @@ Filename: sqm-scripts_1.3.0-1_all.ipk
 Size: 16818
 SHA256sum: 548b5e262b7ed30fc5b8c94336e60346f9c28142caf12444810e0de8a1ddd5ca
 Description:  A set of scripts that does simple SQM configuration.
+
+Package: squid-mod-cachemgr
+Version: 4.6-2
+Depends: libc, squid
+License: GPL-2.0-or-later
+Section: net
+Architecture: mipsel_24kc
+Installed-Size: 25445
+Filename: squid-mod-cachemgr_4.6-2_mipsel_24kc.ipk
+Size: 26176
+SHA256sum: 417bc7858c5d8998389e0b2fc729add61db9f9dd66fb5065db080ff75ee02a67
+Description:  Web based proxy manager and reporting tool
+
+Package: squid
+Version: 4.6-2
+Depends: libc, libpthread, librt, libltdl, libstdcpp, libatomic, libopenssl1.1
+License: GPL-2.0-or-later
+Section: net
+Architecture: mipsel_24kc
+Installed-Size: 1753605
+Filename: squid_4.6-2_mipsel_24kc.ipk
+Size: 1751930
+SHA256sum: a2770bad1b8352780e1b5a49504b94577687f0f60bf23eccbd510cf357466d34
+Description:  Squid is a caching proxy for the Web supporting HTTP, HTTPS, FTP, and more.
+ It reduces bandwidth and improves response times by caching and reusing
+ frequently-requested web pages.
+
+Package: ttyd
+Version: 1.4.0-1
+Depends: libc, libopenssl1.1, libjson-c, libpthread, libwebsockets-full
+License: MIT
+Section: utils
+Architecture: mipsel_24kc
+Installed-Size: 139
+Filename: ttyd_1.4.0-1_mipsel_24kc.ipk
+Size: 922
+SHA256sum: 9b39b3cb58d65b8addae9f1833acea73b92bfd65664cff7bfab39269b2579a6c
+Description:  ttyd is a command-line tool for sharing terminal over the web.
 
 Package: wget
 Version: 1.20.3-3

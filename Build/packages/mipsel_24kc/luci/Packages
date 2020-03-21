@@ -33,6 +33,41 @@ Size: 22364
 SHA256sum: 9b61bca8950e0ef6fb7ba53de90d2b9b90b447495c40b4301882032186a87d9f
 Description:  Netlink based bandwidth accounting
 
+Package: luci-app-samba
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, samba36-server
+Section: luci
+Architecture: all
+Installed-Size: 1340
+Filename: luci-app-samba_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 2088
+SHA256sum: 971c71c407fd1941adce241a03c5a97529ba00ea05dbec626d6d5c9dc6273616
+Description:  Network Shares - Samba SMB/CIFS module
+
+Package: luci-app-shadowsocks-libev
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc
+License: Apache-2.0
+Section: luci
+Architecture: all
+Installed-Size: 5488
+Filename: luci-app-shadowsocks-libev_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 6294
+SHA256sum: 0b66eb02d439916f1fc31f9ca74a29fbe4c10a479ffae7cdca10dfc7a97db48d
+Description:  LuCI Support for shadowsocks-libev
+
+Package: luci-app-squid
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-mod-admin-full, squid
+License: Apache-2.0
+Section: luci
+Architecture: all
+Installed-Size: 895
+Filename: luci-app-squid_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 1672
+SHA256sum: 2a78bd02207e72640e1f337588ab2c8c4da53060a9b1d0dc523d48ceb0b61d8f
+Description:  Squid LuCI Interface
+
 Package: luci-app-upnp
 Version: git-20.071.17905-38b5cd7-1
 Depends: libc, miniupnpd
@@ -987,6 +1022,281 @@ Filename: luci-i18n-nlbwmon-zh-cn_git-20.071.17905-38b5cd7-1_all.ipk
 Size: 4586
 SHA256sum: edb3b39408dfec8ee2354b9ce0b94ddacae221f5f6c19ee58430b9924ffa704d
 Description:  Translation for luci-app-nlbwmon - 简体中文 (Simplified Chinese)
+
+Package: luci-i18n-samba-ca
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-app-samba
+Section: luci
+Architecture: all
+Installed-Size: 1063
+Filename: luci-i18n-samba-ca_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 1863
+SHA256sum: 2b611d10d3d02a35692f81d3517d8e146fd1415586f4e280e4b30bc164e5807d
+Description:  Translation for luci-app-samba - Català (Catalan)
+
+Package: luci-i18n-samba-cs
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-app-samba
+Section: luci
+Architecture: all
+Installed-Size: 1105
+Filename: luci-i18n-samba-cs_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 1917
+SHA256sum: 2d393888a68c5cb070931707037673a7dd8ebc8e5a48d7d224c0b07b8e75d199
+Description:  Translation for luci-app-samba - Čeština (Czech)
+
+Package: luci-i18n-samba-de
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-app-samba
+Section: luci
+Architecture: all
+Installed-Size: 1077
+Filename: luci-i18n-samba-de_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 1878
+SHA256sum: 042aaa050d3ecb7abe53d76a03cb8798a7d4a27901a111dfb7a0f0126e278de1
+Description:  Translation for luci-app-samba - Deutsch (German)
+
+Package: luci-i18n-samba-el
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-app-samba
+Section: luci
+Architecture: all
+Installed-Size: 393
+Filename: luci-i18n-samba-el_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 1206
+SHA256sum: 9cf53e5e32a82f597e61323bf7691f6d10c0cb2cf1c1920fe6dd4e193cf31278
+Description:  Translation for luci-app-samba - Ελληνικά (Greek)
+
+Package: luci-i18n-samba-en
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-app-samba
+Section: luci
+Architecture: all
+Installed-Size: 612
+Filename: luci-i18n-samba-en_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 1401
+SHA256sum: 51556d4b7ec48254e8280e29884d3a6cef67d155cf484689ddf115a01b434797
+Description:  Translation for luci-app-samba - English
+
+Package: luci-i18n-samba-es
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-app-samba
+Section: luci
+Architecture: all
+Installed-Size: 1050
+Filename: luci-i18n-samba-es_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 1859
+SHA256sum: 514b2f24e35e90e3d3600444888610bb55d1d10301ae2af94d4a626f9810f1f6
+Description:  Translation for luci-app-samba - Español (Spanish)
+
+Package: luci-i18n-samba-fr
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-app-samba
+Section: luci
+Architecture: all
+Installed-Size: 1080
+Filename: luci-i18n-samba-fr_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 1894
+SHA256sum: 492ba3e48c6b2b19db12f64cbb3b96b4a14d205b9aaa5d5e12d05400275d4b29
+Description:  Translation for luci-app-samba - Français (French)
+
+Package: luci-i18n-samba-he
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-app-samba
+Section: luci
+Architecture: all
+Installed-Size: 335
+Filename: luci-i18n-samba-he_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 1157
+SHA256sum: 59ce068aaf5338d96db98c75cea7ff89d9b4512e96a92c5297525280bc992f8d
+Description:  Translation for luci-app-samba - עִבְרִית (Hebrew)
+
+Package: luci-i18n-samba-hu
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-app-samba
+Section: luci
+Architecture: all
+Installed-Size: 1121
+Filename: luci-i18n-samba-hu_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 1922
+SHA256sum: f98f4bba970d7b194114d3dabac3974b5795b1c40e40253472d4dcd26e7ca11d
+Description:  Translation for luci-app-samba - Magyar (Hungarian)
+
+Package: luci-i18n-samba-it
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-app-samba
+Section: luci
+Architecture: all
+Installed-Size: 1154
+Filename: luci-i18n-samba-it_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 1953
+SHA256sum: a1fbdb242638f7ab08655a1205e5590a3ed8fffe65ceeedb17328e7a33fe34f4
+Description:  Translation for luci-app-samba - Italiano (Italian)
+
+Package: luci-i18n-samba-ja
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-app-samba
+Section: luci
+Architecture: all
+Installed-Size: 1194
+Filename: luci-i18n-samba-ja_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 2010
+SHA256sum: faa030db80a9293b4b565bda87bff68d9de4294eb8aff52a377c41d519495929
+Description:  Translation for luci-app-samba - 日本語 (Japanese)
+
+Package: luci-i18n-samba-ms
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-app-samba
+Section: luci
+Architecture: all
+Installed-Size: 319
+Filename: luci-i18n-samba-ms_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 1115
+SHA256sum: fbce3b509eb645ca62911d758e635af6fa88c0aed2a01716ff9d1dee3a94598c
+Description:  Translation for luci-app-samba - Bahasa Melayu (Malay)
+
+Package: luci-i18n-samba-no
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-app-samba
+Section: luci
+Architecture: all
+Installed-Size: 1030
+Filename: luci-i18n-samba-no_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 1828
+SHA256sum: 35c7e148fc60144b711c903840bea5e31579f2db215e609616614083949c8d15
+Description:  Translation for luci-app-samba - Norsk (Norwegian)
+
+Package: luci-i18n-samba-pl
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-app-samba
+Section: luci
+Architecture: all
+Installed-Size: 1115
+Filename: luci-i18n-samba-pl_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 1907
+SHA256sum: 268703b259c6cc9636f38feb8a3c7250d1aaf6f0245fd128ce8e8e6e0e730146
+Description:  Translation for luci-app-samba - Polski (Polish)
+
+Package: luci-i18n-samba-pt-br
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-app-samba
+Section: luci
+Architecture: all
+Installed-Size: 1099
+Filename: luci-i18n-samba-pt-br_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 1928
+SHA256sum: 55e319e40fc610d0e6e884c0b7288feb9ba89b55389c3a7fe58e6333f3defbfe
+Description:  Translation for luci-app-samba - Português do Brasil (Brazialian Portuguese)
+
+Package: luci-i18n-samba-pt
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-app-samba
+Section: luci
+Architecture: all
+Installed-Size: 1076
+Filename: luci-i18n-samba-pt_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 1880
+SHA256sum: 43bfd63157a2c5291ee882d43d4d025220a7f95c99443faeff2fa6afb7dc79b8
+Description:  Translation for luci-app-samba - Português (Portuguese)
+
+Package: luci-i18n-samba-ro
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-app-samba
+Section: luci
+Architecture: all
+Installed-Size: 1027
+Filename: luci-i18n-samba-ro_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 1837
+SHA256sum: 85caed023798ac9a3aa1c99f6fb13e1e60c1beb5b0dd1ec6eaa10258abdac529
+Description:  Translation for luci-app-samba - Română (Romanian)
+
+Package: luci-i18n-samba-ru
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-app-samba
+Section: luci
+Architecture: all
+Installed-Size: 1354
+Filename: luci-i18n-samba-ru_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 2182
+SHA256sum: 6ae4baf92533a5537bc971536b59697774be02ce8fd31a8647ba401e10b7e8b9
+Description:  Translation for luci-app-samba - Русский (Russian)
+
+Package: luci-i18n-samba-sk
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-app-samba
+Section: luci
+Architecture: all
+Installed-Size: 320
+Filename: luci-i18n-samba-sk_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 1115
+SHA256sum: 819623f857490c440d99d5442f74e5e8e61f405c38e8783b9549342332300e61
+Description:  Translation for luci-app-samba - Slovenčina (Slovak)
+
+Package: luci-i18n-samba-sv
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-app-samba
+Section: luci
+Architecture: all
+Installed-Size: 888
+Filename: luci-i18n-samba-sv_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 1699
+SHA256sum: 332e6b9bac2d5a2618475c4cd8ee980da40d9ecead13d0763f1404545110a230
+Description:  Translation for luci-app-samba - Svenska (Swedish)
+
+Package: luci-i18n-samba-tr
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-app-samba
+Section: luci
+Architecture: all
+Installed-Size: 320
+Filename: luci-i18n-samba-tr_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 1120
+SHA256sum: c0fdc2a3293befa0bc9c66747b45b83f951fd8a712d6a7cb71e435c5e6e10bd5
+Description:  Translation for luci-app-samba - Türkçe (Turkish)
+
+Package: luci-i18n-samba-uk
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-app-samba
+Section: luci
+Architecture: all
+Installed-Size: 1259
+Filename: luci-i18n-samba-uk_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 2106
+SHA256sum: c12dd44676412656cde41ac479e82c379357889bbf8a3fbac35b884b62240964
+Description:  Translation for luci-app-samba - украї́нська (Ukrainian)
+
+Package: luci-i18n-samba-vi
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-app-samba
+Section: luci
+Architecture: all
+Installed-Size: 850
+Filename: luci-i18n-samba-vi_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 1674
+SHA256sum: 400a7f2572dba5e081bc43b8130f01d568dc10b11d56a6690b5d3d9489749629
+Description:  Translation for luci-app-samba - Tiếng Việt (Vietnamese)
+
+Package: luci-i18n-samba-zh-cn
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-app-samba
+Section: luci
+Architecture: all
+Installed-Size: 1214
+Filename: luci-i18n-samba-zh-cn_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 2051
+SHA256sum: 44a359e55da510d3474bc63f21ad39a78c75e3f1adce4e804080ef5154d0dff3
+Description:  Translation for luci-app-samba - 简体中文 (Simplified Chinese)
+
+Package: luci-i18n-samba-zh-tw
+Version: git-20.071.17905-38b5cd7-1
+Depends: libc, luci-app-samba
+Section: luci
+Architecture: all
+Installed-Size: 1162
+Filename: luci-i18n-samba-zh-tw_git-20.071.17905-38b5cd7-1_all.ipk
+Size: 1998
+SHA256sum: 4386cff0330ede0423051149610bf70e614af5352869dd4dda38881c23aa35f8
+Description:  Translation for luci-app-samba - 繁体中文 (Traditional Chinese)
 
 Package: luci-i18n-upnp-ca
 Version: git-20.071.17905-38b5cd7-1

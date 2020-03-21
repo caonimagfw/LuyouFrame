@@ -113,6 +113,19 @@ SHA256sum: 608794697a05074479b49e1e8ea00419a1f725baf44d27efd6dfb15de90030c8
 Description:  The Swiss Army Knife of embedded Linux.
  It slices, it dices, it makes Julian Fries.
 
+Package: ca-bundle
+Version: 20180409-3
+Depends: libc
+Source: package/system/ca-certificates
+SourceName: ca-bundle
+Section: base
+Architecture: all
+Installed-Size: 119645
+Filename: ca-bundle_20180409-3_all.ipk
+Size: 120486
+SHA256sum: 70957ca6c68e44dbb1c6ade57e1462282372e00b2fb9962d7af9476cc6814f41
+Description:  System CA certificates as a bundle
+
 Package: ca-certificates
 Version: 20180409-3
 Depends: libc
@@ -169,36 +182,6 @@ Size: 9318
 SHA256sum: d3d1fb17e3ffcb4021d6176afb31a15af3b4a735b8df6757fd64aff3c93d31ef
 Description:  Embedded Microprocessor Benchmark
 
-Package: ddns-scripts_aliyun
-Version: 1.0.3-1
-Depends: libc, ddns-scripts, wget, openssl-util
-Source: package/lean/ddns-scripts_aliyun
-SourceName: ddns-scripts_aliyun
-License: GPLv2
-Section: net
-Maintainer: Sense <sensec@gmail.com>
-Architecture: all
-Installed-Size: 3720
-Filename: ddns-scripts_aliyun_1.0.3-1_all.ipk
-Size: 4795
-SHA256sum: bd03f49238152faab950d4a169d18afe083034896c5a0284cbabeebab7fde09e
-Description:  Dynamic DNS Client scripts extension for AliYun.com
-
-Package: ddns-scripts_dnspod
-Version: 1.0.2-1
-Depends: libc, ddns-scripts, wget, ca-certificates
-Source: package/lean/ddns-scripts_dnspod
-SourceName: ddns-scripts_dnspod
-License: GPLv2
-Section: net
-Maintainer: Small_5
-Architecture: all
-Installed-Size: 2574
-Filename: ddns-scripts_dnspod_1.0.2-1_all.ipk
-Size: 3673
-SHA256sum: fbf29c32d003d29321ac43a436550755965c695ef3c4c54df1edddea8b9da5f7
-Description:  Dynamic DNS Client scripts extension for Dnspod.com/Dnspod.cn
-
 Package: default-settings
 Version: 1.1-55
 Depends: libc, luci-base
@@ -231,7 +214,7 @@ Description:  This is a utility to resolve DNS requests via a SOCKS5 tunnel and 
 
 Package: dnsmasq-full
 Version: 2.80-12
-Depends: libc, libubus20191227, kmod-ipt-ipset
+Depends: libc, libubus20191227, libnettle, kmod-ipt-ipset
 Provides: dnsmasq
 Source: package/network/services/dnsmasq
 SourceName: dnsmasq-full
@@ -240,10 +223,10 @@ LicenseFiles: COPYING
 Section: net
 Require-User: dnsmasq=453:dnsmasq=453
 Architecture: mipsel_24kc
-Installed-Size: 120573
+Installed-Size: 120879
 Filename: dnsmasq-full_2.80-12_mipsel_24kc.ipk
-Size: 121315
-SHA256sum: ab164f71a591e7ee03e67134faf029850918ae78f097d0bede1739441a9cfe86
+Size: 121627
+SHA256sum: 3429489bde86c61f86b17b84d9cef878cd415bca5f82f873df72d65d31eab1f7
 Description:  It is intended to provide coupled DNS and DHCP service to a LAN.
  
  This is a fully configurable variant with DHCPv4, DHCPv6, DNSSEC, Authoritative DNS
@@ -489,6 +472,38 @@ Size: 4573
 SHA256sum: 73aca7d3f1a5b7edde457de388f02033f719cd2081e4fd1e169b3889e0510e44
 Description:  blobmsg <-> json conversion library
 
+Package: libcomerr
+Version: 1.44.3-1
+Depends: libc, libuuid
+Source: package/utils/e2fsprogs
+SourceName: libcomerr
+License: GPL-2.0
+Section: libs
+Architecture: mipsel_24kc
+Installed-Size: 3624
+Filename: libcomerr_1.44.3-1_mipsel_24kc.ipk
+Size: 4340
+SHA256sum: b2d333e81e77c8e7179b4eb6ea4dbf105e72abfe6980dec3db8768a144cf0aa7
+Description:  This package contains libcom_err, the common error description library
+ bundled with e2fsprogs.
+
+Package: libcurl4
+Version: 7.66.0-1
+Depends: libc, libopenssl1.1, ca-bundle
+Provides: libcurl
+Source: package/network/utils/curl
+SourceName: libcurl
+License: MIT
+LicenseFiles: COPYING
+Section: libs
+Maintainer: Imre Kaloz <kaloz@openwrt.org>
+Architecture: mipsel_24kc
+Installed-Size: 130301
+Filename: libcurl4_7.66.0-1_mipsel_24kc.ipk
+Size: 131035
+SHA256sum: a45a2eaa96115b3fd768a52e0467e8b774a3a9f9bf0040becd792543056504a0
+Description:  A client-side URL transfer library
+
 Package: libelf1
 Version: 0.177-2
 Depends: libc, zlib
@@ -548,6 +563,33 @@ Size: 217322
 SHA256sum: 2eb34d9e70ad4fd1b95222247c734aba846574b73e3065165a7151af651bd1a7
 Description:  Marvell 8388/8682 USB firmware
 
+Package: libevent2-7
+Version: 2.1.11-1
+Depends: libc
+Provides: libevent2
+Source: package/libs/libevent2
+SourceName: libevent2
+License: BSD-3-Clause
+Section: libs
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Architecture: mipsel_24kc
+Installed-Size: 83643
+Filename: libevent2-7_2.1.11-1_mipsel_24kc.ipk
+Size: 84720
+SHA256sum: ea376cbc37dda1b5b2f8ceaff383a33029185b2d0cfc6f6b3094ce8867d7a81d
+Description:  The libevent API provides a mechanism to execute a callback function
+ when a specific event occurs on a file descriptor or after a timeout
+ has been reached. Furthermore, libevent also support callbacks due
+ to signals or regular timeouts.
+ 
+ libevent is meant to replace the event loop found in event driven
+ network servers. An application just needs to call event_dispatch()
+ and then add or remove events dynamically without having to change
+ the event loop.
+ 
+ This package contains the libevent shared library historically
+ containing both the core & extra libraries.
+
 Package: libipset13
 Version: 7.1-3
 Depends: libc, kmod-ipt-ipset, libmnl
@@ -594,6 +636,21 @@ Filename: libjson-script_2019-06-16-ecf56174-1_mipsel_24kc.ipk
 Size: 5483
 SHA256sum: 0c0ac8e492a5b2ff6f8b8740842062369674733e7b576673e64f7da74424e39b
 Description:  Minimalistic JSON based scripting engine
+
+Package: libltdl
+Version: 2.4.6-1
+Depends: libc
+Source: package/libs/libtool
+SourceName: libltdl
+License: GPL-2.0+
+LicenseFiles: COPYING
+Section: libs
+Architecture: mipsel_24kc
+Installed-Size: 12160
+Filename: libltdl_2.4.6-1_mipsel_24kc.ipk
+Size: 12897
+SHA256sum: b41d27cace662f2bd9e52bceb77af44d26509a6cd3ed996c9032b602be9b858c
+Description:  A generic dynamic object loading library
 
 Package: liblua
 Version: 5.1.5-1
@@ -666,6 +723,22 @@ Description:  libmnl is a minimalistic user-space library oriented to Netlink de
  is reduced, i.e. the library provides many helpers, but the programmer is not
  forced to use them.
 
+Package: libncurses6
+Version: 6.1-5
+Depends: libc, terminfo
+Provides: libncursesw, libncurses, libncursesw6
+Source: package/libs/ncurses
+SourceName: libncurses
+License: MIT
+LicenseFiles: README
+Section: libs
+Architecture: mipsel_24kc
+Installed-Size: 147463
+Filename: libncurses6_6.1-5_mipsel_24kc.ipk
+Size: 146230
+SHA256sum: 3d227517fa5d8786d087bcbdda99e988d0d724fe83600ef0b6d55e841433f48a
+Description:  Terminal handling library (Unicode)
+
 Package: libnl-tiny
 Version: 2019-10-29-0219008c-1
 Depends: libc
@@ -721,6 +794,58 @@ Description:  The OpenSSL Project is a collaborative effort to develop a robust,
  Transport Layer Security (TLS) protocol as well as a full-strength
  general-purpose cryptography library.
  This package contains the OpenSSL shared libraries, needed by other programs.
+
+Package: libpcap
+Version: 1.9.0-1
+Depends: libc
+Source: package/libs/libpcap
+SourceName: libpcap
+License: BSD-3-Clause
+Section: libs
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: mipsel_24kc
+Installed-Size: 89004
+Filename: libpcap_1.9.0-1_mipsel_24kc.ipk
+Size: 89839
+SHA256sum: 5d4bfc91c0b447a958b968a84ce2318546540a58cf6e65da335a303a3f0db680
+Description:  This package contains a system-independent library for user-level network packet
+ capture.
+
+Package: libreadline8
+Version: 8.0-1
+Depends: libc, libncursesw6
+Provides: libreadline
+Source: package/libs/readline
+SourceName: libreadline
+License: GPL-3.0
+LicenseFiles: COPYING
+Section: libs
+Architecture: mipsel_24kc
+Installed-Size: 106903
+Filename: libreadline8_8.0-1_mipsel_24kc.ipk
+Size: 107225
+SHA256sum: fc99846eb56f4a1c9cb785db3d15f3f12ff2619df054b876720e5e1c7be9f0c3
+Description:  The Readline library provides a set of functions for use by applications
+ that allow users to edit command lines as they are typed in. Both Emacs
+ and vi editing modes are available. The Readline library includes
+ additional functions to maintain a list of previously-entered command
+ lines, to recall and perhaps reedit those lines, and perform csh-like
+ history expansion on previous commands.
+
+Package: libss
+Version: 1.44.3-1
+Depends: libc, libcomerr
+Source: package/utils/e2fsprogs
+SourceName: libss
+License: GPL-2.0
+Section: libs
+Architecture: mipsel_24kc
+Installed-Size: 7721
+Filename: libss_1.44.3-1_mipsel_24kc.ipk
+Size: 8473
+SHA256sum: e7a10c41de7b2e6871770203e9d39b035f80a9c7eccd80de937b0b172d98eb71
+Description:  This pacakge contains libss, a command-line interface parsing library
+ bundled with e2fsprogs.
 
 Package: libubox20170601
 Version: 2019-06-16-ecf56174-1
@@ -973,19 +1098,6 @@ Filename: luci-app-ramfree_1.0-1_all.ipk
 Size: 1060
 SHA256sum: c319a67ef647507b5244a5d1b96207afe47b32d3deabef6f2f6fb1553fa70ed9
 Description:  luci-app-ramfree
-
-Package: luci-app-ssr-plus
-Version: 169-6
-Depends: libc, shadowsocksr-libev-alt, ipset, ip-full, iptables-mod-tproxy, dnsmasq-full, coreutils, coreutils-base64, pdnsd-alt, wget, lua, libuci-lua, microsocks, ipt2socks, dns2socks, shadowsocks-libev-ss-local, shadowsocksr-libev-ssr-local
-Source: package/lean/luci-app-ssr-plus
-SourceName: luci-app-ssr-plus
-Section: luci
-Architecture: all
-Installed-Size: 68153
-Filename: luci-app-ssr-plus_169-6_all.ipk
-Size: 68292
-SHA256sum: c17a63ececd47a8ce30c6b1e7b7f96d1b9f2a4ce87e26f1b1ac83f2a78f0bb6a
-Description:  SS/SSR/V2Ray/Trojan LuCI interface
 
 Package: luci-app-unblockmusic
 Version: 2.3.1-39
@@ -1462,6 +1574,25 @@ Size: 9768
 SHA256sum: e58b31fd6b870113d48c7ddc4857cc225b6a8ef70e66ca4498eacfcdc4cd57f0
 Description:  Transparent routing / relay daemon
 
+Package: resolveip
+Version: 2
+Depends: libc
+Source: package/network/utils/resolveip
+SourceName: resolveip
+License: GPL-2.0
+Section: utils
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Architecture: mipsel_24kc
+Installed-Size: 1741
+Filename: resolveip_2_mipsel_24kc.ipk
+Size: 2627
+SHA256sum: b3bd5b9ddcd54ceff33d76f36a43a5196b17ee61e18db47e8458efc4dc3ab131
+Description:  This package contains the small resolveip utility which
+ can be used by scripts to turn host names into numeric
+ IP addresses. It supports IPv4 and IPv6 resolving and
+ has a configurable timeout to guarantee a certain maximum
+ runtime in case of slow or defunct DNS servers.
+
 Package: rpcd
 Version: 2018-11-28-3aa81d0d-1
 Depends: libc, libubus20191227, libubox20170601, libuci, libblobmsg-json
@@ -1632,6 +1763,25 @@ Size: 24680
 SHA256sum: 204bf3a48458350d8f79370b3a47505d5a450c79c467b460ad333f4f45668ca6
 Description:  RealTek RTL8821AE firmware
 
+Package: samba36-server
+Version: 3.6.25-15
+Depends: libc
+Source: package/network/services/samba36
+SourceName: samba36-server
+License: GPL-3.0
+LicenseFiles: COPYING
+Section: net
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: mipsel_24kc
+Installed-Size: 795761
+Filename: samba36-server_3.6.25-15_mipsel_24kc.ipk
+Size: 776498
+SHA256sum: 1e413ffc32a6fa15b542a2a5f7af7ea4ebf8108e2be24e3bf6c26a1215e4a5bc
+Description:  The Samba software suite is a collection of programs that implements the
+ SMB protocol for UNIX systems, allowing you to serve files and printers to
+ Windows, NT, OS/2 and DOS clients. This protocol is sometimes also referred
+ to as the LanManager or Netbios protocol.
+
 Package: shadowsocksr-libev-alt
 Version: 2.5.6-5
 Depends: libc, libopenssl1.1, libpthread, libpcre, zlib
@@ -1704,6 +1854,21 @@ Filename: tc_5.0.0-1_mipsel_24kc.ipk
 Size: 143533
 SHA256sum: 1f97a0887c037cdc5a96997c95649db3cb031a72365d514f4e39ef64e29ae67b
 Description:  Traffic control utility
+
+Package: terminfo
+Version: 6.1-5
+Depends: libc
+Source: package/libs/ncurses
+SourceName: terminfo
+License: MIT
+LicenseFiles: README
+Section: libs
+Architecture: mipsel_24kc
+Installed-Size: 6235
+Filename: terminfo_6.1-5_mipsel_24kc.ipk
+Size: 6880
+SHA256sum: d24b577fc69ffaf313a8c7b2dc61ea10197ca2b413413c090f9db6aa0817f1b5
+Description:  Terminal Info Database (ncurses)
 
 Package: ubox
 Version: 2019-06-16-4df34a4d-2
@@ -1881,20 +2046,6 @@ Filename: vsftpd-alt_3.0.3-7_mipsel_24kc.ipk
 Size: 39979
 SHA256sum: 4eb4560898f1458b9d5c49d786042e39590df79c6ae466b4e64aeff7c6154ced
 Description:  A fast and secure FTP server (with aio support)
-
-Package: wifi-l1profile
-Version: 1-unknown
-Depends: libc
-Source: package/lean/mt/drivers/wifi-l1profile
-SourceName: wifi-l1profile
-License: GPL-2.0
-Section: Kernel modules
-Architecture: mipsel_24kc
-Installed-Size: 398
-Filename: wifi-l1profile_1-unknown_mipsel_24kc.ipk
-Size: 1119
-SHA256sum: ff500db9698082c49a9c28dc1ab3cc6426cc5b2d814bc07428de294c6c8ca9f8
-Description:  This package helps to build l1profile on demand.
 
 Package: wireless-regdb
 Version: 2017-10-20-4343d359
