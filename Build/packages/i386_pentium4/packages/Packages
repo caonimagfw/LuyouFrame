@@ -1,0 +1,1138 @@
+Package: alsa-lib
+Version: 1.1.6-1
+Depends: libc, kmod-sound-core, libpthread, librt
+License: LGPLv2.1 GPLv2
+Section: libs
+Architecture: i386_pentium4
+Installed-Size: 317720
+Filename: alsa-lib_1.1.6-1_i386_pentium4.ipk
+Size: 316476
+SHA256sum: fbf3830de1b448bb68ca1a4dc13ca06b821bd99b55638aaa786c885d4267eb4d
+Description:  This is the library package for alsa, needed by some userspace programs.
+ You must have enabled the ALSA support in the kernel.
+
+Package: alsa-utils
+Version: 1.1.6-2
+Depends: libc, alsa-lib, libncursesw6, libpthread
+Section: sound
+Architecture: i386_pentium4
+Installed-Size: 111695
+Filename: alsa-utils_1.1.6-2_i386_pentium4.ipk
+Size: 112282
+SHA256sum: 31f2131df8ce3cd144d00ea9620a308196fb69de81e913f8173f33e8ecaf541b
+Description:  ALSA (Advanced Linux Sound Architecture) utilities
+
+Package: bc
+Version: 1.06.95-1
+Depends: libc, libreadline8, libncurses6
+License: GPL-2.0
+Section: utils
+Architecture: i386_pentium4
+Installed-Size: 32249
+Filename: bc_1.06.95-1_i386_pentium4.ipk
+Size: 33082
+SHA256sum: 2c0ec8b7fd7d7b97a4ee7d01a27d60458b81b245e811b59bb702f042068b90db
+Description:  bc is a language that supports arbitrary precision numbers with
+ interactive execution of statements.
+
+Package: boost-date_time
+Version: 1.71.0-4
+Depends: libc, libstdcpp, libpthread, librt
+License: BSL-1.0
+Section: libs
+Architecture: i386_pentium4
+Installed-Size: 16260
+Filename: boost-date_time_1.71.0-4_i386_pentium4.ipk
+Size: 16960
+SHA256sum: 32323b4e146cb4c07e46fc33b7ecc7ee8ed68b422e2a58444ef7958028eed022
+Description:  This package contains the Boost date_time library.
+
+Package: boost-program_options
+Version: 1.71.0-4
+Depends: libc, libstdcpp, libpthread, librt
+License: BSL-1.0
+Section: libs
+Architecture: i386_pentium4
+Installed-Size: 105238
+Filename: boost-program_options_1.71.0-4_i386_pentium4.ipk
+Size: 106112
+SHA256sum: 50705e479985ffceea025fc047c2a06e6253c377e6b9601f272d514b7d7ff48b
+Description:  This package contains the Boost program_options library.
+
+Package: boost-system
+Version: 1.71.0-4
+Depends: libc, libstdcpp, libpthread, librt
+License: BSL-1.0
+Section: libs
+Architecture: i386_pentium4
+Installed-Size: 1046
+Filename: boost-system_1.71.0-4_i386_pentium4.ipk
+Size: 1832
+SHA256sum: 2adb93ad4c1a25a98c1749e5ba6d891ab1de3f644a95838aa59b3267622e2929
+Description:  This package contains the Boost system library.
+
+Package: boost
+Version: 1.71.0-4
+Depends: libc, libstdcpp, libpthread, librt
+License: BSL-1.0
+Section: libs
+Architecture: i386_pentium4
+Installed-Size: 105
+Filename: boost_1.71.0-4_i386_pentium4.ipk
+Size: 1245
+SHA256sum: d43b3a30ef14de58aa71e0a2ab155bfc73a33f7bcae6f82b9e909f2b875e45c2
+Description:  This package provides the Boost v1.71.0 libraries.
+ Boost is a set of free, peer-reviewed, portable C++ source libraries.
+ 
+ This package provides the following run-time libraries:
+ - atomic
+ - chrono
+ - container
+ - context
+ - contract
+ - coroutine and coroutine2 (Coroutine is deprecated - use Coroutine2)
+ - date_time
+ - exception
+ - filesystem
+ - fiber
+ - graph
+ - - graph-parallel
+ - iostreams
+ - locale (Requires kernel being compiled with full language support)
+ - log
+ - math
+ - program_options
+ - python
+ - python3
+ - random
+ - regex
+ - serialization and wserialization
+ - stackstrace
+ - system
+ - thread
+ - timer
+ - type_erasure
+ - wave
+ 
+ There are many more header-only libraries supported by Boost.
+ See more at http://www.boost.org/doc/libs/1_71_0/
+
+Package: coreutils-base64
+Version: 8.23-3
+Depends: libc, coreutils
+Section: utils
+Architecture: i386_pentium4
+Installed-Size: 21274
+Filename: coreutils-base64_8.23-3_i386_pentium4.ipk
+Size: 22028
+SHA256sum: 17ccc208291c41fe5d5761ae41c6c9c321c61810e72a063b0fa550fc7dbf11ce
+Description:  Full version of standard GNU base64 utility.
+
+Package: coreutils
+Version: 8.23-3
+Depends: libc
+Section: utils
+Architecture: i386_pentium4
+Installed-Size: 105
+Filename: coreutils_8.23-3_i386_pentium4.ipk
+Size: 922
+SHA256sum: 8afe5b1b1bd0c5b86fc81a79a70559f7c2d24b022d7d0a198ada6cde82d0dea8
+Description:  Full versions of standard GNU utilities. If an equivalent Busybox applet is
+ available, you should consider compiling that instead as Busybox applets are
+ usually smaller, at the expense of reduced functionality.
+
+Package: ddns-scripts
+Version: 2.7.8-1
+License: GPL-2.0
+Section: net
+Architecture: all
+Installed-Size: 14685
+Filename: ddns-scripts_2.7.8-1_all.ipk
+Size: 15755
+SHA256sum: d52a436b109c777fa2d957d4b11e356082085646e38bb3d0a70b3ec42c3d47be
+Description:  Dynamic DNS Client scripts (with IPv6 support) - Info: http://wiki.openwrt.org/doc/howto/ddns.client
+
+Package: drill
+Version: 1.7.1-2
+Depends: libc, libopenssl1.1, libldns
+License: BSD-3-Clause
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 20335
+Filename: drill_1.7.1-2_i386_pentium4.ipk
+Size: 21161
+SHA256sum: f1fc03dbcf0f9842f903344547dcdce709701c9307e3f1a26a836377b9e8879f
+Description:  ldns includes the drill tool, which is much like dig from BIND. It was
+ designed with DNSSEC in mind and should be a useful debugging/query tool
+ for DNSSEC.
+
+Package: etherwake
+Version: 1.09-4
+Depends: libc
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 4719
+Filename: etherwake_1.09-4_i386_pentium4.ipk
+Size: 5608
+SHA256sum: be76b0c570c6b8ea060d3ed8d03def20220fe226898f73ca39bb80d1e8331f8a
+Description:  You can wake up WOL compliant Computers which have been powered down to
+ sleep mode or start WOL compliant Computers with a BIOS feature.
+ WOL is an abbreviation for Wake-on-LAN. It is a standard that allows you
+ to turn on a computer from another location over a network connection.
+ ether-wake also supports WOL passwords.
+
+Package: htop
+Version: 2.2.0-1
+Depends: libc, libncurses6
+License: GPL-2.0
+Section: admin
+Architecture: i386_pentium4
+Installed-Size: 58101
+Filename: htop_2.2.0-1_i386_pentium4.ipk
+Size: 59032
+SHA256sum: 5a2bef91f5b3f275525fd05c99a4e13ece829e63b588d891d1114632de9c0634
+Description:  Htop is an ncursed-based process viewer similar to top, but
+ it allows to scroll the list vertically and horizontally to
+ see all processes and their full command lines.
+
+Package: hwloc-utils
+Version: 2.1.0-1
+Depends: libc, libhwloc, libncurses6
+License: BSD-3-Clause
+Section: utils
+Architecture: i386_pentium4
+Installed-Size: 84439
+Filename: hwloc-utils_2.1.0-1_i386_pentium4.ipk
+Size: 85310
+SHA256sum: 2572e396a30d712084e1a4f86665e04e25c25389472b0a2b09a61d898713ecd1
+Description:  The Portable Hardware Locality (hwloc) software package provides a
+ portable abstraction (across OS, versions, architectures, ...) of the
+ hierarchical topology of modern architectures, including NUMA memory
+ nodes, sockets, shared caches, cores and simultaneous multithreading. It
+ also gathers various system attributes such as cache and memory
+ information as well as the locality of I/O devices such as network
+ interfaces, InfiniBand HCAs or GPUs.
+ This package contains the hwloc utilities.
+
+Package: ldns-examples
+Version: 1.7.1-2
+Depends: libc, libopenssl1.1, libldns, libpcap, drill
+License: BSD-3-Clause
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 98600
+Filename: ldns-examples_1.7.1-2_i386_pentium4.ipk
+Size: 98984
+SHA256sum: 9e1cf6c6216e736cf96b78ab6944f5ed1056d9ac0911ba39d6bacc97c221c2fe
+Description:  A few example programs are included in the source of ldns. They include tools
+ which can create DNSSEC keys and DNSSEC zone files.
+
+Package: libcares
+Version: 1.14.0-1
+Depends: libc
+License: MIT
+Section: libs
+Architecture: i386_pentium4
+Installed-Size: 29405
+Filename: libcares_1.14.0-1_i386_pentium4.ipk
+Size: 30228
+SHA256sum: 36d78e60e3204188b1c147a5c6b291387c58c8cad2b92a7097f92b7ae663455d
+Description:  c-ares is a C library for asynchronous DNS requests (including name resolves)
+ 
+ C89 compatibility, MIT licensed, builds for and runs on POSIX, Windows,
+ Netware, Android and many more operating systems.
+ 
+
+Package: libdb47
+Version: 4.7.25.4.NC-5
+Depends: libc, libxml2
+Provides: libdb47-full
+License: Sleepycat
+Section: libs
+Architecture: i386_pentium4
+Installed-Size: 490584
+Filename: libdb47_4.7.25.4.NC-5_i386_pentium4.ipk
+Size: 490678
+SHA256sum: 21ca9f54c8455f0de3a5a48e901fa97e60f231f681b1bc0a8737784db96f4dd1
+Description:  Berkeley DB library (4.7).
+
+Package: libev
+Version: 4.22-1
+Depends: libc
+License: BSD-2-Clause
+Section: libs
+Architecture: i386_pentium4
+Installed-Size: 20332
+Filename: libev_4.22-1_i386_pentium4.ipk
+Size: 21152
+SHA256sum: bf24e6f26181367652577fcd6f6198df1702ea8c29fc0941319727823acebe69
+Description:  A full-featured and high-performance event loop that is loosely modelled after
+ libevent, but without its limitations and bugs.
+
+Package: libexpat
+Version: 2.2.9-1
+Depends: libc
+License: MIT
+Section: libs
+Architecture: i386_pentium4
+Installed-Size: 50061
+Filename: libexpat_2.2.9-1_i386_pentium4.ipk
+Size: 50840
+SHA256sum: 08cb5f4b03b4c25d539cf0c619cb7e96f2c6a2d5758108ee073c5bce3833a34a
+Description:  A fast, non-validating, stream-oriented XML parsing library.
+
+Package: libffi
+Version: 3.2.1-3
+Depends: libc
+License: MIT
+Section: libs
+Architecture: i386_pentium4
+Installed-Size: 5572
+Filename: libffi_3.2.1-3_i386_pentium4.ipk
+Size: 6593
+SHA256sum: e28d71b96828d27f70432a48362b833c5cc3527476e08b974ab36995be2e36df
+Description:  The libffi library provides a portable, high level programming interface to
+ various calling conventions. This allows a programmer to call any function
+ specified by a call interface description at run-time.
+ 
+ FFI stands for Foreign Function Interface. A foreign function interface is the
+ popular name for the interface that allows code written in one language to call
+ code written in another language. The libffi library really only provides the
+ lowest, machine dependent layer of a fully featured foreign function interface.
+ A layer must exist above libffi that handles type conversions for values passed
+ between the two languages.
+
+Package: libgdbm
+Version: 1.11-1
+Depends: libc
+License: GPL-3.0+
+Section: libs
+Architecture: i386_pentium4
+Installed-Size: 16112
+Filename: libgdbm_1.11-1_i386_pentium4.ipk
+Size: 16912
+SHA256sum: 9561ed714d661ac7589e22c5d337c20337c61f1625e96dc83e7096657fd92338
+Description:  GNU database manager library
+ GNU dbm is a set of database routines that use extendible hashing and
+ works similar to the standard UNIX dbm routines.
+
+Package: libhttp-parser
+Version: 2.9.2-2
+Depends: libc
+License: MIT
+Section: libs
+Architecture: i386_pentium4
+Installed-Size: 14945
+Filename: libhttp-parser_2.9.2-2_i386_pentium4.ipk
+Size: 15902
+SHA256sum: b6a8c6addae716de309fa99f2f4deb3f5415ea94aa5f07a86893cdda5ad4c9c2
+Description:  A parser for HTTP messages written in C. It parses both requests and responses.
+ The parser is designed to be used in performance HTTP applications.
+ It does not make any syscalls nor allocations, it does not buffer data,
+ it can be interrupted at anytime. Depending on your architecture,
+ it only requires about 40 bytes of data per message stream
+ (in a web server that is per connection).
+
+Package: libhwloc
+Version: 2.1.0-1
+Depends: libc, libpciaccess
+License: BSD-3-Clause
+Section: libs
+Architecture: i386_pentium4
+Installed-Size: 116118
+Filename: libhwloc_2.1.0-1_i386_pentium4.ipk
+Size: 117242
+SHA256sum: 403c9a80b5bf7bc14c980a9c0169a51e74fc2215a97b8fa7451d80521c8bd8b4
+Description:  The Portable Hardware Locality (hwloc) software package provides a
+ portable abstraction (across OS, versions, architectures, ...) of the
+ hierarchical topology of modern architectures, including NUMA memory
+ nodes, sockets, shared caches, cores and simultaneous multithreading. It
+ also gathers various system attributes such as cache and memory
+ information as well as the locality of I/O devices such as network
+ interfaces, InfiniBand HCAs or GPUs.
+ This package contains the hwloc libraries.
+
+Package: libldns
+Version: 1.7.1-2
+Depends: libc, libopenssl1.1
+License: BSD-3-Clause
+Section: libs
+Architecture: i386_pentium4
+Installed-Size: 131399
+Filename: libldns_1.7.1-2_i386_pentium4.ipk
+Size: 131539
+SHA256sum: a4047da86ce5f6c64659ab5e2a3236cbcd948deaaf98bf6a13bea40cac0935fe
+Description:  The goal of ldns is to simplify DNS programming, it supports recent RFCs like
+ the DNSSEC documents, and allows developers to easily create software
+ conforming to current RFCs, and experimental software for current Internet
+ Drafts.
+
+Package: libminiupnpc
+Version: 2.0.20170509-1
+Depends: libc
+Section: libs
+Architecture: i386_pentium4
+Installed-Size: 19032
+Filename: libminiupnpc_2.0.20170509-1_i386_pentium4.ipk
+Size: 19798
+SHA256sum: 619f73c82c5d9260fd24d14783ccf6246a880405b6b22abbfcd2f6a05845e419
+Description:  Lightweight UPnP library
+
+Package: libnatpmp
+Version: 20150609-1
+Depends: libc
+License: BSD-3c
+Section: libs
+Architecture: i386_pentium4
+Installed-Size: 3430
+Filename: libnatpmp_20150609-1_i386_pentium4.ipk
+Size: 4345
+SHA256sum: 08ddf9dcae008de3a6e22dc8b6a8a2311a829a5f1fc1c11f1c7900351e9458c2
+Description:  libnatpmp is an attempt to make a portable and fully compliant implementation
+ of the protocol for the client side. It is based on non blocking sockets and
+ all calls of the API are asynchronous. It is therefore very easy to integrate
+ the NAT-PMP code to any event driven code.
+ This package contains the shared library.
+
+Package: libpciaccess
+Version: 0.16-1
+Depends: libc
+Section: libs
+Architecture: i386_pentium4
+Installed-Size: 13481
+Filename: libpciaccess_0.16-1_i386_pentium4.ipk
+Size: 14158
+SHA256sum: c768dca297adee0894be73f02941ed210a15b28f5195d3663c9f21a40cd529ba
+Description:  Generic PCI access library
+
+Package: libpcre
+Version: 8.41-2
+Depends: libc
+License: BSD-3-Clause
+Section: libs
+Architecture: i386_pentium4
+Installed-Size: 79101
+Filename: libpcre_8.41-2_i386_pentium4.ipk
+Size: 79955
+SHA256sum: 1b431d28ddf5bcd18d277e59b1760eaabd6075e69558e9656490149601e62793
+Description:  A Perl Compatible Regular Expression library
+
+Package: libsensors5
+Version: 3.5.0-6
+Depends: libc, sysfsutils
+Provides: libsensors
+License: GPL-2.0-or-later LGPL-2.1-or-later
+Section: libs
+Architecture: i386_pentium4
+Installed-Size: 19793
+Filename: libsensors5_3.5.0-6_i386_pentium4.ipk
+Size: 20510
+SHA256sum: 54c9322ddca12f651970a67777c542c8ed765531793e52cc9b4f8b3b35fbbf7e
+Description:  lm-sensors libraries
+
+Package: libsodium
+Version: 1.0.16-1
+Depends: libc
+License: ISC
+Section: libs
+Architecture: i386_pentium4
+Installed-Size: 146501
+Filename: libsodium_1.0.16-1_i386_pentium4.ipk
+Size: 147586
+SHA256sum: 586ac460810af8f1675c33f882f1bc2b14b4a8b3824c0c312ab27386d04ad453
+Description:  NaCl (pronounced "salt") is a new easy-to-use high-speed software library for network communication, encryption, decryption, signatures, etc.
+ NaCl's goal is to provide all of the core operations needed to build higher-level cryptographic tools.
+ Sodium is a portable, cross-compilable, installable, packageable fork of NaCl (based on the latest released upstream version nacl-20110221), with a compatible API.
+ The design choices, particularly in regard to the Curve25519 Diffie-Hellman function, emphasize security (whereas NIST curves emphasize "performance" at the cost of security), and "magic constants" in NaCl/Sodium have clear rationales.
+ The same cannot be said of NIST curves, where the specific origins of certain constants are not described by the standards.
+ And despite the emphasis on higher security, primitives are faster across-the-board than most implementations of the NIST standards.
+
+Package: libsqlite3
+Version: 3230100-1
+Depends: libc, libpthread, zlib
+License: PUBLICDOMAIN
+Section: libs
+Architecture: i386_pentium4
+Installed-Size: 359223
+Filename: libsqlite3_3230100-1_i386_pentium4.ipk
+Size: 359873
+SHA256sum: c965240110438df2f6ee96ba50c06175ba0c168902094c205280caed14c25c37
+Description:  SQLite is a small C library that implements a self-contained, embeddable,
+ zero-configuration SQL database engine.
+ This package contains the SQLite (v3.x) shared library, used by other
+ programs.
+
+Package: libuv1
+Version: 1.32.0-1
+Depends: libc, libpthread, librt
+Provides: libuv
+License: MIT
+Section: libs
+Architecture: i386_pentium4
+Installed-Size: 60399
+Filename: libuv1_1.32.0-1_i386_pentium4.ipk
+Size: 61195
+SHA256sum: a04feb929ef956787f9c1d88e06f1fbe1e56e6ad9d3c5d95ec24c448b616af9d
+Description:  libuv is a multi-platform support library with a focus on asynchronous I/O. It
+ was primarily developed for use by Node.js, but it's also used by Luvit, Julia,
+ pyuv, and others.
+
+Package: libxml2
+Version: 2.9.9-3
+Depends: libc, libpthread, zlib
+License: MIT
+Section: libs
+Architecture: i386_pentium4
+Installed-Size: 482026
+Filename: libxml2_2.9.9-3_i386_pentium4.ipk
+Size: 480920
+SHA256sum: 8255a03921408663f83e7cb0652c234e7f6cb6e5da2ffba7303ba9dc58a49d4e
+Description:  A library for manipulating XML and HTML resources.
+
+Package: lm-sensors
+Version: 3.5.0-6
+Depends: libc, sysfsutils, libsensors5
+License: GPL-2.0-or-later LGPL-2.1-or-later
+Section: utils
+Architecture: i386_pentium4
+Installed-Size: 8273
+Filename: lm-sensors_3.5.0-6_i386_pentium4.ipk
+Size: 9059
+SHA256sum: 17db0edc8ca958b3630ba8bd061998a457b84637c5b5ffbd6d44f353fe4ea9b7
+Description:  utility to read hardware sensor data
+
+Package: luci-app-sqm
+Version: 1.3.0-1
+Depends: libc, lua, luci-base, sqm-scripts
+License: GPLv2
+Section: luci
+Architecture: all
+Installed-Size: 4015
+Filename: luci-app-sqm_1.3.0-1_all.ipk
+Size: 4975
+SHA256sum: e75f0d5bc04af90d839bde1737c59d5f612cdf068cc4b7af5b9c75f8e67c6e03
+Description:  Luci interface for the SQM scripts queue management configuration package.
+
+Package: miniupnpd
+Version: 2.0.20170421-2
+Depends: libc, iptables, libip4tc1.8.2, libuuid
+License: BSD-3-Clause
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 49714
+Filename: miniupnpd_2.0.20170421-2_i386_pentium4.ipk
+Size: 50711
+SHA256sum: 6760c6c24abab43bb34ecdda54fd0fc419ff20f530e30763cf92fe69aa1509f4
+Description:  Lightweight UPnP IGD, NAT-PMP & PCP daemon
+
+Package: nlbwmon
+Version: 2019-06-06-4574e6e8-1
+Depends: libc, libubox20170601, libnl-tiny, zlib, kmod-nf-conntrack-netlink
+License: ISC
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 17868
+Filename: nlbwmon_2019-06-06-4574e6e8-1_i386_pentium4.ipk
+Size: 18729
+SHA256sum: 31f31b0e854bcbfdc8c8fda9647bd2e15e74fe621683fd5aa2ae4a7be55644b8
+Description:  LEDE Traffic Usage Monitor
+
+Package: node
+Version: v12.15.0-1
+Depends: libc, libstdcpp, libopenssl1.1, zlib, libnghttp2-14, libuv1, libhttp-parser, libcares, libatomic
+License: MIT
+Section: lang
+Architecture: i386_pentium4
+Installed-Size: 7068155
+Filename: node_v12.15.0-1_i386_pentium4.ipk
+Size: 7046370
+SHA256sum: 0b3464bf4c0bdb73cfdbe8c2f80a2d81c68dcd8e3592858ad292146be1ea2e67
+Description:  Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses
+ an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js'
+ package ecosystem, npm, is the largest ecosystem of open source libraries in the world.
+ *** Requires GCC/G++ Multilib on host system to build 32-bit target ***
+
+Package: ntfs-3g
+Version: 2017.3.23-1-fuseint
+Depends: libc, kmod-fuse, libpthread
+License: GPL-2.0 LGPL-2.0
+Section: utils
+Architecture: i386_pentium4
+Installed-Size: 180479
+Filename: ntfs-3g_2017.3.23-1-fuseint_i386_pentium4.ipk
+Size: 181649
+SHA256sum: 8653fd5f3e8ca662d945d187a1de065a702a6264027f4d123b69bd24e70efd39
+Description:  Ntfs-3g is a NTFS driver, which can create, remove, rename,
+ move files, directories, hard links, and streams. It can read
+ and write files, including streams and sparse files. It can
+ handle special files like symbolic links, devices, and FIFOs.
+ Moreover it can also read transparently compressed files.
+ 
+ Contains:
+ - ntfs-3g
+ - ntfs-3g.probe
+ - mount.ntfs-3g (symlink to ntfs-3g)
+ 
+
+Package: python-base
+Version: 2.7.17-1
+Depends: libc, libpthread, zlib
+License: Python/2.0
+Section: lang
+Architecture: i386_pentium4
+Installed-Size: 723135
+Filename: python-base_2.7.17-1_i386_pentium4.ipk
+Size: 720778
+SHA256sum: 4e235576313d94896f34f1bc8e74c5b11e55d6fec470e506bca53a5b8bc64521
+Description:  This package contains only the interpreter and the bare minimum
+ for the interpreter to start.
+
+Package: python-codecs
+Version: 2.7.17-1
+Depends: libc, python-light
+License: Python/2.0
+Section: lang
+Architecture: i386_pentium4
+Installed-Size: 692577
+Filename: python-codecs_2.7.17-1_i386_pentium4.ipk
+Size: 676994
+SHA256sum: 611d5800b2172f0bb51476e75671a3b10143e7218fe63db46b7c99b8495ba500
+Description:  Python 2.7 codecs + unicode support
+
+Package: python-compiler
+Version: 2.7.17-1
+Depends: libc, python-light
+License: Python/2.0
+Section: lang
+Architecture: i386_pentium4
+Installed-Size: 59808
+Filename: python-compiler_2.7.17-1_i386_pentium4.ipk
+Size: 60769
+SHA256sum: d0b904ce114feb018fec7ba013203c0894f8c1bc66a2e4d30b8666f182264b6a
+Description:  Python 2.7 compiler module
+
+Package: python-ctypes
+Version: 2.7.17-1
+Depends: libc, python-light
+License: Python/2.0
+Section: lang
+Architecture: i386_pentium4
+Installed-Size: 63254
+Filename: python-ctypes_2.7.17-1_i386_pentium4.ipk
+Size: 64108
+SHA256sum: 404055b18fba3a1962c1dc96f91647cfd5d460df2dd73ec825fd8fc93a5ffd36
+Description:  Python 2.7 ctypes module
+
+Package: python-db
+Version: 2.7.17-1
+Depends: libc, python-light, libdb47
+License: Python/2.0
+Section: lang
+Architecture: i386_pentium4
+Installed-Size: 65534
+Filename: python-db_2.7.17-1_i386_pentium4.ipk
+Size: 65869
+SHA256sum: ce0a35648f627a218d8f00a9a7248ac1b47aa0b0cbae23063a18dc1bfacc2006
+Description:  Python 2.7 db module
+
+Package: python-decimal
+Version: 2.7.17-1
+Depends: libc, python-light
+License: Python/2.0
+Section: lang
+Architecture: i386_pentium4
+Installed-Size: 48935
+Filename: python-decimal_2.7.17-1_i386_pentium4.ipk
+Size: 49843
+SHA256sum: a7747240c8db9f61927afd872b43657b7786f842ba6aaaa83e6100f368384fda
+Description:  Python 2.7 decimal module
+
+Package: python-distutils
+Version: 2.7.17-1
+Depends: libc, python-light
+License: Python/2.0
+Section: lang
+Architecture: i386_pentium4
+Installed-Size: 174735
+Filename: python-distutils_2.7.17-1_i386_pentium4.ipk
+Size: 175731
+SHA256sum: df0d9383852da6f780487a9d938b9ca36d9b2661fe4cf49cde0b9a916564ee15
+Description:  Python 2.7 distutils
+
+Package: python-email
+Version: 2.7.17-1
+Depends: libc, python-light
+License: Python/2.0
+Section: lang
+Architecture: i386_pentium4
+Installed-Size: 50272
+Filename: python-email_2.7.17-1_i386_pentium4.ipk
+Size: 51182
+SHA256sum: 32228fe779185d68cf7ffdde0a91ed8aaea30d6ced1c96d9a99805355c42c4e5
+Description:  Python 2.7 email module
+
+Package: python-gdbm
+Version: 2.7.17-1
+Depends: libc, python-light, libgdbm
+License: Python/2.0
+Section: lang
+Architecture: i386_pentium4
+Installed-Size: 5336
+Filename: python-gdbm_2.7.17-1_i386_pentium4.ipk
+Size: 6173
+SHA256sum: 2cbeb7d9999c237351b8eab932ff1794ba66714fd3693ad0cb28587b746ad0d8
+Description:  Python 2.7 gdbm module
+
+Package: python-light
+Version: 2.7.17-1
+Depends: libc, python-base, libffi, libbz2
+License: Python/2.0
+Section: lang
+Architecture: i386_pentium4
+Installed-Size: 1432617
+Filename: python-light_2.7.17-1_i386_pentium4.ipk
+Size: 1432221
+SHA256sum: b4b23345221805a5bb1c96dd0658f228b7505b9653d332ce40521bc8231cd6d1
+Description:  This package is essentially the python-base package plus
+ a few of the rarely used (and big) libraries stripped out
+ into separate packages.
+
+Package: python-logging
+Version: 2.7.17-1
+Depends: libc, python-light
+License: Python/2.0
+Section: lang
+Architecture: i386_pentium4
+Installed-Size: 42718
+Filename: python-logging_2.7.17-1_i386_pentium4.ipk
+Size: 43653
+SHA256sum: 37085ef355ca724becd4018e2d9d764d28aa2900dce88a361dd283040e8555d2
+Description:  Python 2.7 logging module
+
+Package: python-multiprocessing
+Version: 2.7.17-1
+Depends: libc, python-light
+License: Python/2.0
+Section: lang
+Architecture: i386_pentium4
+Installed-Size: 64194
+Filename: python-multiprocessing_2.7.17-1_i386_pentium4.ipk
+Size: 65119
+SHA256sum: e53db830fa7d43b8f28a174176db1140b0b98f413e68ac858fcbc87b032591bc
+Description:  Python 2.7 multiprocessing
+
+Package: python-ncurses
+Version: 2.7.17-1
+Depends: libc, python-light, libncurses6
+License: Python/2.0
+Section: lang
+Architecture: i386_pentium4
+Installed-Size: 30044
+Filename: python-ncurses_2.7.17-1_i386_pentium4.ipk
+Size: 30573
+SHA256sum: fde8d8e32f754fb71e521992c26c68153a84534219fe5b8066b3d653cb45d7e8
+Description:  Python 2.7 ncurses module
+
+Package: python-openssl
+Version: 2.7.17-1
+Depends: libc, python-light, libopenssl1.1
+License: Python/2.0
+Section: lang
+Architecture: i386_pentium4
+Installed-Size: 31955
+Filename: python-openssl_2.7.17-1_i386_pentium4.ipk
+Size: 32507
+SHA256sum: 7cf12030013a142d827c947c2199892f333a5e9741a2c0eef08689f416447dd6
+Description:  Python 2.7 SSL module
+
+Package: python-pydoc
+Version: 2.7.17-1
+Depends: libc, python-light
+License: Python/2.0
+Section: lang
+Architecture: i386_pentium4
+Installed-Size: 183048
+Filename: python-pydoc_2.7.17-1_i386_pentium4.ipk
+Size: 183831
+SHA256sum: 7d89e4460ec86673fc47ac1705d56cea20622a53917fa3a40854dc95a29d1910
+Description:  Python 2.7 pydoc module
+
+Package: python-sqlite3
+Version: 2.7.17-1
+Depends: libc, python-light, libsqlite3
+License: Python/2.0
+Section: lang
+Architecture: i386_pentium4
+Installed-Size: 26445
+Filename: python-sqlite3_2.7.17-1_i386_pentium4.ipk
+Size: 27200
+SHA256sum: bd4da12d4c4da38c62cc25d080a0c1afbf1b3ce1a4de71854cd28973e2f71a21
+Description:  Python 2.7 sqlite3 module
+
+Package: python-unittest
+Version: 2.7.17-1
+Depends: libc, python-light
+License: Python/2.0
+Section: lang
+Architecture: i386_pentium4
+Installed-Size: 33405
+Filename: python-unittest_2.7.17-1_i386_pentium4.ipk
+Size: 34329
+SHA256sum: a1b84a39cebba0fe511d6c2184813ab0e464501301e9c88d8d8e0df5d07d92ad
+Description:  Python 2.7 unittest module
+
+Package: python-xml
+Version: 2.7.17-1
+Depends: libc, python-light, libexpat
+License: Python/2.0
+Section: lang
+Architecture: i386_pentium4
+Installed-Size: 181042
+Filename: python-xml_2.7.17-1_i386_pentium4.ipk
+Size: 181807
+SHA256sum: 33d2983070b55ff065f2b7a694c3ee190cb3bbcc2d95150733336e9d642c1c17
+Description:  Python 2.7 xml libs
+
+Package: python
+Version: 2.7.17-1
+Depends: libc, python-light, python-ctypes, python-pydoc, python-multiprocessing, python-logging, python-codecs, python-sqlite3, python-gdbm, python-email, python-distutils, python-xml, python-compiler, python-db, python-openssl, python-decimal, python-unittest, python-ncurses
+License: Python/2.0
+Section: lang
+Architecture: i386_pentium4
+Installed-Size: 105
+Filename: python_2.7.17-1_i386_pentium4.ipk
+Size: 1073
+SHA256sum: 4b7ba87770b8a10256d878c111aff1c8df5ee3f9f3f7e8d6f95557d2047bb12f
+Description:  This package contains the (almost) full Python install.
+ It's python-light + all other packages.
+
+Package: shadowsocks-libev-ss-local
+Version: 3.3.4-1
+Depends: libc, libev, libmbedtls12, libpthread, libsodium, libpcre
+License: GPL-3.0-or-later
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 44356
+Filename: shadowsocks-libev-ss-local_3.3.4-1_i386_pentium4.ipk
+Size: 45179
+SHA256sum: 57cf5f9bfb84523d9712a9a116d5e38c216e890ab95653e891720ab420142599
+Description:  shadowsocks-libev ss-local
+
+Package: shadowsocks-libev-ss-redir
+Version: 3.3.4-1
+Depends: libc, libev, libmbedtls12, libpthread, libsodium
+License: GPL-3.0-or-later
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 38285
+Filename: shadowsocks-libev-ss-redir_3.3.4-1_i386_pentium4.ipk
+Size: 39164
+SHA256sum: b334c7541a8b767269c8f00bbde0fb5da262c5efa9b11ef6f52324b5e1a6049a
+Description:  shadowsocks-libev ss-redir
+
+Package: sqm-scripts
+Version: 1.3.0-1
+Depends: libc, tc, kmod-sched-core, kmod-sched-cake, kmod-ifb, iptables, iptables-mod-ipopt, iptables-mod-conntrack-extra
+License: GPLv2
+Section: net
+Architecture: all
+Installed-Size: 16006
+Filename: sqm-scripts_1.3.0-1_all.ipk
+Size: 16818
+SHA256sum: 548b5e262b7ed30fc5b8c94336e60346f9c28142caf12444810e0de8a1ddd5ca
+Description:  A set of scripts that does simple SQM configuration.
+
+Package: squid
+Version: 4.6-2
+Depends: libc, libpthread, librt, libltdl, libstdcpp, libatomic, libopenssl1.1
+License: GPL-2.0-or-later
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 1937717
+Filename: squid_4.6-2_i386_pentium4.ipk
+Size: 1937011
+SHA256sum: 8d51639c043d6941988e5f0b68fc12730a8c8c4d85873360299d80573900b530
+Description:  Squid is a caching proxy for the Web supporting HTTP, HTTPS, FTP, and more.
+ It reduces bandwidth and improves response times by caching and reusing
+ frequently-requested web pages.
+
+Package: strongswan-charon
+Version: 5.6.3-2
+Depends: libc, strongswan
+License: GPL-2.0+
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 215087
+Filename: strongswan-charon_5.6.3-2_i386_pentium4.ipk
+Size: 215625
+SHA256sum: 4f20098ef501ce8a65902401a2124512c3ba70c8e459b1dfc6b97afe303f92ff
+Description:  StrongSwan is an OpenSource IPsec implementation for the Linux operating system.
+ This package contains charon, an IKEv2 keying daemon.
+
+Package: strongswan-ipsec
+Version: 5.6.3-2
+Depends: libc, strongswan
+License: GPL-2.0+
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 2863
+Filename: strongswan-ipsec_5.6.3-2_i386_pentium4.ipk
+Size: 3633
+SHA256sum: 9fe2c98f208d91e4f7572ad8787d7bbad6d7ddde48468fca0e22c2f89a7f7a06
+Description:  StrongSwan is an OpenSource IPsec implementation for the Linux operating system.
+ This package contains the ipsec utility.
+
+Package: strongswan-minimal
+Version: 5.6.3-2
+Depends: libc, strongswan, strongswan-charon, strongswan-mod-aes, strongswan-mod-gmp, strongswan-mod-hmac, strongswan-mod-kernel-netlink, strongswan-mod-nonce, strongswan-mod-pubkey, strongswan-mod-random, strongswan-mod-sha1, strongswan-mod-socket-default, strongswan-mod-stroke, strongswan-mod-updown, strongswan-mod-x509, strongswan-mod-xcbc
+License: GPL-2.0+
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 105
+Filename: strongswan-minimal_5.6.3-2_i386_pentium4.ipk
+Size: 1013
+SHA256sum: 3f490e10cf3ede072b713cd4e37c020665973aa6e2d38c00ac290c411a869a4b
+Description:  StrongSwan is an OpenSource IPsec implementation for the Linux operating system.
+ This meta-package contains only dependencies for a minimal IKEv2 setup.
+
+Package: strongswan-mod-aes
+Version: 5.6.3-2
+Depends: libc, strongswan
+License: GPL-2.0+
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 14469
+Filename: strongswan-mod-aes_5.6.3-2_i386_pentium4.ipk
+Size: 14602
+SHA256sum: a169c180661565d1bf892a1cddcdaac14a39e386bf5f9aab4295e2e01c51207f
+Description:  StrongSwan AES crypto plugin
+
+Package: strongswan-mod-gmp
+Version: 5.6.3-2
+Depends: libc, strongswan, libgmp
+License: GPL-2.0+
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 11459
+Filename: strongswan-mod-gmp_5.6.3-2_i386_pentium4.ipk
+Size: 12203
+SHA256sum: 8c8048bdd6a447eeb4a94e7bb0f5b423f8ec15b65ce4e958229e7465a5f4b1f2
+Description:  StrongSwan libgmp plugin
+
+Package: strongswan-mod-hmac
+Version: 5.6.3-2
+Depends: libc, strongswan
+License: GPL-2.0+
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 2531
+Filename: strongswan-mod-hmac_5.6.3-2_i386_pentium4.ipk
+Size: 3277
+SHA256sum: b4de41a280ae916d1fe178b842924064694b5c94be8837515f1b634e73940bba
+Description:  StrongSwan HMAC crypto plugin
+
+Package: strongswan-mod-kernel-netlink
+Version: 5.6.3-2
+Depends: libc, strongswan
+License: GPL-2.0+
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 32679
+Filename: strongswan-mod-kernel-netlink_5.6.3-2_i386_pentium4.ipk
+Size: 33415
+SHA256sum: fd55ba5211eb75c8405aebd29407775104238992fbfe39b6199639502842fd75
+Description:  StrongSwan netlink kernel interface plugin
+
+Package: strongswan-mod-nonce
+Version: 5.6.3-2
+Depends: libc, strongswan
+License: GPL-2.0+
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 1753
+Filename: strongswan-mod-nonce_5.6.3-2_i386_pentium4.ipk
+Size: 2495
+SHA256sum: de107648bca2f6208a90b1dc63c9439bfddc17f1be254d06951608051339566b
+Description:  StrongSwan nonce genereation plugin
+
+Package: strongswan-mod-pubkey
+Version: 5.6.3-2
+Depends: libc, strongswan
+License: GPL-2.0+
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 2745
+Filename: strongswan-mod-pubkey_5.6.3-2_i386_pentium4.ipk
+Size: 3506
+SHA256sum: 555e39ab0519190db19e72a3757b18da9a5b11cd085ad3581d0253a0a22a9e70
+Description:  StrongSwan raw public key plugin
+
+Package: strongswan-mod-random
+Version: 5.6.3-2
+Depends: libc, strongswan
+License: GPL-2.0+
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 2521
+Filename: strongswan-mod-random_5.6.3-2_i386_pentium4.ipk
+Size: 3258
+SHA256sum: e0562b15193fc03158c9ee73de1807a943cd16778c2b7c5bbdeb9948f07ccedb
+Description:  StrongSwan RNG plugin
+
+Package: strongswan-mod-sha1
+Version: 5.6.3-2
+Depends: libc, strongswan
+License: GPL-2.0+
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 5088
+Filename: strongswan-mod-sha1_5.6.3-2_i386_pentium4.ipk
+Size: 5805
+SHA256sum: 20de0b4495eec685bff588f96c88802fb98fea9fe52527b4b199f88d36f9eeb3
+Description:  StrongSwan SHA1 crypto plugin
+
+Package: strongswan-mod-socket-default
+Version: 5.6.3-2
+Depends: libc, strongswan
+License: GPL-2.0+
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 5148
+Filename: strongswan-mod-socket-default_5.6.3-2_i386_pentium4.ipk
+Size: 5874
+SHA256sum: f5f04a1f3428d582876cf22308e2b9182265bdeaa0a87e6678dc216e447b0100
+Description:  StrongSwan default socket implementation for charon plugin
+
+Package: strongswan-mod-stroke
+Version: 5.6.3-2
+Depends: libc, strongswan, strongswan-charon, strongswan-ipsec
+License: GPL-2.0+
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 62893
+Filename: strongswan-mod-stroke_5.6.3-2_i386_pentium4.ipk
+Size: 63668
+SHA256sum: 887762f6fcef5a7e9ba8745e31108bef51dcd2e9641af72bf0e4f04fb937327d
+Description:  StrongSwan Stroke plugin
+
+Package: strongswan-mod-updown
+Version: 5.6.3-2
+Depends: libc, strongswan
+License: GPL-2.0+
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 8865
+Filename: strongswan-mod-updown_5.6.3-2_i386_pentium4.ipk
+Size: 9622
+SHA256sum: 83f1f5f98322cb20ac580311b4ec93334b64b8039465174fb517ed78ba0fac43
+Description:  StrongSwan updown firewall plugin
+
+Package: strongswan-mod-x509
+Version: 5.6.3-2
+Depends: libc, strongswan
+License: GPL-2.0+
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 27220
+Filename: strongswan-mod-x509_5.6.3-2_i386_pentium4.ipk
+Size: 27749
+SHA256sum: 29bf59706c6b5fc12abb2754378336d1f5d17eb8a21a43d651f13f8981e5c902
+Description:  StrongSwan x509 certificate plugin
+
+Package: strongswan-mod-xauth-generic
+Version: 5.6.3-2
+Depends: libc, strongswan
+License: GPL-2.0+
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 2926
+Filename: strongswan-mod-xauth-generic_5.6.3-2_i386_pentium4.ipk
+Size: 3690
+SHA256sum: f656b1c599edbea4483ce9e5afaa065e47641a278044e7032ceaa7a2b9757e99
+Description:  StrongSwan generic XAuth backend plugin
+
+Package: strongswan-mod-xcbc
+Version: 5.6.3-2
+Depends: libc, strongswan
+License: GPL-2.0+
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 3207
+Filename: strongswan-mod-xcbc_5.6.3-2_i386_pentium4.ipk
+Size: 3952
+SHA256sum: 39b2beac9237909f76abefcd242606f7e1506e13b0c0add45b3e7160ab14e2de
+Description:  StrongSwan xcbc crypto plugin
+
+Package: strongswan
+Version: 5.6.3-2
+Depends: libc, libpthread, ip, kmod-crypto-authenc, kmod-ipsec, kmod-ipsec4, kmod-ipsec6, kmod-ipt-ipsec, iptables-mod-ipsec
+License: GPL-2.0+
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 151304
+Filename: strongswan_5.6.3-2_i386_pentium4.ipk
+Size: 151711
+SHA256sum: e4714ae22ace66a252a044864131b386292d0a3d249576616dfc30ead98f6469
+Description:  StrongSwan is an OpenSource IPsec implementation for the Linux operating system.
+ This package contains shared libraries and scripts.
+
+Package: transmission-daemon-openssl
+Version: 2.94-8
+Depends: libc, libcurl4, libevent2-7, libminiupnpc, libnatpmp, libpthread, librt, zlib, libopenssl1.1
+License: GPL-2.0-or-later
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 178452
+Filename: transmission-daemon-openssl_2.94-8_i386_pentium4.ipk
+Size: 179405
+SHA256sum: f07c7ba8e8541ad6cce3432d2670a37fa14a0888b1971410e521d4df96a6546a
+Description:  Transmission is a simple BitTorrent client.
+ It features a very simple, intuitive interface
+ on top on an efficient, cross-platform back-end.
+ This package contains the daemon itself.
+
+Package: transmission-web-control
+Version: 2019-07-24-c27e3ba9-1
+Depends: libc, transmission-daemon-openssl
+Conflicts: transmission-web
+License: MIT
+Section: net
+Architecture: all
+Installed-Size: 1072575
+Filename: transmission-web-control_2019-07-24-c27e3ba9-1_all.ipk
+Size: 1073516
+SHA256sum: 74f16316bdae441e7d27c982d097f268a32529766a23ebb5187fc402d8b8609d
+Description:  Transmission Web Control is a custom Web UI for Transmission.
+
+Package: wget
+Version: 1.20.3-3
+Depends: libc, libpcre, zlib, libopenssl1.1, librt
+Provides: gnu-wget
+Alternatives: 300:/usr/bin/wget:/usr/bin/wget-ssl
+License: GPL-3.0-or-later
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 197127
+Filename: wget_1.20.3-3_i386_pentium4.ipk
+Size: 198256
+SHA256sum: 3f2570121cacb961bfbd3c78a78f7a56eccaddc2490938a72b86b81b8e6283e7
+Description:  Wget is a network utility to retrieve files from the Web using http
+ and ftp, the two most widely used Internet protocols. It works
+ non-interactively, so it will work in the background, after having
+ logged off. The program supports recursive retrieval of web-authoring
+ pages as well as ftp sites -- you can use wget to make mirrors of
+ archives and home pages or to travel the Web like a WWW robot.
+ This package is built with SSL support.
+
+Package: zerotier
+Version: 1.4.6-1
+Depends: libc, libpthread, libstdcpp, kmod-tun, ip, libminiupnpc, libnatpmp
+License: GPL-3.0-or-later
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 394946
+Filename: zerotier_1.4.6-1_i386_pentium4.ipk
+Size: 395275
+SHA256sum: 6acf03bcf3269305d25336e12e3b321eadc3883e37e2f0182588ffaeea173ff1
+Description:  ZeroTier creates a global provider-independent virtual private cloud network.
+

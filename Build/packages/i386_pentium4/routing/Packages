@@ -1,0 +1,18 @@
+Package: batctl-default
+Version: 2019.2-3
+Depends: libc, libnl-tiny, librt
+Provides: batctl
+Alternatives: 200:/usr/sbin/batctl:/usr/libexec/batctl-default
+License: GPL-2.0
+Section: net
+Architecture: i386_pentium4
+Installed-Size: 38299
+Filename: batctl-default_2019.2-3_i386_pentium4.ipk
+Size: 39359
+SHA256sum: 50efbfd2412213aeeefde8bdee81741c97a536bacb1501ec7bd039c2dee073b4
+Description:  batctl is a more intuitive managment utility for B.A.T.M.A.N.-Advanced.
+ It is an easier method for configuring batman-adv and provides some
+ additional tools for debugging as well. This package builds
+ version 2019.2 of the user space utility.
+ Standard subcommands for configuration and online debugging are enabled.
+

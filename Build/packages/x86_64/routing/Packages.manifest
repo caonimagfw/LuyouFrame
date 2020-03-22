@@ -1,0 +1,21 @@
+Package: batctl-default
+Version: 2019.2-3
+Depends: libc, libnl-tiny, librt
+Provides: batctl
+Alternatives: 200:/usr/sbin/batctl:/usr/libexec/batctl-default
+Source: feeds/routing/batctl
+SourceName: batctl-default
+License: GPL-2.0
+Section: net
+Maintainer: Simon Wunderlich <sw@simonwunderlich.de>
+Architecture: x86_64
+Installed-Size: 43652
+Filename: batctl-default_2019.2-3_x86_64.ipk
+Size: 44604
+SHA256sum: 2466d7f3dd1518a6800e1cb7f5f3e627651ffa42c7ba0853173e46d6fb2c962f
+Description:  batctl is a more intuitive managment utility for B.A.T.M.A.N.-Advanced.
+ It is an easier method for configuring batman-adv and provides some
+ additional tools for debugging as well. This package builds
+ version 2019.2 of the user space utility.
+ Standard subcommands for configuration and online debugging are enabled.
+
