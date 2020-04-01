@@ -140,3 +140,55 @@ theme : https://github.com/Leo-Jo-My/luci-theme-Butterfly
     #编译
     make package/luci-app-ssr-plus-lean/{clean,compile} V=s
 
+compile 
+OpenWrt 18.06.8
+
+sudo apt-get install gcc g++ build-essential asciidoc  binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch flex bison make autoconf texinfo unzip sharutils subversion ncurses-term zlib1g-dev ccache upx lib32gcc1 libc6-dev-i386 uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev libglib2.0-dev xmlto qemu-utils automake libtool  -y
+
+
+git clone https://github.com/openwrt/openwrt.git
+git checkout openwrt-18.06.8
+git checkout -b v18.06.8
+
+$ git fetch  # Make sure your local git repo has the latest commits, branches, and tags
+$ git checkout -b v18.06.1
+$ ./scripts/feeds update -a
+$ ./scripts/feeds install -a
+
+
+$ git fetch  # Make sure your local git repo has the latest commits, branches, and tags
+$ git checkout -b v18.06.1
+$ ./scripts/feeds update -a
+$ ./scripts/feeds install -a
+
+
+mkdir openwrt17.1             #新建一个目录
+sudo chmod 777 openwrt    #修改权限（重要）
+
+cd        openwrt17.1            #进入目录
+
+
+ cd source
+git clone https://github.com/caonimagfw/openwrt-packages.git
+
+./scripts/feeds update -a
+./scripts/feeds install -a 
+
+
+ make  defconfig
+
+
+  make V=99
+
+
+       
+
+git clone https://git.openwrt.org/openwrt/openwrt.git/
+cd openwrt
+git branch
+git branch -v
+git branch -r
+git checkout openwrt-18.06
+./scripts/feeds update -a && ./scripts/feeds install -a
+make menuconfig
+make V=s 
