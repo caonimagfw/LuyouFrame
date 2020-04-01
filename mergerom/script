@@ -1,23 +1,46 @@
+apt-get install subversion build-essential libncurses5-dev zlib1g-dev gawk git ccache gettext libssl-dev xsltproc wget unzip python
 
 wget https://downloads.openwrt.org/releases/18.06.8/targets/ramips/mt7621/openwrt-imagebuilder-18.06.8-ramips-mt7621.Linux-x86_64.tar.xz
-
+sudo apt-get install xz-utils
+unxz openwrt-imagebuilder-18.06.8-ramips-mt7621.Linux-x86_64.tar.xz
 tar -xvjf openwrt-imagebuilder-18.06.8-ramips-mt7621.Linux-x86_64.tar.xz
-
+tar -xvf openwrt-imagebuilder-18.06.8-ramips-mt7621.Linux-x86_64.tar
 cd openwrt-imagebuilder-18.06.8-ramips-mt7621.Linux-x86_64.tar
 
-
+vi /etc/pam.d/common-password
 make info
 
+tar -xvjf openwrt-sdk-18.06.8-ramips-mt7621_gcc-7.3.0_musl.Linux-x86_64.tar.xz
+unxz openwrt-sdk-18.06.8-ramips-mt7621_gcc-7.3.0_musl.Linux-x86_64.tar.xz
+tar -xvf openwrt-sdk-18.06.8-ramips-mt7621_gcc-7.3.0_musl.Linux-x86_64.tar
 共有三个传递的参数：PROFILE PACKAGES FILES
-make image PROFILE=newifi-d1 PACKAGES="($cat plugin.f)" FILES=files/
 
+make image PROFILE=newifi-d1 PACKAGES="$(<plugin.f)" FILES=files/
+
+make image PROFILE=newifi-d1 PACKAGES="luci-i18n-chinese luci-sgi-uhttpd luci-app-qos luci-app-upnp luci-proto-ipv6" FILES=files/
 cat 
 command `< file`
 
 
 cat > plugin.f  << EOF
- luci-i18n-chinese luci-sgi-uhttpd luci-app-qos luci-app-upnp luci-proto-ipv6
+luci-i18n-base-zh-cn luci-theme-bootstrap luci-app-qos luci-app-squid luci-app-ssr-plus luci-app-upnp luci-proto-ipv6
 EOF
+make image PROFILE=newifi-d1 PACKAGES="$(<plugin.f)" FILES=files/
+
+cat > plugin.f  << EOF
+shadowsocksr-libev-alt
+EOF
+make image PROFILE=newifi-d1 PACKAGES="$(<plugin.f)" FILES=files/
+
+
+luci-i18n-base-zh-cn shadowsocksr-libev-alt pdnsd-alt microsocks ipt2socks dns2socks shadowsocksr-libev-ssr-local luci-app-ssr-plus luci-app-adbyby-plus
+
+  shadowsocksr-libev-alt
+ *      pdnsd-alt
+ *      microsocks
+ *      ipt2socks
+ *      dns2socks
+ *      shadowsocksr-libev-ssr-local
 
 
 
@@ -40,3 +63,8 @@ cp mt7621.f target/linux/ramips/image/mt7621.mk
 
 target\linux\ramips\image
 
+-------------------------------------
+18.06.8 sdk 
+lean source package 
+make menuconfig 
+make /xxx/compile V=00
