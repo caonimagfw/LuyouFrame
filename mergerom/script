@@ -171,12 +171,16 @@ cd        openwrt17.1            #进入目录
  cd source
 git clone https://github.com/caonimagfw/openwrt-packages.git
 
+git clone https://github.com/libuv/libuv.git
+
 ./scripts/feeds update -a
 ./scripts/feeds install -a 
 
 
  make  defconfig
 
+make tools/install V=s
+make package/libs/install V=s
 
   make V=99
 
@@ -192,3 +196,41 @@ git checkout openwrt-18.06
 ./scripts/feeds update -a && ./scripts/feeds install -a
 make menuconfig
 make V=s 
+
+swap-----
+check:
+sudo swapon --show
+free -h
+
+check freee:
+ df -h
+
+ create:
+sudo fallocate -l 2G /swapfile
+ls -lh /swapfile
+sudo chmod 600 /swapfile
+ls -lh /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+sudo swapon --show
+free -h
+
+keep foreve:
+sudo cp /etc/fstab /etc/fstab.bak
+echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+
+
+ satisfy_dependencies_for: Cannot satisfy the following dependencies for luci-app-ssr-plus:
+ *      shadowsocksr-libev-alt
+ *      pdnsd-alt
+ *      microsocks
+ *      ipt2socks
+ *      dns2socks
+ *      shadowsocksr-libev-ssr-local
+ * opkg_install_cmd: Cannot install package luci-app-ssr-plus.
+Makefile:149: recipe for target 'package_install' failed
+make[2]: *** [package_install] Error 255
+Makefile:108: recipe for target '_call_image' failed
+make[1]: *** [_call_image] Error 2
+Makefile:192: recipe for target 'image' failed
+make: *** [image] Error 2
