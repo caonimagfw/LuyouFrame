@@ -1,0 +1,69 @@
+Package: 464xlat
+Version: 11
+Depends: libc, kmod-nat46, ip
+Source: feeds/routing/nat46
+License: GPL-2.0
+Section: net
+Maintainer: Steven Barth <cyrus@openwrt.org>
+Architecture: mipsel_24kc
+Installed-Size: 4209
+Filename: 464xlat_11_mipsel_24kc.ipk
+Size: 4929
+SHA256sum: f83240b71f91af71d2f43b9c6aef92e2699131f32f864918c14905a69734a877
+Description:  464xlat CLAT support
+
+Package: bird6-uci
+Version: 0.3-1
+Depends: libc, bird6, libuci, uci
+Source: feeds/routing/bird-openwrt/bird6-openwrt
+License: GPL-3.0+
+Section: net
+Maintainer: Eloi Carbo <eloicaso@openmailbox.org>
+Architecture: mipsel_24kc
+Installed-Size: 5903
+Filename: bird6-uci_0.3-1_mipsel_24kc.ipk
+Size: 6804
+SHA256sum: 388c49c2065b6925e38e10e3dc3361d94145ff638c94b240b01168fc0e3c9b53
+Description:  bird6 UCI integration module
+
+Package: bird6
+Version: 1.6.8-1
+Depends: libc, libpthread
+Source: feeds/routing/bird
+License: GPL-2.0
+Section: net
+Maintainer: Álvaro Fernández Rojas <noltari@gmail.com>
+Architecture: mipsel_24kc
+Installed-Size: 207571
+Filename: bird6_1.6.8-1_mipsel_24kc.ipk
+Size: 208776
+SHA256sum: 23115a34396a729f72d4b8c3ca4d22892f8b3ee5280b127f92368c04acc1f7c6
+Description:  BIRD is an internet routing daemon which manages TCP/IP routing tables
+ with support of modern routing protocols, easy to use configuration
+ interface and powerful route filtering language. It is lightweight and
+ efficient and therefore appropriate for small embedded routers.
+ 
+ This is IPv6 version of BIRD, it supports OSPFv3, RIPng and BGP
+ protocols.
+ 
+ In BGP, BIRD supports communities, multiprotocol extensions, MD5
+ authentication, 32bit AS numbers and could act as a route server or a
+ route reflector. BIRD also supports multiple RIBs, multiple kernel
+ routing tables and redistribution between the protocols with a powerful
+ configuration syntax.
+ 
+
+Package: luci-app-bird6
+Version: 0.3-1
+Depends: libc, bird6-uci, luci-base
+Source: feeds/routing/bird-openwrt/bird6-openwrt
+License: GPL-3.0+
+Section: luci
+Maintainer: Eloi Carbo <eloicaso@openmailbox.org>
+Architecture: mipsel_24kc
+Installed-Size: 7476
+Filename: luci-app-bird6_0.3-1_mipsel_24kc.ipk
+Size: 8255
+SHA256sum: 00fc3bbfa3b58c7b85c48909a40992e6b903eb4bcc093670a2feffa56acde15c
+Description:  bird6 application for LuCI
+
