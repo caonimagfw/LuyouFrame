@@ -159,6 +159,7 @@ logd - 2018-02-14-128bc35f-2
 lua - 5.1.5-1
 luci - git-20.089.25326-13bc698-1
 luci-app-adbyby-plus - 2.0-71
+luci-app-adguardhome - 1.8-11
 luci-app-advancedsetting - 1.1-1
 luci-app-airplay2 - 1-10
 luci-app-arpbind - 1-2
