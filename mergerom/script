@@ -234,3 +234,8 @@ Makefile:108: recipe for target '_call_image' failed
 make[1]: *** [_call_image] Error 2
 Makefile:192: recipe for target 'image' failed
 make: *** [image] Error 2
+
+
+-----
+./scripts/feeds install vsftpd openssh-sftp-server
+./scripts/feeds install ttyd luci-app-ttyd luci-i18n-ttyd-zh-cn
