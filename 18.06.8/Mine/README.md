@@ -1,6 +1,6 @@
 # OpenWrt 18.06.8
 
-## 1. Apply one VPS (Ubuntu(LTS of 18,16,14  1G Ram)
+## 1. Apply one VPS (Ubuntu(LTS of 18,16,14)  1G Ram)
 ## 2. [Root]Set Swap Memory to 2G, and make it working after reboot
 ## 3. [openwrt] install Caddy and wait 
 ## 4. [Root]Install all packaage use Root account
