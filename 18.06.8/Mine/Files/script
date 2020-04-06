@@ -239,3 +239,20 @@ make: *** [image] Error 2
 -----
 ./scripts/feeds install vsftpd openssh-sftp-server
 ./scripts/feeds install ttyd luci-app-ttyd luci-i18n-ttyd-zh-cn
+
+
+_control
+sysctl net.ipv4.tcp_available_congestion_control
+sysctl -w net.ipv4.tcp_congestion_control=dctcp
+sysctl -w net.ipv4.tcp_congestion_control=bbrplus
+sysctl -w net.ipv4.tcp_congestion_control=hybla
+
+
+/sbin/modprobe tcp_hybla
+lsmod |grep hybla
+
+hybla   39 22
+htcp    33 10
+dctcp   36 5
+bbr     35 7
+cubic   30 29
