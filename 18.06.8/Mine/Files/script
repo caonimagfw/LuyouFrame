@@ -246,11 +246,16 @@ sysctl net.ipv4.tcp_congestion_control
 
 sysctl net.ipv4.tcp_available_congestion_control
 sysctl -w net.ipv4.tcp_congestion_control=dctcp
+sysctl -w net.ipv4.tcp_congestion_control=bbr 
+
 sysctl -w net.ipv4.tcp_congestion_control=bbrplus
+
 sysctl -w net.ipv4.tcp_congestion_control=hybla
+sysctl -w net.ipv4.tcp_congestion_control=htcp
 
-
+sysctl -w net.ipv4.tcp_congestion_control=cubic
 /sbin/modprobe tcp_hybla
+/sbin/modprobe tcp_htcp
 lsmod |grep hybla
 
 hybla   39 22
@@ -258,3 +263,29 @@ htcp    33 10
 dctcp   36 5
 bbr     35 7
 cubic   30 29
+
+vi /etc/sysconfig/network-scripts/ifcfg-eth0
+systemctl restart network
+cat /etc/resov.conf
+nslookup 
+ yum install -y bind-utils
+
+1.添加dns记录
+cd /etc/sysconfig/network-scripts/
+找到类似ifcfg-eth0的文件vim打开
+添加一行DNS1=114.114.114.114
+
+2.重启网络 nslookup 
+
+3.验证
+vim /etc/resov.conf就可以看到添加的dns生效了
+————————————————
+版权声明：本文为CSDN博主「那年的夏天123」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/hujun_123456/java/article/details/80547208
+
+
+DNS1=1.1.1.1
+DNS2=8.8.8.8
+DNS3=2001:4860:4860::8888
+DNS4=2001:4860:4860::8844
+ 
