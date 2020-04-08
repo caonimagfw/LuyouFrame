@@ -1,0 +1,4 @@
+98934bfb6ee8dba946aec6b31dea7cfc9f1eb90a4d2efa73fb7827404ea24b51 *config.seed
+03b28cd79c99361e29f0212456e4451adb27f95f2dafeb998879fae5a36d1082 *openwrt-ramips-mt7621-device-newifi-d1.manifest
+459995db0ccb1af750fd7e51cf4c414299ee82a1bef46a11f168ee387f9b0073 *openwrt-ramips-mt7621-newifi-d1-initramfs-kernel.bin
+8b4acda2dacf4c99ecd5193eac59e2f3000d27ef34b07b30002dab533b5c8480 *openwrt-ramips-mt7621-newifi-d1-squashfs-sysupgrade.bin
