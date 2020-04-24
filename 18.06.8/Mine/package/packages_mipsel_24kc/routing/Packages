@@ -1,0 +1,12 @@
+Package: 464xlat
+Version: 11
+Depends: libc, kmod-nat46, ip
+License: GPL-2.0
+Section: net
+Architecture: mipsel_24kc
+Installed-Size: 4209
+Filename: 464xlat_11_mipsel_24kc.ipk
+Size: 4929
+SHA256sum: f83240b71f91af71d2f43b9c6aef92e2699131f32f864918c14905a69734a877
+Description:  464xlat CLAT support
+

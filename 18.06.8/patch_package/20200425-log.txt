@@ -1,24 +1,24 @@
-ipt2socks uv_connect error:
+ï»¿ipt2socks uv_connect error:
 
-# ½øÈëÄ³¸öÄ¿Â¼
+# è¿›å…¥æŸä¸ªç›®å½•
 cd /opt
 
-# »ñÈ¡ libuv Ô´Âë°ü
-libuv_version="1.32.0" # ¶¨Òå libuv °æ±¾ºÅ
+# è·å– libuv æºç åŒ…
+libuv_version="1.32.0" # å®šä¹‰ libuv ç‰ˆæœ¬å·
 wget https://github.com/libuv/libuv/archive/v$libuv_version.tar.gz -Olibuv-$libuv_version.tar.gz
 tar xvf libuv-$libuv_version.tar.gz
 
-# ½øÈëÔ´ÂëÄ¿Â¼£¬±àÒë
+# è¿›å…¥æºç ç›®å½•ï¼Œç¼–è¯‘
 cd libuv-$libuv_version
 ./autogen.sh
 ./configure --prefix=/opt/libuv --enable-shared=no --enable-static=yes CC="gcc -O3"
 make && sudo make install
 cd ..
 
-# »ñÈ¡ ipt2socks Ô´Âë
+# è·å– ipt2socks æºç 
 git clone https://github.com/zfl9/ipt2socks
 
-# ½øÈëÔ´ÂëÄ¿Â¼£¬±àÒë
+# è¿›å…¥æºç ç›®å½•ï¼Œç¼–è¯‘
 cd ipt2socks
 make INCLUDES="-I/opt/libuv/include" LDFLAGS="-L/opt/libuv/lib" && sudo make install
 
