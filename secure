@@ -1,0 +1,87 @@
+Apr 14 17:08:59 DZQZWEB sshd[21168]: Accepted password for root from 10.10.253.1 port 33827 ssh2
+Apr 14 17:08:59 DZQZWEB sshd[21168]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Apr 14 17:10:07 DZQZWEB sshd[21168]: pam_unix(sshd:session): session closed for user root
+Apr 14 17:15:18 DZQZWEB sshd[23229]: pam_unix(sshd:session): session closed for user root
+Apr 14 18:10:53 DZQZWEB polkitd[1037]: Registered Authentication Agent for unix-process:22589:596347893 (system bus name :1.50593 [/usr/bin/pkttyagent --notify-fd 5 --fallback], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8)
+Apr 14 18:10:53 DZQZWEB polkitd[1037]: Unregistered Authentication Agent for unix-process:22589:596347893 (system bus name :1.50593, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8) (disconnected from bus)
+Apr 14 18:15:19 DZQZWEB polkitd[1037]: Registered Authentication Agent for unix-process:22959:596374549 (system bus name :1.50594 [/usr/bin/pkttyagent --notify-fd 5 --fallback], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8)
+Apr 14 18:15:20 DZQZWEB polkitd[1037]: Unregistered Authentication Agent for unix-process:22959:596374549 (system bus name :1.50594, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8) (disconnected from bus)
+Apr 14 18:29:21 DZQZWEB polkitd[1037]: Registered Authentication Agent for unix-process:23458:596458667 (system bus name :1.50605 [/usr/bin/pkttyagent --notify-fd 5 --fallback], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8)
+Apr 14 18:29:21 DZQZWEB polkitd[1037]: Unregistered Authentication Agent for unix-process:23458:596458667 (system bus name :1.50605, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8) (disconnected from bus)
+Apr 14 18:30:51 DZQZWEB polkitd[1037]: Registered Authentication Agent for unix-process:23637:596467742 (system bus name :1.50608 [/usr/bin/pkttyagent --notify-fd 5 --fallback], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8)
+Apr 14 18:30:51 DZQZWEB polkitd[1037]: Unregistered Authentication Agent for unix-process:23637:596467742 (system bus name :1.50608, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8) (disconnected from bus)
+Apr 14 18:41:12 DZQZWEB polkitd[1037]: Registered Authentication Agent for unix-process:25952:596529770 (system bus name :1.50611 [/usr/bin/pkttyagent --notify-fd 5 --fallback], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8)
+Apr 14 18:41:12 DZQZWEB polkitd[1037]: Unregistered Authentication Agent for unix-process:25952:596529770 (system bus name :1.50611, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8) (disconnected from bus)
+Apr 14 18:50:43 DZQZWEB polkitd[1037]: Registered Authentication Agent for unix-process:26119:596586855 (system bus name :1.50614 [/usr/bin/pkttyagent --notify-fd 5 --fallback], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8)
+Apr 14 18:50:43 DZQZWEB polkitd[1037]: Unregistered Authentication Agent for unix-process:26119:596586855 (system bus name :1.50614, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8) (disconnected from bus)
+Apr 14 20:06:43 DZQZWEB polkitd[1037]: Registered Authentication Agent for unix-process:14289:597042879 (system bus name :1.50657 [/usr/bin/pkttyagent --notify-fd 5 --fallback], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8)
+Apr 14 20:06:43 DZQZWEB polkitd[1037]: Unregistered Authentication Agent for unix-process:14289:597042879 (system bus name :1.50657, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8) (disconnected from bus)
+Apr 14 21:04:26 DZQZWEB sshd[11908]: pam_systemd(sshd:session): Failed to release session: Interrupted system call
+Apr 14 21:04:26 DZQZWEB sshd[11908]: pam_unix(sshd:session): session closed for user root
+Apr 14 21:04:32 DZQZWEB sshd[12119]: Accepted password for root from 10.10.253.41 port 57968 ssh2
+Apr 14 21:04:33 DZQZWEB sshd[12119]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Apr 15 09:46:40 DZQZWEB polkitd[1037]: Registered Authentication Agent for unix-process:31410:601962616 (system bus name :1.51084 [/usr/bin/pkttyagent --notify-fd 5 --fallback], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8)
+Apr 15 09:46:40 DZQZWEB polkitd[1037]: Unregistered Authentication Agent for unix-process:31410:601962616 (system bus name :1.51084, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8) (disconnected from bus)
+Apr 15 09:51:37 DZQZWEB polkitd[1037]: Registered Authentication Agent for unix-process:2187:601992303 (system bus name :1.51087 [/usr/bin/pkttyagent --notify-fd 5 --fallback], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8)
+Apr 15 09:51:37 DZQZWEB polkitd[1037]: Unregistered Authentication Agent for unix-process:2187:601992303 (system bus name :1.51087, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8) (disconnected from bus)
+Apr 15 10:17:28 DZQZWEB polkitd[1037]: Registered Authentication Agent for unix-process:15745:602147434 (system bus name :1.51103 [/usr/bin/pkttyagent --notify-fd 5 --fallback], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8)
+Apr 15 10:17:28 DZQZWEB polkitd[1037]: Unregistered Authentication Agent for unix-process:15745:602147434 (system bus name :1.51103, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8) (disconnected from bus)
+Apr 15 10:22:25 DZQZWEB polkitd[1037]: Registered Authentication Agent for unix-process:18777:602177118 (system bus name :1.51106 [/usr/bin/pkttyagent --notify-fd 5 --fallback], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8)
+Apr 15 10:22:25 DZQZWEB polkitd[1037]: Unregistered Authentication Agent for unix-process:18777:602177118 (system bus name :1.51106, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8) (disconnected from bus)
+Apr 15 10:32:22 DZQZWEB polkitd[1037]: Registered Authentication Agent for unix-process:24342:602236776 (system bus name :1.51118 [/usr/bin/pkttyagent --notify-fd 5 --fallback], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8)
+Apr 15 10:32:22 DZQZWEB polkitd[1037]: Unregistered Authentication Agent for unix-process:24342:602236776 (system bus name :1.51118, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8) (disconnected from bus)
+Apr 15 10:37:27 DZQZWEB polkitd[1037]: Registered Authentication Agent for unix-process:28416:602267318 (system bus name :1.51119 [/usr/bin/pkttyagent --notify-fd 5 --fallback], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8)
+Apr 15 10:37:27 DZQZWEB polkitd[1037]: Unregistered Authentication Agent for unix-process:28416:602267318 (system bus name :1.51119, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8) (disconnected from bus)
+Apr 15 11:20:27 DZQZWEB sshd[26526]: Accepted password for root from 10.10.253.41 port 61455 ssh2
+Apr 15 11:20:28 DZQZWEB sshd[26526]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Apr 15 11:20:47 DZQZWEB sshd[26805]: Accepted password for root from 10.10.253.41 port 61462 ssh2
+Apr 15 11:20:47 DZQZWEB sshd[26805]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Apr 15 11:21:46 DZQZWEB sshd[16141]: pam_systemd(sshd:session): Failed to release session: Interrupted system call
+Apr 15 11:21:46 DZQZWEB sshd[12119]: pam_systemd(sshd:session): Failed to release session: Interrupted system call
+Apr 15 11:21:46 DZQZWEB sshd[16141]: pam_unix(sshd:session): session closed for user root
+Apr 15 11:21:46 DZQZWEB sshd[12119]: pam_unix(sshd:session): session closed for user root
+Apr 15 11:21:46 DZQZWEB sshd[26526]: pam_unix(sshd:session): session closed for user root
+Apr 15 11:21:46 DZQZWEB sshd[26805]: pam_unix(sshd:session): session closed for user root
+Apr 15 11:43:46 DZQZWEB sshd[10749]: Accepted password for admin from 172.16.102.22 port 49976 ssh2
+Apr 15 11:43:46 DZQZWEB sshd[10749]: pam_unix(sshd:session): session opened for user admin by (uid=0)
+Apr 15 11:45:03 DZQZWEB sshd[11592]: Accepted password for admin from 172.16.102.22 port 50110 ssh2
+Apr 15 11:45:03 DZQZWEB sshd[11592]: pam_unix(sshd:session): session opened for user admin by (uid=0)
+Apr 15 11:45:05 DZQZWEB sshd[10749]: pam_unix(sshd:session): session closed for user admin
+Apr 15 11:45:49 DZQZWEB sshd[11592]: pam_unix(sshd:session): session closed for user admin
+Apr 15 11:45:49 DZQZWEB sshd[12503]: Accepted password for admin from 172.16.102.22 port 50200 ssh2
+Apr 15 11:45:50 DZQZWEB sshd[12503]: pam_unix(sshd:session): session opened for user admin by (uid=0)
+Apr 15 14:10:08 DZQZWEB sshd[12503]: pam_unix(sshd:session): session closed for user admin
+Apr 15 14:25:08 DZQZWEB sshd[27975]: Accepted password for admin from 172.16.102.22 port 49701 ssh2
+Apr 15 14:25:08 DZQZWEB sshd[27975]: pam_unix(sshd:session): session opened for user admin by (uid=0)
+Apr 15 14:26:13 DZQZWEB sudo: pam_unix(sudo:auth): conversation failed
+Apr 15 14:26:13 DZQZWEB sudo: pam_unix(sudo:auth): auth could not identify password for [admin]
+Apr 15 14:28:29 DZQZWEB unix_chkpwd[30655]: password check failed for user (root)
+Apr 15 14:28:29 DZQZWEB su: pam_unix(su:auth): authentication failure; logname=admin uid=1000 euid=0 tty=pts/1 ruser=admin rhost=  user=root
+Apr 15 14:28:29 DZQZWEB su: pam_succeed_if(su:auth): requirement "uid >= 1000" not met by user "root"
+Apr 15 14:28:40 DZQZWEB unix_chkpwd[30939]: password check failed for user (root)
+Apr 15 14:28:40 DZQZWEB su: pam_unix(su:auth): authentication failure; logname=admin uid=1000 euid=0 tty=pts/1 ruser=admin rhost=  user=root
+Apr 15 14:28:40 DZQZWEB su: pam_succeed_if(su:auth): requirement "uid >= 1000" not met by user "root"
+Apr 15 14:29:41 DZQZWEB sshd[31511]: Accepted password for root from 172.16.102.22 port 50143 ssh2
+Apr 15 14:29:41 DZQZWEB sshd[31511]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Apr 15 14:29:44 DZQZWEB sshd[27975]: pam_unix(sshd:session): session closed for user admin
+Apr 15 14:56:57 DZQZWEB sshd[18353]: Accepted password for root from 172.16.102.22 port 53029 ssh2
+Apr 15 14:56:57 DZQZWEB sshd[18353]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Apr 15 16:01:36 DZQZWEB sshd[32341]: Accepted password for root from 172.16.102.22 port 60025 ssh2
+Apr 15 16:01:36 DZQZWEB sshd[32341]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Apr 15 16:20:16 DZQZWEB polkitd[1037]: Registered Authentication Agent for unix-process:13256:604324206 (system bus name :1.51330 [/usr/bin/pkttyagent --notify-fd 5 --fallback], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8)
+Apr 15 16:20:16 DZQZWEB polkitd[1037]: Unregistered Authentication Agent for unix-process:13256:604324206 (system bus name :1.51330, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8) (disconnected from bus)
+Apr 15 16:25:14 DZQZWEB polkitd[1037]: Registered Authentication Agent for unix-process:17102:604353961 (system bus name :1.51335 [/usr/bin/pkttyagent --notify-fd 5 --fallback], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8)
+Apr 15 16:25:14 DZQZWEB polkitd[1037]: Unregistered Authentication Agent for unix-process:17102:604353961 (system bus name :1.51335, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8) (disconnected from bus)
+Apr 15 18:25:24 DZQZWEB polkitd[1037]: Registered Authentication Agent for unix-process:4639:605075043 (system bus name :1.51397 [/usr/bin/pkttyagent --notify-fd 5 --fallback], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8)
+Apr 15 18:25:24 DZQZWEB polkitd[1037]: Unregistered Authentication Agent for unix-process:4639:605075043 (system bus name :1.51397, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8) (disconnected from bus)
+Apr 15 18:31:03 DZQZWEB polkitd[1037]: Registered Authentication Agent for unix-process:7719:605108859 (system bus name :1.51404 [/usr/bin/pkttyagent --notify-fd 5 --fallback], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8)
+Apr 15 18:31:03 DZQZWEB polkitd[1037]: Unregistered Authentication Agent for unix-process:7719:605108859 (system bus name :1.51404, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale zh_CN.UTF-8) (disconnected from bus)
+Apr 15 18:34:15 DZQZWEB sshd[32341]: pam_unix(sshd:session): session closed for user root
+Apr 15 18:34:15 DZQZWEB sshd[31511]: pam_unix(sshd:session): session closed for user root
+Apr 15 19:07:18 DZQZWEB sshd[18353]: pam_unix(sshd:session): session closed for user root
+Apr 16 11:14:13 DZQZWEB sshd[24034]: Accepted password for root from 172.16.102.22 port 53382 ssh2
+Apr 16 11:14:13 DZQZWEB sshd[24034]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Apr 16 21:35:42 DZQZWEB sshd[31711]: Accepted password for root from 10.10.253.1 port 59432 ssh2
+Apr 16 21:35:42 DZQZWEB sshd[31711]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Apr 16 22:21:32 DZQZWEB sshd[24415]: Accepted password for root from 10.10.253.1 port 12767 ssh2
+Apr 16 22:21:33 DZQZWEB sshd[24415]: pam_unix(sshd:session): session opened for user root by (uid=0)
