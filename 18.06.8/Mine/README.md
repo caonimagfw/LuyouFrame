@@ -116,3 +116,215 @@ make download -j2 V=s
 make -j2 V=s
 
 ```
+
+#docker in Centos 
+
+```
+yum -y install net-tools
+
+mkdir docker
+cd docker
+
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+
+
+wget http://216.127.173.242:8099/openwrt-x86-64-generic-rootfs.tar.gz
+
+#ip link set eth0 promisc on
+ip link set docker0 promisc on
+
+# 为 docker 创建 macvlan 虚拟接口，并链接到 host 网卡
+# LAN 口
+#docker network create -d macvlan --subnet=172.16.60.0/24 --gateway=172.16.60.254 --ipv6 --subnet=fe80::/16 --gateway=fe80::1 -o parent=ens33 -o macvlan_mode=bridge openwrt-LAN
+#docker network create -d macvlan --subnet=192.168.0.0/24 --gateway=192.168.0.254 --ipv6 --subnet=fe81::/16 --gateway=fe81::1 -o parent=ens34 -o macvlan_mode=bridge openwrt-WAN
+
+#docker network create -d macvlan --subnet=172.16.60.0/24 --gateway=172.16.60.254  -o parent=ens33 -o macvlan_mode=bridge openwrt-LAN
+
+systemctl start docker
+systemctl enable docker
+systemctl disable docker
+
+docker network create -d macvlan --subnet=192.168.10.0/24 --gateway=192.168.10.1  -o parent=eth0 -o macvlan_mode=bridge openwrt-WAN
+
+#imprt docker
+docker import openwrt-x86-64-generic-rootfs.tar.gz lean_openwrt
+
+docker stop openwrt && docker rm openwrt
+#start --ip=192.168.10.10 
+docker run -it -d --restart always --network openwrt-WAN -p 80:422 --privileged --name openwrt lean_openwrt /sbin/init
+
+docker stop openwrt && docker rm openwrt
+#docker run -it -d --restart always --ip=192.168.10.10 --privileged --name openwrt /sbin/init
+
+docker stop openwrt && docker rm openwrt
+docker run -it -d --restart always --ip="192.168.10.10"  -p 422:80 --privileged --name openwrt lean_openwrt /sbin/init
+
+docker run -it -d --restart always --ip="192.168.10.10"  -p 0.0.0.0:422:80/tcp --privileged --name openwrt lean_openwrt /sbin/init
+docker run -it -d --restart always --ip="192.168.10.10"  -p 0.0.0.0:422:80/tcp --name openwrt lean_openwrt /sbin/init
+
+
+docker stop openwrt && docker rm openwrt
+docker exec -it openwrt /bin/sh
+# 	
+docker network create -d macvlan --subnet=192.168.6.5/24 --gateway=192.168.6.1 -o parent=eth0 openwrt_wan
+docker stop openwrt && docker rm openwrt
+docker run -it -d --restart always  -p 0.0.0.0:422:80 --network openwrt_wan --name openwrt lean_openwrt /sbin/init
+
+docker run -it -d --restart always  --network openwrt_wan -p 0.0.0.0:422:80 --privileged --name openwrt lean_openwrt /sbin/init
+
+docker ps
+ad8623bd77e0 
+
+	
+docker exec -it ad8623bd77e0 sh
+vi /etc/config/network
+
+/etc/init.d/network restart
+# #####docker run -it -d --restart always -p 0.0.0.0:422:80/tcp --name openwrt lean_openwrt /sbin/init
+
+ip route add 192.168.10.2/24 via 173.82.238.51
+ip addr del 192.168.10.0/24 dev docker0; 
+
+route del 192.168.10.0/24 dev docker0
+
+route add -net 192.168.10.1/24 gw 173.82.238.51
+
+ip route add 192.168.10.0/24 dev docker0
+ip route del 192.168.10.0 
+
+route add -net 192.168.10.0/24  gw 173.82.238.51
+
+docker run -it -d --restart always  -p 0.0.0.0:422:80 --privileged --name openwrt lean_openwrt /sbin/init
+
+# go to docker
+docker exec -it openwrt /bin/sh
+
+docker network create -d macvlan --subnet 192.168.10.1/24 --gateway 192.168.10.1 -o parent=eth0 dknet1
+sysctl -w net.ipv4.ip_forward=1
+
+
+sudo brctl addbr docker0
+sudo ip addr add 192.168.10.1/24 dev docker0
+sudo ip link set dev docker0 up
+
+vi /etc/docker/daemon.json
+
+{"registry-mirrors": ["http://224ac393.m.daocloud.io"],
+    "bip": "192.168.10.1/24"
+}
+
+{
+	"bip": "192.168.10.1/24",
+    "mtu": 1500,
+    "default-gateway": "192.168.10.1",
+    "dns": ["8.8.8.8","8.8.4.4"]
+}
+
+ ip addr show docker0
+service docker stop
+ brctl show
+ ip addr show bridge0
+
+ip link set dev docker0 down
+ip addr del 172.17.0.1/16 dev docker0
+
+sudo yum install -y bridge-utils
+
+brctl addbr bridge0
+ip addr add 192.168.10.1/24 dev bridge0
+ip link set dev bridge0 up
+
+brctl addbr docker0
+ip addr add 192.168.10.1/24 dev docker0
+ip link set dev docker0 up
+
+
+ip addr show bridge0
+
+# 4.修改配置文件
+/etc/docker/daemon.json（如不存在则创建一个 touch daemon.json）,使Docker启动时使用自定义网桥
+vi /etc/docker/daemon.json（
+{
+  "bridge": "bridge0"
+}
+
+
+ip addr add 192.168.10.1/24 dev docker0
+ip link set dev docker0 up
+
+
+systemctl start docker
+
+journalctl -f -u docker
+dockerd
+
+
+# 检测是否配置成功，如果输出信息中有 192.168.5.1，则表明成功
+ip addr show docker0
+service docker start
+
+service docker restart
+ip link set dev docker0 down
+ 
+brctl delbr docker0
+brctl delbr bridge0
+
+echo 'DOCKER_OPTS="-b=bridge0"' >> /etc/sysconfig/docker
+sudo service docker start
+
+
+ifconfig eth0 192.168.10.1 netmask 255.255.255.0 up
+
+#编辑 /etc/config/network
+
+config interface 'wan'
+        option ifname 'eth0.2'  
+        option proto 'static'
+        option ipaddr '192.168.10.10'
+        option netmask '255.255.255.0'
+        option gateway '192.168.10.2'
+
+
+/etc/init.d/network restart
+
+
+
+#add router
+ip addr del 192.168.10.1/24 dev eth0; \
+ip link add macvlan link eth0 type macvlan mode bridge; \
+ip addr add 192.168.10.1/24 dev macvlan; \
+ip link set macvlan up; \
+ip route del 192.168.10.0/24 dev eth0; \
+ip route del default; \
+ip route add 192.168.10.0/24 dev macvlan; \
+ip route add default via 192.168.10.1 dev macvlan;
+
+
+242
+
+default         216.127.173.241 0.0.0.0         UG    0      0        0 eth0
+216.127.173.240 0.0.0.0         255.255.255.240 U     0      0        0 eth0
+
+ip route del default;
+
+ip route add 173.82.238.0/24 dev eth0;
+ip route add default via 173.82.238.50 dev eth0;
+
+
+
+docker network create -d macvlan \
+    --subnet=10.1.1.0/24 --gateway=10.1.1.1 \
+    --ipv6 --subnet=fe80::/16 --gateway=fe80::1 \
+    -o parent=enp3s0 \
+    -o macvlan_mode=bridge \
+    dMACvLAN
+# WAN 口
+docker network create -d macvlan \
+    --subnet=192.168.254.0/24 --gateway=192.168.254.1 \
+    --ipv6 --subnet=fe81::/16 --gateway=fe81::1 \
+    -o parent=enp1s0 \
+    -o macvlan_mode=bridge \
+    dMACvWAN
+
+```
