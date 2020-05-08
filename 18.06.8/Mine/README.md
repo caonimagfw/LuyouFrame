@@ -143,19 +143,31 @@ systemctl stop docker
 ```
 http://216.127.173.242:8099/openwrt-x86-64-generic-rootfs.tar.gz
 docker import openwrt-x86-64-generic-rootfs.tar.gz lean_openwrt
+docker import ssr-docker.tar lean_openwrt
+docker import d.tar lean_openwrt
+docker import dd.tar lean_openwrt
+
 --ip="192.168.10.10"
 docker stop openwrt && docker rm openwrt 
 --privileged 
 docker run -it -d  -p 422:80 -p 443:443 --restart always --privileged --name openwrt lean_openwrt /sbin/init
 
-docker run -it -d  -p 422:80 -p 443:443 --restart always --name openwrt lean_openwrt:v1 /sbin/init
+docker run -it -d  -p 422:80 -p 443:443 --privileged  --restart always --name openwrt lean_openwrt /sbin/init
+docker run -it -d  -p 422:80 -p 443:443 --privileged  --restart always --name openwrt lean_openwrt:v3 /sbin/init
+
+# docker export f52b2ac5cd96 > ssr-docker.tar
+
+
+# docker import ssr-docker.tar lean_openwrt
+# docker run -it -d  -p 422:80 -p 443:443 --restart always --name openwrt lean_openwrt /sbin/init
+
 docker ps
 
 #remove all image 
 docker rmi xxx 
 docker images
 
-docker exec -it openwrt /bin/sh
+# docker exec -it openwrt /bin/sh
 /etc/init.d/firewall disable
 /etc/init.d/firewall stop
 /etc/init.d/ttyd start
@@ -164,6 +176,9 @@ chmod 777 /etc/init.d/ssrs && /etc/init.d/ssrs start
 
 docker container port openwrt 
 
+screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty
+umount /var/lib/docker/overlay2
+rm -rf /var/lib/docker
 
 ifconfig docker0 down
 docker run -it -d --restart always --privileged --name openwrt /sbin/init
@@ -171,6 +186,9 @@ docker run --ip=172.17.0.10  -dt --name test centos:7
 ```
 
 #new deploy 
+yum install epel-release
+yum install unar
+ yum -y install initscripts && yum clean all
 
 wget http://cc-01-y.bmwpay.net/ssr-dd.zip
 
