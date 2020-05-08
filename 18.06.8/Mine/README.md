@@ -136,21 +136,30 @@ curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
 
 systemctl start docker
+systemctl stop docker
 ```
 
 # docker openwrt 
 ```
+http://216.127.173.242:8099/openwrt-x86-64-generic-rootfs.tar.gz
 docker import openwrt-x86-64-generic-rootfs.tar.gz lean_openwrt
 --ip="192.168.10.10"
 docker stop openwrt && docker rm openwrt 
 --privileged 
-docker run -it -d  -p 422:80 -p 443:443 --restart always --name openwrt lean_openwrt:v2 /sbin/init
+docker run -it -d  -p 422:80 -p 443:443 --restart always --privileged --name openwrt lean_openwrt /sbin/init
+
+docker run -it -d  -p 422:80 -p 443:443 --restart always --name openwrt lean_openwrt:v1 /sbin/init
 docker ps
+
+#remove all image 
+docker rmi xxx 
+docker images
 
 docker exec -it openwrt /bin/sh
 /etc/init.d/firewall disable
 /etc/init.d/firewall stop
-
+/etc/init.d/ttyd start
+/etc/init.d/ssrs restart
 chmod 777 /etc/init.d/ssrs && /etc/init.d/ssrs start
 
 docker container port openwrt 
@@ -160,6 +169,24 @@ ifconfig docker0 down
 docker run -it -d --restart always --privileged --name openwrt /sbin/init
 docker run --ip=172.17.0.10  -dt --name test centos:7
 ```
+
+#new deploy 
+
+wget http://cc-01-y.bmwpay.net/ssr-dd.zip
+
+:8100 {
+root /usr/local/caddy/www
+    timeouts none
+    tls /root/ssl/bmwpay.net/cert.pem /root/ssl/bmwpay.net/privkey.pem
+    gzip
+}
+
+:80 {
+     root /usr/local/caddy/www
+     gzip
+}
+
+unar -p 123456 centos.rar
 #docker in Centos 
 
 ```
@@ -255,7 +282,7 @@ route add -net 192.168.10.0/24  gw 173.82.238.51
 docker run -it -d --restart always  -p 0.0.0.0:422:80 --privileged --name openwrt lean_openwrt /sbin/init
 
 # go to docker
-docker exec -it openwrt /bin/sh
+#docker exec -it openwrt /bin/sh
 
 docker network create -d macvlan --subnet 192.168.10.1/24 --gateway 192.168.10.1 -o parent=eth0 dknet1
 sysctl -w net.ipv4.ip_forward=1
