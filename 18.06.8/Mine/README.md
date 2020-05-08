@@ -117,6 +117,49 @@ make -j2 V=s
 
 ```
 
+
+
+# install docker and tools 
+
+```
+yum -y install wget
+wget --no-check-certificate -O onefast.sh https://raw.githubusercontent.com/caonimagfw/onefast/master/onefast.sh && bash onefast.sh
+
+
+yum -y install net-tools && yum install -y bridge-utils
+
+mkdir docker
+cd docker
+wget http://216.127.173.242:8099/openwrt-x86-64-generic-rootfs.tar.gz
+
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+
+systemctl start docker
+```
+
+# docker openwrt 
+```
+docker import openwrt-x86-64-generic-rootfs.tar.gz lean_openwrt
+--ip="192.168.10.10"
+docker stop openwrt && docker rm openwrt 
+--privileged 
+docker run -it -d  -p 422:80 -p 443:443 --restart always --name openwrt lean_openwrt:v2 /sbin/init
+docker ps
+
+docker exec -it openwrt /bin/sh
+/etc/init.d/firewall disable
+/etc/init.d/firewall stop
+
+chmod 777 /etc/init.d/ssrs && /etc/init.d/ssrs start
+
+docker container port openwrt 
+
+
+ifconfig docker0 down
+docker run -it -d --restart always --privileged --name openwrt /sbin/init
+docker run --ip=172.17.0.10  -dt --name test centos:7
+```
 #docker in Centos 
 
 ```
@@ -124,12 +167,26 @@ yum -y install net-tools
 
 mkdir docker
 cd docker
-
+sudo yum install -y bridge-utils
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
 
 
+yum remove docker docker-common docker-selinux docker-engine 
+rm -rf /var/lib/docker && rm -rf /etc/docker
 wget http://216.127.173.242:8099/openwrt-x86-64-generic-rootfs.tar.gz
+
+systemctl start docker
+systemctl enable docker
+systemctl disable docker
+docker stop openwrt && docker rm openwrt
+brctl show
+
+
+/etc/init.d/firewall disable
+/etc/init.d/firewall stop
+
+　
 
 #ip link set eth0 promisc on
 ip link set docker0 promisc on
