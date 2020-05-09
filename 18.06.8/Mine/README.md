@@ -186,9 +186,9 @@ docker run --ip=172.17.0.10  -dt --name test centos:7
 ```
 
 #new deploy 
-yum install epel-release
-yum install unar
- yum -y install initscripts && yum clean all
+yum -y install epel-release
+yum -y install unar
+
 
 wget http://cc-01-y.bmwpay.net/ssr-dd.zip
 

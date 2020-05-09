@@ -1,0 +1,4 @@
+#lpath = /home/openwrt/18.06.8/openwrt
+
+
+
