@@ -78,10 +78,16 @@ cd openwrt
 cd package
 git clone https://github.com/caonimagfw/openwrt-packages.git
 
+#update feeds 
+cd /home/openwrt/18.06.8/openwrt
+./scripts/feeds update -a && ./scripts/feeds install -a
+
 #repare package
 cd /home/openwrt/18.06.8/openwrt/feeds/packages/libs/libuv/
 rm -rf Makefile
-wget https://github.com/caonimagfw/LuyouFrame/raw/master/18.06.8/patch_package/feeds_pk_libs_libuv/Makefile
+# wget https://github.com/caonimagfw/LuyouFrame/raw/master/18.06.8/patch_package/feeds_pk_libs_libuv/Makefile
+wget https://github.com/caonimagfw/LuyouFrame/raw/master/18.06.8/patch_package/feeds_pk_libs_libuv.zip && unzip feeds_pk_libs_libuv.zip
+cp libuv/Makefile Makefile && rm -rf libuv feeds_pk_libs_libuv.zip
 cd /home/openwrt/18.06.8/openwrt/
 
 cd /home/openwrt/18.06.8/openwrt/package/libs && rm -rf openssl/
@@ -94,14 +100,13 @@ cd /home/openwrt/18.06.8/openwrt/
 
 #wget
 cd /home/openwrt/18.06.8/openwrt/package/feeds/packages && rm -rf wget/
-wget https://github.com/caonimagfw/LuyouFrame/raw/master/18.06.8/patch_package/lede-wget.zip && unzip lede-wget.zip
+wget https://github.com/caonimagfw/LuyouFrame/raw/master/18.06.8/patch_package/pk_feeds_pk_wget.zip && unzip pk_feeds_pk_wget.zip
 cd /home/openwrt/18.06.8/openwrt/
 
-https://github.com/caonimagfw/LuyouFrame/blob/master/18.06.8/patch_package/lede-wget.zip
 
 #crytodev
 cd /home/openwrt/18.06.8/openwrt/package/kernel
-wget https://github.com/caonimagfw/LuyouFrame/raw/master/18.06.8/patch_package/lede-cryptodev.zip && unzip lede-cryptodev.zip
+wget https://github.com/caonimagfw/LuyouFrame/raw/master/18.06.8/patch_package/pk_kernel_cryptodev-linux.zip && unzip pk_kernel_cryptodev-linux.zip
 cd /home/openwrt/18.06.8/openwrt/
 
 #openssl 
@@ -122,11 +127,11 @@ make -j2 V=s
 # install docker and tools 
 
 ```
-yum -y install wget
+# yum -y install wget
 wget --no-check-certificate -O onefast.sh https://raw.githubusercontent.com/caonimagfw/onefast/master/onefast.sh && bash onefast.sh
 
 
-yum -y install net-tools && yum install -y bridge-utils
+# yum -y install net-tools && yum install -y bridge-utils && yum -y install epel-release && yum -y install unar
 
 mkdir docker
 cd docker
@@ -135,17 +140,21 @@ wget http://216.127.173.242:8099/openwrt-x86-64-generic-rootfs.tar.gz
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
 
-systemctl start docker
+systemctl start docker && docker import ssr-docker.tar lean_openwrt
 systemctl stop docker
 ```
+systemctl start docker && docker import ssr-adhome.tar lean_openwrt
+docker run -it -d  -p 422:80 -p 3000:3000 -p 443:443 -p 53:53/udp -p 53:53 --restart always --name openwrt lean_openwrt /sbin/init
 
 # docker openwrt 
-```
+```http://216.127.173.242:8099/op-x86-v2.tar.gz
 http://216.127.173.242:8099/openwrt-x86-64-generic-rootfs.tar.gz
 docker import openwrt-x86-64-generic-rootfs.tar.gz lean_openwrt
 docker import ssr-docker.tar lean_openwrt
 docker import d.tar lean_openwrt
 docker import dd.tar lean_openwrt
+docker import ssr-adhome.tar lean_openwrt
+# docker import op-x86-v2.tar.gz lean_openwrt
 
 --ip="192.168.10.10"
 docker stop openwrt && docker rm openwrt 
@@ -153,14 +162,28 @@ docker stop openwrt && docker rm openwrt
 docker run -it -d  -p 422:80 -p 443:443 --restart always --privileged --name openwrt lean_openwrt /sbin/init
 
 docker run -it -d  -p 422:80 -p 443:443 --privileged  --restart always --name openwrt lean_openwrt /sbin/init
-docker run -it -d  -p 422:80 -p 443:443 --privileged  --restart always --name openwrt lean_openwrt:v3 /sbin/init
+docker run -it -d  -p 443:443 --privileged  --restart always --name openwrt lean_openwrt:v3 /sbin/init
+
+# docker run -it -d  -p 422:80 -p 3000:3000 -p 443:443 -p 53:53/udp -p 53:53 --restart always --name openwrt lean_openwrt /sbin/init
+docker run -it -d  -p 443:443 --restart always --name openwrt lean_openwrt /sbin/init
 
 # docker export f52b2ac5cd96 > ssr-docker.tar
+# docker exec -it openwrt /bin/sh
 
+config server 'ssrs'
+        option timeout '300'
+        option fast_open 'false'
+        option server_port '443'
+        option password ''
+        option encrypt_method 'none'
+        option protocol 'auth_chain_a'
+        option obfs 'tls1.2_ticket_auth'
+        option enable '1'
+        option redirect '*:443#172.17.0.1:8100'
 
 # docker import ssr-docker.tar lean_openwrt
-# docker run -it -d  -p 422:80 -p 443:443 --restart always --name openwrt lean_openwrt /sbin/init
-
+# docker run -it -d -p 422:80 -p 443:443 --restart always --name openwrt lean_openwrt /sbin/init
+docker run -it -d -p 443:443 --restart always --name openwrt lean_openwrt /sbin/init
 docker ps
 
 #remove all image 
@@ -186,14 +209,52 @@ docker run --ip=172.17.0.10  -dt --name test centos:7
 ```
 
 #new deploy 
-yum -y install epel-release
-yum -y install unar
+mkdir docker
+cd docker
+ip link set docker0 promisc on
+yum -y install epel-release && yum -y install unar && yum -y install net-tools && sudo yum install -y bridge-utils 
 
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+
+# docker stop openwrt && docker rm openwrt
+docker import ssr-docker.tar lean_openwrt
+docker run -it -d -p 422:80 -p 443:443 --restart always --name openwrt lean_openwrt /sbin/init
+docker run -it -p 443:443 --restart always --name openwrt lean_openwrt:v1 /sbin/init
+
+docker run -it -d -p 422:80 -p 443:443 --restart always --name openwrt lean_openwrt:v1 /sbin/init
+docker run -it -d -p 443:443 --restart always --name openwrt lean_openwrt:v1 /sbin/init
+
+ docker stop openwrt && docker rm openwrt
+docker run -it -d -p 422:80 -p 443:443 --restart always --name openwrt lean_ss /sbin/init
+
+ docker stop openwrt && docker rm openwrt && docker run -it -d -p 443:443 --restart always --name openwrt lean_openwrt:v1 /sbin/init
+
+docker exec -it openwrt /bin/sh
+sysctl -w net.ipv4.ip_forward=1
+ docker stop openwrt && docker rm openwrt
+
+systemctl start docker
+systemctl enable docker
+
+mkdir docker
+cd docker
+sudo yum install -y bridge-utils
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+
+
+
+
+yum remove docker docker-common docker-selinux docker-engine 
+rm -rf /var/lib/docker && rm -rf /etc/docker
+wget http://216.127.173.242:8099/openwrt-x86-64-generic-rootfs.tar.gz
+\
 
 wget http://cc-01-y.bmwpay.net/ssr-dd.zip
 
 :8100 {
-root /usr/local/caddy/www
+    root /usr/local/caddy/www
     timeouts none
     tls /root/ssl/bmwpay.net/cert.pem /root/ssl/bmwpay.net/privkey.pem
     gzip
@@ -208,7 +269,8 @@ unar -p 123456 centos.rar
 #docker in Centos 
 
 ```
-yum -y install net-tools
+yum -y install net-tools && sudo yum install -y bridge-utils 
+
 
 mkdir docker
 cd docker
