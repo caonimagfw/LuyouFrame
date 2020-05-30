@@ -113,6 +113,14 @@ cd /home/openwrt/18.06.8/openwrt/build_dir/target-x86_64_musl/openssl-1.1.1g/cry
 wget https://github.com/caonimagfw/LuyouFrame/raw/master/18.06.8/patch_package/cryptodev.h
 cd /home/openwrt/18.06.8/openwrt/
 
+#trojan-go
+#maybe not need 
+sudo ln -s /lib/x86_64-linux-gnu/libc.so.6 /lib/libc.so.6
+sudo ln -s /lib/x86_64-linux-gnu/libpthread.so.0 /lib/libpthread.so.0
+edit and add the file 
+ibc.so.6
+libpthread.so.0
+
 ./scripts/feeds update -a && ./scripts/feeds install -a
 
 make menuconfig
