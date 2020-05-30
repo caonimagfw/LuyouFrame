@@ -71,11 +71,10 @@ make INCLUDES="-I/opt/libuv/include" LDFLAGS="-L/opt/libuv/lib" && sudo make ins
 ```
 su - openwrt
 cd /home/openwrt/18.06.8
-wget https://github.com/openwrt/openwrt/archive/v18.06.8.zip
-unzip v18.06.8.zip
-mv openwrt-18.06.8 openwrt
-cd openwrt
-cd package
+wget https://github.com/openwrt/openwrt/archive/v18.06.8.zip && unzip v18.06.8.zip && mv openwrt-18.06.8 openwrt
+
+
+cd /home/openwrt/18.06.8/openwrt/package
 git clone https://github.com/caonimagfw/openwrt-packages.git
 
 #update feeds 
@@ -105,7 +104,7 @@ cd /home/openwrt/18.06.8/openwrt/
 
 
 #crytodev
-cd /home/openwrt/18.06.8/openwrt/package/kernel
+cd /home/openwrt/18.06.8/openwrt/package/kernel/compil
 wget https://github.com/caonimagfw/LuyouFrame/raw/master/18.06.8/patch_package/pk_kernel_cryptodev-linux.zip && unzip pk_kernel_cryptodev-linux.zip
 cd /home/openwrt/18.06.8/openwrt/
 
@@ -122,7 +121,11 @@ make -j2 V=s
 
 ```
 
-
+# compile single ipk 
+```
+cd /home/openwrt/18.06.8/openwrt/
+make package/openwrt-packages/trojan-go/compile V=s
+```
 
 # install docker and tools 
 
