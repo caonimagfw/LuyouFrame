@@ -118,6 +118,7 @@ cd /home/openwrt/18.06.8/openwrt/
 sudo ln -s /lib/x86_64-linux-gnu/libc.so.6 /lib/libc.so.6
 sudo ln -s /lib/x86_64-linux-gnu/libpthread.so.0 /lib/libpthread.so.0
 edit and add the file 
+starge_dir-target_pkginfo lib.
 ibc.so.6
 libpthread.so.0
 
@@ -157,6 +158,94 @@ systemctl stop docker
 systemctl start docker && docker import ssr-adhome.tar lean_openwrt
 docker run -it -d  -p 422:80 -p 3000:3000 -p 443:443 -p 53:53/udp -p 53:53 --restart always --name openwrt lean_openwrt /sbin/init
 
+
+
+```
+cat /proc/swaps
+
+mkdir /data
+dd if=/dev/zero of=/data/swap bs=128 count=8388616
+mkswap /data/swap
+
+swapon /data/swap   
+echo "/data/swap swap swap defaults    0  0" >> /etc/fstab
+
+free -h
+
+
+
+
+
+ apoff /data/swap   
+swapoff -a >/dev/null
+
+```
+
+# docker net 
+```
+netstat -an|grep 8199
+
+firewall-cmd --permanent --zone=public --change-interface=docker0
+firewall-cmd --zone=public  --add-port=8199/tcp --add-port=8200/tcp --permanent
+firewall-cmd --reload
+systemctl restart docker 
+
+sudo service docker restard
+yum install iptables-services -y
+iptables -L docker
+firewall-cmd --remove-port=8199/tcp --remove-port=8200/tcp --permanent
+systemctl stop docker
+firewall-cmd --permanent --new-service=docker
+firewall-cmd --permanent --service=docker --add-port=8199/tcp 
+firewall-cmd --permanent --service=docker --add-port=8200/tcp
+firewall-cmd --permanent --zone=public --add-service=docker
+firewall-cmd --reload
+systemctl restart firewalld &&  firewall-cmd --reload
+systemctl restart docker 
+firewall-cmd --permanent --list-port
+
+iptables -L DOCKER
+
+firewall-cmd --list-port
+--privileged 
+-m 128M --memory-swap=512M
+docker run -it --privileged  -p 8199:80 --restart always --name openwrt trojango /sbin/init
+
+systemctl status firewalld -l
+systemctl stop firewalld
+
+#groupadd docker
+#usermod -aG docker root
+systemctl start docker
+nmcli connection modify docker0 connection.zone trusted
+firewall-cmd --permanent --zone=trusted --change-interface=docker0
+nmcli connection modify docker0 connection.zone trusted
+
+systemctl enable docker
+systemctl restart docker
+```
+# net work docker v2 
+
+```
+OTHER_BRIDGE=br-xxxxx # this is the other random docker bridge (`ip addr` to find)    
+
+ systemctl stop docker
+
+ip link set dev $OTHER_BRIDGE down
+ip link set dev docker0 down
+ip link delete $OTHER_BRIDGE type bridge
+
+systemctl stop docker && ip link set dev docker0 down && ip link delete docker0 type bridge
+systemctl restart docker && systemctl stop docker
+
+iptables -t nat -A POSTROUTING ! -o docker0 -s 172.17.0.0/16 -j MASQUERADE
+iptables -t nat -A POSTROUTING ! -o docker0 -s 172.18.0.0/16 -j MASQUERADE
+
+systemctl start docker
+
+docker-compose down && docker-compose up
+
+```
 # docker openwrt 
 ```http://216.127.173.242:8099/op-x86-v2.tar.gz
 http://216.127.173.242:8099/openwrt-x86-64-generic-rootfs.tar.gz
@@ -168,9 +257,34 @@ docker import ssr-adhome.tar lean_openwrt
 # docker import op-x86-v2.tar.gz lean_openwrt
 
 --ip="192.168.10.10"
+
+firewall-cmd --permanent --zone=trusted --add-interface=docker0
+
+firewall-cmd --zone=public --add-interface=docker0
+
+firewall-cmd --zone=public --add-port=22/tcp --permanent && firewall-cmd --reload
+
+
+firewall-cmd --add-port=8199/tcp --permanent && firewall-cmd --reload
+
+
+systemctl start firewalld
+
+firewall-cmd --permanent --list-port
+
+
+systemctl restart firewalld
+systemctl stop firewalld
+systemctl restart docker 
+service firewalld restart && firewall-cmd --reload
+
+----privileged       
 docker stop openwrt && docker rm openwrt 
 --privileged 
-docker run -it -d  -p 422:80 -p 443:443 --restart always --privileged --name openwrt lean_openwrt /sbin/init
+docker run -it -p 8199:80 -p 8200:443 --restart always --privileged --name openwrt trojango /sbin/init
+docker run -it -p 8199:80 -p 8200:443 --restart always --privileged --name openwrt trojango /sbin/init
+
+docker run -it -p 422:80 -p 443:443 --restart always --privileged --name openwrt lean_openwrt /sbin/init
 
 docker run -it -d  -p 422:80 -p 443:443 --privileged  --restart always --name openwrt lean_openwrt /sbin/init
 docker run -it -d  -p 443:443 --privileged  --restart always --name openwrt lean_openwrt:v3 /sbin/init
@@ -222,15 +336,46 @@ docker run --ip=172.17.0.10  -dt --name test centos:7
 #new deploy 
 mkdir docker
 cd docker
-ip link set docker0 promisc on
-yum -y install epel-release && yum -y install unar && yum -y install net-tools && sudo yum install -y bridge-utils 
+ip link set eth0 promisc on
+yum -y install epel-release && yum -y install unar && yum -y install net-tools && sudo yum install -y bridge-utils && curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
 
-curl -fsSL https://get.docker.com -o get-docker.sh
-sh get-docker.sh
+curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
+
 
 # docker stop openwrt && docker rm openwrt
 docker import ssr-docker.tar lean_openwrt
-docker run -it -d -p 422:80 -p 443:443 --restart always --name openwrt lean_openwrt /sbin/init
+
+docker run -it -d --expose=80 --expose=443 -P -p 80 --privileged  --restart always --name openwrt trojango /sbin/init
+
+docker run -it -d --expose=80 --expose=443 -P -p 8199:80 --privileged  --restart always --name openwrt trojango /sbin/init
+
+firewall-cmd --permanent --list-port
+
+ -p 8199:80 -p 8200:443
+netstat -an | grep 8199
+iptables -L DOCKER 
+
+ip link set eth0 promisc on
+ip link set docker0 promisc on
+
+docker run -it -d  -p 8199:80 -p 8200:443 --restart always --name openwrt trojango /sbin/init
+iptables -t nat -F
+
+docker stop openwrt && docker rm openwrt 
+systemctl restart firewalld && ip link set docker0 promisc on && systemctl restart docker
+
+docker run -it -d -p 8199:80 -p 8200:443 --restart always --name openwrt trojango /sbin/init
+
+ iptables -L DOCKER
+
+docker run -it -d --restart always -p 0.0.0.0:8199:80/tcp --name openwrt trojango /sbin/init
+
+
+ && systemctl stop firewalld
+
+
+docker run -it -d --privileged -p 422:80 -p 443:443 --restart always --name openwrt lean_openwrt /sbin/init
+
 docker run -it -p 443:443 --restart always --name openwrt lean_openwrt:v1 /sbin/init
 
 docker run -it -d -p 422:80 -p 443:443 --restart always --name openwrt lean_openwrt:v1 /sbin/init
@@ -347,9 +492,17 @@ docker stop openwrt && docker rm openwrt
 docker run -it -d --restart always  -p 0.0.0.0:422:80 --network openwrt_wan --name openwrt lean_openwrt /sbin/init
 
 docker run -it -d --restart always  --network openwrt_wan -p 0.0.0.0:422:80 --privileged --name openwrt lean_openwrt /sbin/init
-
-docker ps
+docker run --dns 8.8.8
+docker psf
 ad8623bd77e0 
+
+
+docker run -it -d --net host -p 8199:80 -p 8200:443 --restart always --privileged --name openwrt trojango /sbin/init
+
+--net host
+
+ip link set eth0 promisc on
+docker import http://downloads.openwrt.org/attitude_adjustment/12.09/x86/generic/openwrt-x86-generic-rootfs.tar.gz openwrt-x86-generic-rootfs
 
 	
 docker exec -it ad8623bd77e0 sh

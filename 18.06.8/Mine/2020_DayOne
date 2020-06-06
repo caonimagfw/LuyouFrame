@@ -1,0 +1,158 @@
+
+# some cmd 
+```
+
+firewall-cmd --reload
+firewall-cmd --permanent --list-all --zone=public
+firewall-cmd --permanent --list-all --zone=trusted
+
+docker exec -it openwrt /bin/sh
+docker stop openwrt && docker rm openwrt
+docker run -it -d -p 8888:80 -p 8020:443 --restart always --name openwrt trojango /sbin/init
+```
+
+# set ssh port 
+	```
+	firewall-cmd --zone=public --add-port=58899/tcp --permanent
+	firewall-cmd --reload && firewall-cmd --permanent --list-all --zone=public
+	cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
+
+	vi /etc/ssh/sshd_config
+
+
+	systemctl restart sshd
+
+	yum provides semanage
+	yum -y install policycoreutils-python
+
+	semanage port -a -t ssh_port_t -p tcp 58899
+	semanage port -l | grep ssh
+	semanage port -d -t ssh_port_t -p tcp 22
+	semanage port -l | grep ssh
+	firewall-cmd --zone=public --remove-port=22/tcp --permanent && firewall-cmd --reload 
+	```
+
+# set all fire rule
+	```
+	systemctl stop firewalld && yum -y upgrade firewalld
+	systemctl enable firewalld && systemctl restart firewalld
+
+
+	firewall-cmd --permanent --zone=trusted --add-port=8099/tcp 
+	firewall-cmd --permanent --zone=trusted --add-port=80/tcp --add-port=443/tcp --add-port=8888/tcp 
+	firewall-cmd --permanent --zone=public  --add-forward-port=port=443:proto=tcp:toport=8020
+	firewall-cmd --permanent --zone=public  --add-masquerade 
+	firewall-cmd --permanent --zone=trusted --add-masquerade 
+	firewall-cmd --reload
+
+	```
+# install all tools 
+		```
+		yum -y install wget net-tools bridge-utils && yum -y install epel-release && yum -y install unar
+		wget --no-check-certificate -O caddy_install.sh https://raw.githubusercontent.com/caonimagfw/Caddy/master/caddy_install.sh && bash caddy_install.sh
+
+cat > /usr/local/caddy/Caddyfile <<-EOF
+	:80 {
+		redir https://{host}
+	}
+
+	:8099 {
+		root /usr/local/caddy/www
+		gzip
+	}
+
+EOF
+cat /usr/local/caddy/Caddyfile 
+
+
+	service caddy restart 
+
+		```
+# bbr plus 
+	```
+	wget --no-check-certificate -O onefast.sh https://raw.githubusercontent.com/caonimagfw/onefast/master/onefast.sh && bash onefast.sh
+
+	# please restart the machine 
+
+	sysctl net.ipv4.tcp_available_congestion_control
+	sysctl net.ipv4.tcp_congestion_control
+	sysctl net.core.default_qdisc
+	lsmod | grep bbr
+	sysctl -w net.ipv4.ip_forward=1
+
+	```
+
+# docker 
+	```
+	yum install -y yum-utils device-mapper-persistent-data lvm2
+	yum-config-manager \
+	    --add-repo \
+	    https://download.docker.com/linux/centos/docker-ce.repo
+	yum makecache fast
+	yum list docker-ce --showduplicates | sort -r
+	yum -y install docker-ce-19.03.11 docker-ce-cli-19.03.11 containerd.io
+
+	systemctl restart docker && systemctl stop docker
+		
+	iptables -t nat -F 
+	ifconfig docker0 down 
+	brctl delbr docker0 
+	systemctl restart firewalld && systemctl restart docker
+
+
+	firewall-cmd --permanent --zone=trusted --add-interface=docker0 && firewall-cmd --reload
+
+
+	mkdir /root/docker && cd docker 
+	wget --no-check-certificate  https://github.com/caonimagfw/LuyouFrame/raw/master/18.06.8/Mine/openwrt-go.rar
+	unar -D -p xxxx openwrt-go.rar && rm -rf *.rar
+
+	docker import openwrt-go.tar trojango
+	docker run -it -d -p 8888:80 -p 8020:443 --restart always --name openwrt trojango /sbin/init
+	docker exec -it openwrt /bin/sh
+		killall trojan-go 
+		/etc/init.d/uhttpd  stop
+
+
+
+
+
+
+
+	#docker stop openwrt && docker rm openwrt
+
+
+	# remove docker -----------------------------------------------------
+
+	# yum remove docker \
+	                  docker-client \
+	                  docker-client-latest \
+	                  docker-common \
+	                  docker-latest \
+	                  docker-latest-logrotate \
+	                  docker-logrotate \
+	                  docker-engine
+	yum list installed | grep docker
+
+	yum -y remove xxxx
+	# remove docker -----------------------------------------------------
+
+
+
+# error fixed 
+	```
+	# recreate docker 
+	systemctl stop docker t
+	iptables -t nat -F 
+	ifconfig docker0 down 
+	brctl delbr docker0 
+	systemctl restart firewalld && systemctl restart docker
+
+	# 1--- iproute: "ip -4 neigh flush dev eth0" hangs up 
+	kill that ID
+
+	# 2--- ping mtu package 
+	ping -s $((110 - 28)) www.google.com
+
+	```
+
