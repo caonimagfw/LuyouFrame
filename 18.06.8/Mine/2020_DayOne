@@ -9,6 +9,8 @@ firewall-cmd --permanent --list-all --zone=trusted
 docker exec -it openwrt /bin/sh
 docker stop openwrt && docker rm openwrt
 docker run -it -d -p 8888:80 -p 8020:443 --restart always --name openwrt trojango /sbin/init
+
+docker run -it -d -p 8888:80 -p 8020:443 -v /root/ssl:/opt/ssl --name openwrt trojango:v0 /sbin/init
 ```
 
 # set ssh port 
@@ -103,20 +105,22 @@ cat /usr/local/caddy/Caddyfile
 	firewall-cmd --permanent --zone=trusted --add-interface=docker0 && firewall-cmd --reload
 
 
-	mkdir /root/docker && cd docker 
-	wget --no-check-certificate  https://github.com/caonimagfw/LuyouFrame/raw/master/18.06.8/Mine/openwrt-go.rar
-	unar -D -p xxxx openwrt-go.rar && rm -rf *.rar
+	#ssl 
+	mkdir /root/ssl && cd /root/ssl 
+	wget --no-check-certificate  https://github.com/caonimagfw/LuyouFrame/raw/master/18.06.8/Mine/gfw.com/gfw.com.key.rar
+	unar -D -p xxxx gfw.com.key.rar && rm -rf *.rar
 
-	docker import openwrt-go.tar trojango
-	docker run -it -d -p 8888:80 -p 8020:443 --restart always --name openwrt trojango /sbin/init
+
+	mkdir /root/docker && cd docker 
+	wget --no-check-certificate  https://github.com/caonimagfw/LuyouFrame/raw/master/18.06.8/Mine/gfw.com/gfw.com.docker.rar
+	unar -D -p xxxx gfw.com.docker.rar && rm -rf *.rar
+
+	docker import gfw.com.tar trojango
+	docker run -itd -v /root/ssl:/opt/ssl -p 8888:80 -p 8020:443 --restart always --name openwrt trojango /sbin/init
+
 	docker exec -it openwrt /bin/sh
 		killall trojan-go 
 		/etc/init.d/uhttpd  stop
-
-
-
-
-
 
 
 	#docker stop openwrt && docker rm openwrt
@@ -154,5 +158,23 @@ cat /usr/local/caddy/Caddyfile
 	# 2--- ping mtu package 
 	ping -s $((110 - 28)) www.google.com
 
+	cat /lib/preinit/10_indicate_preinit
+
 	```
 
+
+# container
+	```
+	docker commit -p idid  name:v2
+
+	#export and import 
+	#save and load
+
+	#export 
+	docker images
+	docker export d65 > /usr/local/caddy/www/v0.tar
+
+	#import 
+	docker import xx.tar openwrt
+
+	```
