@@ -94,7 +94,7 @@ cat /usr/local/caddy/Caddyfile
 	yum list docker-ce --showduplicates | sort -r
 	yum -y install docker-ce-19.03.11 docker-ce-cli-19.03.11 containerd.io
 
-	systemctl restart docker && systemctl stop docker
+	systemctl restart docker  
 		
 	iptables -t nat -F 
 	ifconfig docker0 down 
@@ -111,7 +111,7 @@ cat /usr/local/caddy/Caddyfile
 	unar -D -o gfw.com -p xxxx gfw.com.key.rar && rm -rf *.rar
 
 
-	mkdir /root/docker && cd docker 
+	mkdir /root/docker && cd /root/docker 
 	wget --no-check-certificate  https://github.com/caonimagfw/LuyouFrame/raw/master/18.06.8/Mine/gfw.com/gfw.com.docker.rar
 	unar -D -p xxxx gfw.com.docker.rar && rm -rf *.rar
 
@@ -159,6 +159,20 @@ cat /usr/local/caddy/Caddyfile
 	ping -s $((110 - 28)) www.google.com
 
 	cat /lib/preinit/10_indicate_preinit
+	cat /proc/$(pgrep -of kworker)/stack
+	cat /proc/000/stack
+
+	apt-get install trace-cmd
+
+	装上后运行一段时间查看
+
+	trace-cmd record -e workqueue:workqueue_queue_work
+
+	trace-cmd report > result
+	awk '{print $7}' result|sort|uniq -c
+
+	把结果保存到result后，进行分析结果得出：
+	gc_work nf_conntrack
 
 	```
 
@@ -178,3 +192,8 @@ cat /usr/local/caddy/Caddyfile
 	docker import xx.tar openwrt
 
 	```
+
+# ub
+	```
+	firewall-cmd --state
+	ufw disable
