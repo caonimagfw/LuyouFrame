@@ -108,7 +108,7 @@ cat /usr/local/caddy/Caddyfile
 	#ssl 
 	mkdir /root/ssl && cd /root/ssl 
 	wget --no-check-certificate  https://github.com/caonimagfw/LuyouFrame/raw/master/18.06.8/Mine/gfw.com/gfw.com.key.rar
-	unar -D -p xxxx gfw.com.key.rar && rm -rf *.rar
+	unar -D -o gfw.com -p xxxx gfw.com.key.rar && rm -rf *.rar
 
 
 	mkdir /root/docker && cd docker 
