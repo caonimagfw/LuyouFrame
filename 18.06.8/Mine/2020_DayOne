@@ -193,7 +193,19 @@ cat /usr/local/caddy/Caddyfile
 
 	```
 
-# ub
-	```
-	firewall-cmd --state
-	ufw disable
+# mips mipsel
+```
+# go 1.4.4
+set CGO_ENABLE=0
+set GOOS=linux
+set GOARCH=mipsle
+set GOMIPS=softfloat
+go build -tags "client" -ldflags "-s -w"
+
+set CGO_ENABLE=0
+set GOOS=linux
+set GOARCH=mips
+set GOMIPS=softfloat
+go build -tags "client" -ldflags "-s -w"
+
+```
