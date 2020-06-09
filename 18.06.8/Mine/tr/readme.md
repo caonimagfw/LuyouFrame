@@ -11,4 +11,10 @@ wget --no-check-certificate https://github.com/caonimagfw/LuyouFrame/raw/master/
 
 cat /var/etc/trojan-ssr-local.json
 
+  "mux": {
+    "enabled": true,
+    "concurrency": 16,
+    "idle_timeout": 5
+  },		
+
 ```
