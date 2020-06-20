@@ -209,3 +209,162 @@ set GOMIPS=softfloat
 go build -tags "client" -ldflags "-s -w"
 
 ```
+
+
+#  rust 
+trojan [OPTIONS] --local-addr <local-addr> --password <password> <SUBCOMMAND>
+firewall-cmd --add 
+
+firewall-cmd --permanent --zone=public --add-port=3333/tcp
+firewall-cmd --reload
+
+
+mkdir trojan-rs 
+cd trojan-rs 
+
+wget https://github.com/caonimagfw/trojan/raw/master/linux/trojan-rs-0.32
+chmod 777 trojan-rs-0.32
+
+cd /root/trojan-rs 
+./trojan-rs-0.32 server -r 127.0.0.1:8099 -a 0.0.0.0:3333 -p caonima2020 -n "h2"  -k /root/ssl/gfw.com/gfw.com.key -c /root/ssl/gfw.com/gfw.com.key
+
+./trojan-rs-0.32  server -k /root/ssl/gfw.com/gfw.com.key -c /root/ssl/gfw.com/gfw.com.key -r 127.0.0.1:8099  --local-addr 0.0.0.0:3333
+
+
+./trojan-rs-0.32 server -r 127.0.0.1:8099 -a 0.0.0.0:3333 -p caonima2020 -n "h2"  -k /root/ssl/gfw.com/gfw.com.key -c /root/ssl/gfw.com/gfw.com.key
+
+-r 127.0.0.1:8099 -a 0.0.0.0:3333 -p caonima2020 -n "h2" 
+
+
+firewall-cmd --zone=public --list-all
+
+./trojan-rs-0.32  server -k /root/ssl/gfw.com/gfw.com.key -c /root/ssl/gfw.com/gfw.com.key -r 127.0.0.1:8099  --local-addr 0.0.0.0:3333
+
+
+cd /root/trojan-rs 
+
+
+./trojan-rs-0.32 -p caonima2020  -a 0.0.0.0:3333 server -k /root/ssl/gfw.com/gfw.com.key -c /root/ssl/gfw.com/gfw.com.crt -r 127.0.0.1:8099 `RUST_BACKTRACE=1` 
+
+
+
+sudo yum install gcc
+sudo yum install wget
+
+
+wget http://ftp.gnu.org/gnu/glibc/glibc-2.18.tar.gz
+tar  -xvf  glibc-2.18.tar.gz
+cd glibc-2.18
+mkdir  glibc-build
+cd  glibc-build
+../configure  --disable-sanity-checks
+make -j3
+make install
+
+
+# cd glibc-2.18
+# mkdir build && cd build/
+
+
+wget http://ftp.gnu.org/gnu/glibc/glibc-2.18.tar.gz
+tar  -xvf  glibc-2.18.tar.gz
+cd glibc-2.18
+mkdir  glibc-build
+cd  glibc-build
+../configure  --disable-sanity-checks
+../configure --prefix=/usr --disable-profile --enable-add-ons --with-headers=/usr/include --with-binutils=/usr/bin
+make -j4
+make install
+strings /lib64/libc.so.6 |grep GLIBC_
+
+
+
+# make install
+--- 解决中文乱码问题
+# make localedata/install-locales
+--- 检查验证
+# ll /lib64/libc*
+--- 查看系统glibc支持的版本
+# strings /lib64/libc.so.6 |grep GLIBC
+# /lib64/libc.so.6
+
+strings /lib64/libc.so.6 |grep GLIBC_
+
+
+
+/root/trojan-rs/trojan-rs-0.32 -L 0 -p caonima2020  -a 0.0.0.0:3333 server -k /root/ssl/gfw.com/gfw.com.key -c /root/ssl/gfw.com/gfw.com.crt -r 127.0.0.1:8099
+
+cat /root/ssl/gfw.com/gfw.com.key
+cat /root/ssl/gfw.com/gfw.com.crt
+
+ -- RUST_BACKTRACE=1
+
+ firewall-cmd --zone=public --list-all
+
+
+ firewall-cmd --permanent --zone=public --add-port=80/tcp
+firewall-cmd --reload
+
+```````
+/root/trojan-rs/trojan-rs-0.32 -L 2 -p caonima2020  -a 0.0.0.0:3333 server -k /root/ssl/update-2y/update-2y.privkey.pem -c /root/ssl/update-2y/update-2y.cert.pem -r 
+
+/root/trojan-rs/trojan-rs-0.32 -L 2 -p caonima2020  -a 0.0.0.0:3333 server -k  /root/ssl/gfw.com/gfw.com.key  -c /root/ssl/gfw.com/gfw.com.crt  -r 127.0.0.1:8099
+
+
+127.0.0.1:8099
+
+
+
+nohup /root/trojan-rs/trojan-rs-0.32 -L 5 -l /tmp/trojan-rs.log -p caonima2020  -a 0.0.0.0:3333 server -k /root/ssl/update-2y/update-2y.privkey.pem -c /root/ssl/update-2y/update-2y.cert.pem -r 127.0.0.1:8099 > /dev/null 2>&1 &
+
+
+
+
+nohup java FileTest  > /dev/null 2>&1 & 
+
+yum -y install wget
+wget https://raw.githubusercontent.com/caonimagfw/ssr/master/go-docker/go-docker.sh
+
+#cxthhhhh.com
+
+wget --no-check-certificate https://raw.githubusercontent.com/caonimagfw/ssr/master/go-docker/Network-Reinstall-System-Modify.sh 
+chmod a+x Network-Reinstall-System-Modify.sh
+
+bash Network-Reinstall-System-Modify.sh -CentOS_7
+
+http://127.0.0.1:8099/CentOS_7.X_NetInstallation.vhd.gz
+
+
+---
+
+wget https://github.com/caonimagfw/ssr/raw/master/reinstall/CentOS-7.img.part1.rar
+wget https://github.com/caonimagfw/ssr/raw/master/reinstall/CentOS-7.img.part2.rar
+wget https://github.com/caonimagfw/ssr/raw/master/reinstall/CentOS-7.img.part3.rar
+wget https://github.com/caonimagfw/ssr/raw/master/reinstall/CentOS-7.img.part4.rar
+wget https://github.com/caonimagfw/ssr/raw/master/reinstall/CentOS-7.img.part5.rar
+wget https://github.com/caonimagfw/ssr/raw/master/reinstall/CentOS-7.img.part6.rar
+
+unar -D CentOS-7.img.part1.rar
+rm -rf CentOS-7.img.part*
+
+cp CentOS-7.img.gz /usr/local/caddy/www
+
+https://xxxx:xxxx/CentOS-7.img.gz
+
+bash AutoReinstall.sh
+
+------
+
+
+cat CentOS_7.X_NetInstallation.vhd.part* > CentOS_7.X_NetInstallation.vhd.rar
+rm -rf /CentOS_7.X_NetInstallation.vhd.pa*
+unar -D  CentOS_7.X_NetInstallation.vhd.rar
+rm -rf CentOS_7.X_NetInstallation.vhd.rar
+
+wget https://raw.githubusercontent.com/caonimagfw/ssr/master/go-docker/AutoReinstall.sh
+bash AutoReinstall.sh
+
+http://127.0.0.1:8099/CentOS_7.X_NetInstallation.vhd.gz
+
+
+wget –no-check-certificate -O AutoReinstall.sh https://git.io/AutoReinstall.sh && bash AutoReinstall.sh
