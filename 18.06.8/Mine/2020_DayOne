@@ -335,30 +335,7 @@ bash Network-Reinstall-System-Modify.sh -CentOS_7
 http://127.0.0.1:8099/CentOS_7.X_NetInstallation.vhd.gz
 
 
----
 
-wget https://github.com/caonimagfw/ssr/raw/master/reinstall/CentOS-7.img.part1.rar
-wget https://github.com/caonimagfw/ssr/raw/master/reinstall/CentOS-7.img.part2.rar
-wget https://github.com/caonimagfw/ssr/raw/master/reinstall/CentOS-7.img.part3.rar
-wget https://github.com/caonimagfw/ssr/raw/master/reinstall/CentOS-7.img.part4.rar
-wget https://github.com/caonimagfw/ssr/raw/master/reinstall/CentOS-7.img.part5.rar
-wget https://github.com/caonimagfw/ssr/raw/master/reinstall/CentOS-7.img.part6.rar
-
-unar -D CentOS-7.img.part1.rar
-rm -rf CentOS-7.img.part*
-
-cp CentOS-7.img.gz /usr/local/caddy/www
-
-
-m-or.bmwpay.net
-https://xxxx:xxxx/CentOS-7.img.gz
-
-https://m-or.bmwpay.net/CentOS-7.img.gz
-
-
-bash AutoReinstall.sh
-
-------
 
 
 cat CentOS_7.X_NetInstallation.vhd.part* > CentOS_7.X_NetInstallation.vhd.rar
@@ -392,7 +369,35 @@ apt-get install -y xz-utils openssl gawk file
 wget -N –no-check-certificate https://raw.githubusercontent.com/veip007/dd/master/dd-od.sh && chmod +x dd-od.sh && ./dd-od.sh
 
 
+
+------------------------------------------------------------------------------------
+
+wget https://github.com/caonimagfw/ssr/raw/master/reinstall/CentOS-7.img.part1.rar
+wget https://github.com/caonimagfw/ssr/raw/master/reinstall/CentOS-7.img.part2.rar
+wget https://github.com/caonimagfw/ssr/raw/master/reinstall/CentOS-7.img.part3.rar
+wget https://github.com/caonimagfw/ssr/raw/master/reinstall/CentOS-7.img.part4.rar
+wget https://github.com/caonimagfw/ssr/raw/master/reinstall/CentOS-7.img.part5.rar
+wget https://github.com/caonimagfw/ssr/raw/master/reinstall/CentOS-7.img.part6.rar
+
+unar -D CentOS-7.img.part1.rar
+rm -rf CentOS-7.img.part*
+
+cp CentOS-7.img.gz /usr/local/caddy/www
+
+
+m-or.bmwpay.net
+https://xxxx:xxxx/CentOS-7.img.gz
+
+https://m-or.bmwpay.net/CentOS-7.img.gz
+
+
+bash AutoReinstall.sh
+
+------
+
 ----
+Pwd@CentOS
+
 wget https://raw.githubusercontent.com/caonimagfw/ssr/master/go-docker/AutoReinstall.sh
 bash AutoReinstall.sh
 8
