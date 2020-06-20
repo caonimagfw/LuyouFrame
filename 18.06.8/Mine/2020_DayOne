@@ -349,7 +349,12 @@ rm -rf CentOS-7.img.part*
 
 cp CentOS-7.img.gz /usr/local/caddy/www
 
+
+m-or.bmwpay.net
 https://xxxx:xxxx/CentOS-7.img.gz
+
+https://m-or.bmwpay.net/CentOS-7.img.gz
+
 
 bash AutoReinstall.sh
 
@@ -363,8 +368,52 @@ rm -rf CentOS_7.X_NetInstallation.vhd.rar
 
 wget https://raw.githubusercontent.com/caonimagfw/ssr/master/go-docker/AutoReinstall.sh
 bash AutoReinstall.sh
+https://m-or.bmwpay.net/CentOS-7.img.gz
+
 
 http://127.0.0.1:8099/CentOS_7.X_NetInstallation.vhd.gz
 
 
 wget –no-check-certificate -O AutoReinstall.sh https://git.io/AutoReinstall.sh && bash AutoReinstall.sh
+
+
+https://ldpan.com/d/os/dd/cxthhhhh/CentOS_7.X_NetInstallation.vhd.gz
+
+
+
+RedHat/CentOS:
+yum install -y xz openssl gawk file
+
+②. Debian/Ubuntu:
+apt-get install -y xz-utils openssl gawk file
+
+
+
+wget -N –no-check-certificate https://raw.githubusercontent.com/veip007/dd/master/dd-od.sh && chmod +x dd-od.sh && ./dd-od.sh
+
+
+----
+wget https://raw.githubusercontent.com/caonimagfw/ssr/master/go-docker/AutoReinstall.sh
+bash AutoReinstall.sh
+8
+https://m-or.bmwpay.net/CentOS-7.img.gz
+
+
+BOOTPROTO=none
+DEFROUTE=yes
+DEVICE=eth0
+GATEWAY=x.x.x.1
+IPADDR=x.x.x.x
+IPV6INIT=no
+NETMASK=255.255.255.192
+NM_CONTROLLED=no
+ONBOOT=yes
+TYPE=Ethernet
+USERCTL=no
+DNS1=8.8.8.8
+
+-----
+
+
+[root@miv-10 ~]# IPADDR=5.252.177.218
+[root@miv-10 ~]#
