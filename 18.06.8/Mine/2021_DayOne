@@ -131,4 +131,9 @@ yum  -y install autoconf automake libtool
 
 ```
 
+---cpu
+
+yum install epel-release
+yum install cpulimit
+cpulimit --exe trojan-go --limit 40 &
 
