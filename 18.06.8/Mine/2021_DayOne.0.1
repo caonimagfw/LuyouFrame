@@ -41,16 +41,16 @@ firewall-cmd --zone=trusted --remove-port=22/tcp --permanent && firewall-cmd --r
 # set all firewall , 
 systemctl stop firewalld && yum -y upgrade firewalld
 systemctl enable firewalld && systemctl restart firewalld
-firewall-cmd --permanent --zone=public --add-port=10111/tcp 
+firewall-cmd --permanent --zone=public --add-port=10222/tcp 
 firewall-cmd --permanent --zone=public --add-port=20677/tcp --add-port=20688/tcp
 firewall-cmd --permanent --zone=public --add-port=30677/tcp --add-port=30688/tcp
 firewall-cmd --permanent --zone=public --add-port=40677/tcp --add-port=40688/tcp
-firewall-cmd --permanent --zone=public  --add-forward-port=port=20677:proto=tcp:toport=10111
-firewall-cmd --permanent --zone=public  --add-forward-port=port=20688:proto=tcp:toport=10111
-firewall-cmd --permanent --zone=public  --add-forward-port=port=30677:proto=tcp:toport=10111
-firewall-cmd --permanent --zone=public  --add-forward-port=port=30688:proto=tcp:toport=10111
-firewall-cmd --permanent --zone=public  --add-forward-port=port=40677:proto=tcp:toport=10111
-firewall-cmd --permanent --zone=public  --add-forward-port=port=40688:proto=tcp:toport=10111
+firewall-cmd --permanent --zone=public  --add-forward-port=port=20677:proto=tcp:toport=10222
+firewall-cmd --permanent --zone=public  --add-forward-port=port=20688:proto=tcp:toport=10222
+firewall-cmd --permanent --zone=public  --add-forward-port=port=30677:proto=tcp:toport=10222
+firewall-cmd --permanent --zone=public  --add-forward-port=port=30688:proto=tcp:toport=10222
+firewall-cmd --permanent --zone=public  --add-forward-port=port=40677:proto=tcp:toport=10222
+firewall-cmd --permanent --zone=public  --add-forward-port=port=40688:proto=tcp:toport=10222
 firewall-cmd --permanent --zone=public  --add-masquerade 
 firewall-cmd --permanent --zone=trusted --add-masquerade
 echo "net.ipv4.icmp_echo_ignore_all=1" >> /etc/sysctl.conf
@@ -92,15 +92,18 @@ yum -y install docker-ce-19.03.11 docker-ce-cli-19.03.11 containerd.io
 systemctl enable docker && systemctl restart docker  
 
 mkdir /root/docker && cd /root/docker
-wget --no-check-certificate  https://github.com/caonimagfw/LuyouFrame/raw/master/18.06.8/Mine/2021/trojan-2021.rar
-unar -D -p xxxx trojan-2021.rar && rm -rf *.rar
+wget --no-check-certificate  https://github.com/caonimagfw/LuyouFrame/raw/master/18.06.8/Mine/2021/trojan-2021-r.rar
+unar -D -p xxxx trojan-2021-r.rar && rm -rf *.rar
 systemctl restart docker  
-docker import trojan-2021.tar trojan:2021
-docker run --name trojan-go -itd --network host trojan:2021 /usr/local/bin/trojan-go -config /etc/trojan/config.json
+docker import trojan-2021-r.tar trojan-r:2021
+docker run --name trojan-r -itd --network host trojan-r:2021 /usr/local/bin/trojan-r -config /etc/trojan-r/server.toml
 
 --cpu-period=100000 --cpu-quota=40000
 
-docker run --name trojan-go -itd --cpu-period=100000 --cpu-quota=21000 --network host trojan:2021 /usr/local/bin/trojan-go -config /etc/trojan/config.json
+docker run --name trojan-r -itd --cpu-period=10000 --cpu-quota=1302 --network host trojan-r:2021 /usr/local/bin/trojan-r --config /etc/trojan-r/server.toml
+
+
+docker run --name trojan-r -itd --cpu-period=10000 --cpu-quota=1302 --network host trojan-r:v1 /usr/local/bin/trojan-r --config /etc/trojan-r/server.toml
 
 
 	```
