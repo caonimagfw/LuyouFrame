@@ -103,7 +103,11 @@ docker run --name trojan-r -itd --network host trojan-r:2021 /usr/local/bin/troj
 docker run --name trojan-r -itd --cpu-period=10000 --cpu-quota=1302 --network host trojan-r:2021 /usr/local/bin/trojan-r --config /etc/trojan-r/server.toml
 
 
-docker run --name trojan-r -itd --cpu-period=10000 --cpu-quota=1302 --network host trojan-r:v1 /usr/local/bin/trojan-r --config /etc/trojan-r/server.toml
+docker run --name trojan-r -itd --cpu-period=10000 --cpu-quota=6001 --network host trojan-r:v1 /usr/local/bin/trojan-r --config /etc/trojan-r/server.toml
+
+docker run --name trojan-r -itd --cpu-period=100000 --cpu-quota=15020 --network host trojan-r:v1 /usr/local/bin/trojan-r --config /etc/trojan-r/server.toml
+
+docker run --name trojan-r -itd --cpu-period=10000 --cpu-quota=6001 --network host trojan-r:v1 /usr/local/bin/trojan-go -config /etc/trojan/config.json
 
 
 	```
@@ -117,7 +121,7 @@ docker run \
     --network host \
     p4gefau1t/trojan-go:nightly
 
-docker exec -it trojan-go /bin/sh
+docker exec -it trojan-r /bin/sh
 
 #ipv6  vi /etc/sysctl.conf
 
