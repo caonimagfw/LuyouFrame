@@ -1,0 +1,17 @@
+openssl ecparam -genkey -name prime256v1  -out root_ca.key
+
+openssl ecparam -list_curves 
+openssl ecparam -out ecparam.pem -name prime256v1 
+openssl genpkey -paramfile ecparam.pem -out server.key
+
+openssl req -new -sha256 -key server.key -out server.csr -subj "/C=CN/ST=Fuck/L=GFW/O=Fuck GFW/OU=GFW Dead/CN=gfw.com/CN=gfw.com/CN=*.gfw.com/emailAddress=gfw@fuck.com"
+
+
+ openssl req -text -noout -in server.csr
+
+ openssl x509 -req -days 36500 -in server.csr -signkey server.key -out server.crt
+
+
+ 
+
+http.ListenAndServeTLS(":443", "server.crt", "server.key", &h)
