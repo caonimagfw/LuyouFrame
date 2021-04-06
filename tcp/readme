@@ -12,6 +12,52 @@ openssl req -new -sha256 -key server.key -out server.csr -subj "/C=CN/ST=Fuck/L=
  openssl x509 -req -days 36500 -in server.csr -signkey server.key -out server.crt
 
 
- 
+ https://www.scottbrady91.com/C-Sharp/PEM-Loading-in-dotnet-core-and-dotnet
+ https://www.scottbrady91.com/OpenSSL/Creating-Elliptical-Curve-Keys-using-OpenSSL
 
 http.ListenAndServeTLS(":443", "server.crt", "server.key", &h)
+
+
+# ca
+openssl ecparam -out ecparam.pem -name prime256v1
+openssl ecparam -name prime256v1 -genkey -noout -out  ec-private.pem
+openssl ec -in ec-private.pem -pubout -out ec-public.pem
+
+# optional: create a self-signed certificate
+# openssl req -new -x509 -key ec-private.pem -out cert.pem -days 360
+ openssl req -new -x509 -key ec-private.pem -out cert.pem -days 36500 -subj "/C=CN/ST=Fuck/L=GFW/O=Fuck GFW/OU=GFW Dead/CN=gfw.com/CN=gfw.com/CN=*.gfw.com/emailAddress=gfw@fuck.com"
+
+# optional: convert pem to pfx
+openssl pkcs12 -export -inkey private-key.pem -in cert.pem -out cert.pfx
+
+
+openssl genpkey -paramfile ecparam.pem -out ca.key
+openssl req -new -key ca.key -out ca.csr -subj "/C=CN/ST=Fuck/L=GFW/O=Fuck GFW/OU=GFW Dead/CN=gfw.com/CN=gfw.com/CN=*.gfw.com/emailAddress=gfw@fuck.com"
+openssl req -x509 -sha256 -days 36500 -in ca.csr -key ca.key -out ca.crt
+openssl pkcs12 -export -passout pass:1234 -inkey ca.key -in ca.crt -out ca.pfx
+openssl pkcs12 -passin pass:1234 -passout pass:1234 -in ca.pfx -out ca.pem
+
+
+openssl genrsa -passout pass:qwerty -out ca-secret.key 4096
+openssl rsa -passin pass:qwerty -in ca-secret.key -out ca.key
+openssl req -new -x509 -days 3650 -subj '/C=BY/ST=Belarus/L=Minsk/O=Example root CA/OU=Example CA unit/CN=example.com' -key ca.key -out ca.crt
+openssl pkcs12 -export -passout pass:qwerty -inkey ca.key -in ca.crt -out ca.pfx
+openssl pkcs12 -passin pass:qwerty -passout pass:qwerty -in ca.pfx -out ca.pem
+
+# server
+openssl genpkey -paramfile ecparam.pem -out server.key
+openssl req -new -key server.key -out server.csr -subj "/C=CN/ST=Fuck/L=GFW/O=Fuck GFW/OU=GFW Dead/CN=gfw.com/CN=gfw.com/CN=*.gfw.com/emailAddress=gfw@fuck.com"
+openssl x509 -req -days 36500 -in server.csr -CA ca.pem  -CAkey ca.key -out server.crt -CAcreateserial
+openssl pkcs12 -export -passout pass:1234 -inkey server.key -in server.crt -out server.pfx
+openssl pkcs12 -passin pass:1234 -passout pass:1234 -in server.pfx -out server.pem
+
+
+openssl genrsa -passout pass:qwerty -out server-secret.key 4096
+openssl rsa -passin pass:qwerty -in server-secret.key -out server.key
+openssl req -new -subj '/C=BY/ST=Belarus/L=Minsk/O=Example server/OU=Example server unit/CN=server.example.com' -key server.key -out server.csr
+openssl x509 -req -days 3650 -in server.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out server.crt
+openssl pkcs12 -export -passout pass:qwerty -inkey server.key -in server.crt -out server.pfx
+openssl pkcs12 -passin pass:qwerty -passout pass:qwerty -in server.pfx -out server.pem
+
+
+
