@@ -61,3 +61,46 @@ openssl pkcs12 -passin pass:qwerty -passout pass:qwerty -in server.pfx -out serv
 
 
 
+
+SSL
+
+1. rsa self signed
+openssl genrsa -out server-secret.key 4096
+openssl rsa -passin pass:1234 -in server-secret.key -out server.key
+openssl req -new -subj '/C=CN/ST=Fuck/L=GFW/O=Fuck GFW/OU=GFW Dead/CN=gfw.com/CN=gfw.com/CN=*.gfw.com/emailAddress=gfw@fuck.com' -key server.key -out server.csr
+openssl x509 -req -in server.csr -out server.crt -signkey server.key -days 36500
+openssl pkcs12 -export -passout pass:1234 -inkey server.key -in server.crt -out server.pfx
+openssl pkcs12 -passin pass:1234 -passout pass:1234 -in server.pfx -out server.pem
+
+# openssl x509 -req -days 3650 -in server.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out server.crt
+
+var privatePemFile = "server.key";
+var certPemFile = "server.pem";
+
+2. ecdsa self signed
+
+#prime256v1
+openssl ecparam -list_curves
+
+openssl ecparam -out ec-key.pem -name prime256v1 -genkey 
+openssl req -new -key ec-key.pem -x509 -nodes -days 36500 -out cert.pem -subj '/C=CN/ST=Fuck/L=GFW/O=Fuck GFW/OU=GFW Dead/CN=gfw.com/CN=gfw.com/CN=*.gfw.com/emailAddress=gfw@fuck.com'
+
+
+var privatePemFile = "ec-key.pem";
+var certPemFile = "cert.pem";
+
+var cancelTokenSource = new CancellationTokenSource(CancellationTokenTime);
+var sslOptions = new SslServerAuthenticationOptions
+{
+    ServerCertificate = g_pfx,
+    ClientCertificateRequired = false,
+    EnabledSslProtocols =  SslProtocols.None,
+    CertificateRevocationCheckMode = X509RevocationMode.NoCheck,                        
+    ApplicationProtocols = new List<SslApplicationProtocol>()
+};
+
+ss.AuthenticateAsServerAsync( 
+    sslOptions, cancelTokenSource.Token
+).GetAwaiter();
+
+
