@@ -159,4 +159,22 @@ scl enable devtoolset-7 bash
 which gcc
 gcc --version
 
+---------
+
+wget --no-check-certificate  https://github.com/caonimagfw/LuyouFrame/raw/master/18.06.8/Mine/2021/trojangfw.rar
+unar -D -p xxxx trojangfw.rar && rm -rf *.rar
+systemctl restart docker  
+docker import trojangfw.tar trojangfw:2021
+
+docker run --name trojan-gfw -itd --cpu-period=10000 --cpu-quota=9000 --network host trojangfw:2021 /usr/local/bin/trojan /etc/trojan/config-gfw.json
+
+firewall-cmd --permanent --zone=public --add-port=10222/tcp 
+firewall-cmd --reload
+
+10222
+
+
+
+
+
 

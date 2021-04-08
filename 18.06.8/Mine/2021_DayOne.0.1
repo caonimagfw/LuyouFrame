@@ -21,6 +21,7 @@ sysctl -w net.ipv4.ip_forward=1
 # set ssh port
 
 ```
+systemctl start firewalld
 firewall-cmd --zone=public --add-port=58899/tcp --permanent
 firewall-cmd --reload && firewall-cmd --permanent --list-all --zone=public
 cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
