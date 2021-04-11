@@ -1,0 +1,43 @@
+{
+    "run_type": "server",
+    "local_addr": "0.0.0.0",
+    "local_port": 10111,
+    "remote_addr": "127.0.0.1",
+    "remote_port": 8099,
+    "dns": [
+        "1.1.1.1",
+        "8.8.4.4"
+    ],
+    "buffer_size": 16,
+    "tcp": {
+        "no_delay": false,
+        "keep_alive": false,
+        "reuse_port": true,
+        "fast_open": false
+    },
+    "password": [
+        "xxxxxxxx",
+        "xxxxxxxx"
+    ],
+    "log_level": 5,
+    "LogFile": "/etc/trojan/trojan_go.log",
+    "ssl": {
+        "reuse_session": true,
+	"session_ticket": true,
+	"session_timeout":600,
+        "cert": "/root/test/server.crt",
+        "key": "/root/test/server.key",
+        "cipher": "ECDHE-ECDSA-CHACHA20-POLY1305",
+        "cipher_tls13": "TLS_CHACHA20_POLY1305_SHA256",
+	"prefer_sever_cipher":true,
+	"alpn":[
+		"h2",
+		"http/1.1"
+	],
+        "fingerprint": "auto",
+        "curves": "",
+        "sni": "*.gfw.com",
+        "verify_hostname": false
+    },
+    "enable": 1
+}
