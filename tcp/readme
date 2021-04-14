@@ -83,7 +83,8 @@ var certPemFile = "server.pem";
 openssl ecparam -list_curves
 
 openssl ecparam -out ec-key.pem -name prime256v1 -genkey 
-openssl req -new -key ec-key.pem -x509 -nodes -days 36500 -out cert.pem -subj '/C=CN/ST=Fuck/L=GFW/O=Fuck GFW/OU=GFW Dead/CN=gfw.com/CN=gfw.com/CN=*.gfw.com/emailAddress=gfw@fuck.com'
+openssl req -new -key ec-key.pem -x509 -nodes -days 36500 -out bmwpay.pem -subj '/C=CN/ST=Fuck/L=GFW/O=Fuck GFW/OU=GFW Dead/CN=bmwpay.net/CN=*.bmwpay.net/emailAddress=gfw@fuck.com'
+
 
 
 var privatePemFile = "ec-key.pem";
@@ -102,5 +103,13 @@ var sslOptions = new SslServerAuthenticationOptions
 ss.AuthenticateAsServerAsync( 
     sslOptions, cancelTokenSource.Token
 ).GetAwaiter();
+
+#success
+openssl req -x509 -nodes -days 36500 -newkey ec:<(openssl ecparam -name prime256v1) -keyout bmwpay.key.pem -out bmwpay.cert.pem -subj "/C=CN/ST=Fuck/L=GFW/O=Fuck GFW/OU=GFW Dead/CN=bmwpay.net/CN=*.bmwpay.net/emailAddress=gfw@fuck.com"
+
+
+
+
+
 
 
