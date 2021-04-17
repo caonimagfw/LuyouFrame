@@ -166,15 +166,32 @@ unar -D -p xxxx trojangfw.rar && rm -rf *.rar
 systemctl restart docker  
 docker import trojangfw.tar trojangfw:2021
 
-docker run --name trojan-gfw -itd --cpu-period=10000 --cpu-quota=9000 --network host trojangfw:2021 /usr/local/bin/trojan /etc/trojan/config-gfw.json
+docker run --name trojan-gfw -itd --cpu-period=10000 --cpu-quota=3000 --network host trojangfw:2021 /usr/local/bin/trojan /etc/trojan/config-gfw.json
 
 firewall-cmd --permanent --zone=public --add-port=10222/tcp 
 firewall-cmd --reload
 
 10222
 
+docker run --name trojan-lite-r -itd --cpu-period=10000 --cpu-quota=5000 --network host trojangfw:2021 /usr/local/bin/trojan /etc/trojan/config-gfw.json
 
 
+docker exec -it trojan-lite-r /bin/sh
+
+ /usr/local/bin/tr-lite-musl-2048  0.0.0.0:10222 xxxx --cert /etc/trojan/bmwpay.cert.pem --key /etc/trojan/bmwpay.key.pem
+
+
+docker run --name trojan-lite-r -itd --cpu-period=10000 --cpu-quota=2999 --network host trojan-r:2021 /usr/local/bin/tr-lite-musl-2048  0.0.0.0:10222 xxxx --cert /etc/trojan/bmwpay.cert.pem --key /etc/trojan/bmwpay.key.pem
+
+--2048
+wget --no-check-certificate  https://github.com/caonimagfw/LuyouFrame/raw/master/18.06.8/Mine/2021/trojan-2048.rar
+unar -D -p xxxx trojan-2048.rar && rm -rf *.rar
+docker import trojan-lite-2048.tar trojan-r:2021
+docker run --name trojan-lite-r -itd --cpu-period=10000 --cpu-quota=2999 --network host trojan-r:2021 /usr/local/bin/tr-lite-musl-2048  0.0.0.0:10111 xxxx --cert /etc/trojan/bmwpay.cert.pem --key /etc/trojan/bmwpay.key.pem
+
+docker stop trojan-gfw && docker rm trojan-gfw
+docker images
+docker rmi 
 
 
 
