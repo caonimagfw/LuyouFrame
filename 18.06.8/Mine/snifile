@@ -1,0 +1,286 @@
+
+# /etc/sniproxy.conf
+```
+user daemon
+pidfile /var/tmp/sniproxy.pid
+
+error_log {
+   # syslog daemon
+ filename /var/log/sniproxy/http_error.log
+
+    priority debug
+}
+
+resolver {
+    nameserver 8.8.4.4 # local dns should be better
+    mode ipv4_only
+}
+listener 80 {
+    proto http
+	bad_requests log
+    access_log {
+        filename /var/log/sniproxy/http_access.log
+        priority debug
+    }
+}
+listener 443 {
+    proto tls
+	bad_requests log
+    access_log {
+        filename /var/log/sniproxy/https_access.log
+        priority debug
+    }
+}
+
+table {
+.*disneynow\.com$ *
+    (.*\.|)iplocation\.net$ *
+.*d9.flashtalking\.com$ *
+.*disney-portal.my.onetrust\.com$ *
+.*disneyplus.bn5x\.net$ *
+.*js-agent.newrelic\.com$ *
+.*adobedtm\.com$ *
+.*disney-plus\.net$ *
+.*disneyplus\.com$ *
+.*disneyplus.com.ssl.sc.omtrdc\.net$ *
+.*dssott\.com$ *
+.*dssott.com.akamaized\.net$ *
+.*bamgrid\.com$ *
+.*bam.nr-data\.net$ *
+.*registerdisney.go\.com$ *
+.*cws.conviva\.com$ *
+.*braze\.com$ *
+.*execute-api.us-east-1.amazonaws\.com$ *
+    .*akadns\.net$ *
+    .*akam\.net$ *
+    .*akamai\.com$ *
+    .*akamai\.net$ *
+    .*akamaiedge\.net$ *
+    .*akamaihd\.net$ *
+    .*akamaistream\.net$ *
+    .*akamaitech\.net$ *
+    .*akamaitechnologies\.com$ *
+    .*akamaitechnologies\.fr$ *
+    .*akamaized\.net$ *
+    .*edgekey\.net$ *
+    .*edgesuite\.net$ *
+    .*srip\.net$ *
+    .*footprint\.net$ *
+    .*level3\.net$ *
+    .*llnwd\.net$ *
+    .*edgecastcdn\.net$ *
+    .*cloudfront\.net$ *
+    .*netflix\.com$ *
+    .*netflix\.net$ *
+    .*nflximg\.net$ *
+    .*nflxvideo\.net$ *
+    .*nflxso\.net$ *
+    .*nflxext\.com$ *
+    .*hulu\.com$ *
+    .*huluim\.com$ *
+    .*hbonow\.com$ *
+    .*hbogo\.com$ *
+    .*hbo\.com$ *
+    .*amazon\.com$ *
+    .*amazon\.co\.uk$ *
+    .*amazonvideo\.com$ *
+    .*crackle\.com$ *
+    .*pandora\.com$ *
+    .*vudu\.com$ *
+    .*blinkbox\.com$ *
+    .*abc\.com$ *
+    .*fox\.com$ *
+    .*theplatform\.com$ *
+    .*nbc\.com$ *
+    .*nbcuni\.com$ *
+    .*ip2location\.com$ *
+    .*pbs\.org$ *
+    .*warnerbros\.com$ *
+    .*southpark\.cc\.com$ *
+    .*cbs\.com$ *
+    .*brightcove\.com$ *
+    .*cwtv\.com$ *
+    .*spike\.com$ *
+    .*go\.com$ *
+    .*mtv\.com$ *
+    .*mtvnservices\.com$ *
+    .*playstation\.net$ *
+    .*uplynk\.com$ *
+    .*maxmind\.com$ *
+    .*disney\.com$ *
+    .*disneyjunior\.com$ *
+    .*xboxlive\.com$ *
+    .*lovefilm\.com$ *
+    .*turner\.com$ *
+    .*amctv\.com$ *
+    .*sho\.com$ *
+    .*mog\.com$ *
+    .*wdtvlive\.com$ *
+    .*beinsportsconnect\.tv$ *
+    .*beinsportsconnect\.net$ *
+    .*fig\.bbc\.co\.uk$ *
+    .*open\.live\.bbc\.co\.uk$ *
+    .*sa\.bbc\.co\.uk$ *
+    .*www\.bbc\.co\.uk$ *
+    .*crunchyroll\.com$ *
+    .*ifconfig\.co$ *
+    .*omtrdc\.net$ *
+    .*sling\.com$ *
+    .*movetv\.com$ *
+    .*happyon\.jp$ *
+    .*abema\.tv$ *
+    .*hulu\.jp$ *
+    .*optus\.com\.au$ *
+    .*optusnet\.com\.au$ *
+    .*gamer\.com\.tw$ *
+    .*bahamut\.com\.tw$ *
+    .*hinet\.net$ *
+}
+```
+
+# /etc/dnsmasq.d/custom_netflix.conf
+ß
+```
+domain-needed
+bogus-priv
+no-resolv
+no-poll
+all-servers
+server=8.8.8.8
+cache-size=2048
+local-ttl=60
+interface=eth0
+interface=lo
+address=/disneynow.com/7.7.7.7
+address=/iplocation.net/7.7.7.7
+address=/d9.flashtalking.com/7.7.7.7
+address=/disney-portal.my.onetrust.com/7.7.7.7
+address=/disneyplus.bn5x.net/7.7.7.7
+address=/js-agent.newrelic.com/7.7.7.7
+address=/adobedtm.com/7.7.7.7
+address=/disney-plus.net/7.7.7.7
+address=/disneyplus.com/7.7.7.7
+address=/disneyplus.com.ssl.sc.omtrdc.net/7.7.7.7
+address=/dssott.com/7.7.7.7
+address=/dssott.com.akamaized.net/7.7.7.7
+address=/bamgrid.com/7.7.7.7
+address=/bam.nr-data.net/7.7.7.7
+address=/registerdisney.go.com/7.7.7.7
+address=/cws.conviva.com/7.7.7.7
+address=/braze.com/7.7.7.7
+address=/execute-api.us-east-1.amazonaws.com/7.7.7.7
+
+#nf 
+#nf
+address=/nflxvideo.net/7.7.7.7
+address=/netflix.com/7.7.7.7
+address=/nflxext.com/7.7.7.7
+address=/nflximg.com/7.7.7.7
+address=/nflximg.net/7.7.7.7
+address=/nflxso.net/7.7.7.7
+address=/nflxvideo.net/7.7.7.7
+address=/netflix/7.7.7.7
+address=/nflx/7.7.7.7
+address=/fast.com/7.7.7.7
+address=/netflixdnstest0.com/7.7.7.7
+address=/netflixdnstest1.com/7.7.7.7
+address=/netflixdnstest2.com/7.7.7.7
+address=/netflixdnstest3.com/7.7.7.7
+address=/netflixdnstest4.com/7.7.7.7
+address=/netflixdnstest5.com/7.7.7.7
+address=/netflixdnstest6.com/7.7.7.7
+address=/netflixdnstest7.com/7.7.7.7
+address=/netflixdnstest8.com/7.7.7.7
+address=/netflixdnstest9.com/7.7.7.7
+address=/netflix.com.edgesuite.net/7.7.7.7
+
+address=/akadns.net/7.7.7.7
+address=/akam.net/7.7.7.7
+address=/akamai.com/7.7.7.7
+address=/akamai.net/7.7.7.7
+address=/akamaiedge.net/7.7.7.7
+address=/akamaihd.net/7.7.7.7
+address=/akamaistream.net/7.7.7.7
+address=/akamaitech.net/7.7.7.7
+address=/akamaitechnologies.com/7.7.7.7
+address=/akamaitechnologies.fr/7.7.7.7
+address=/akamaized.net/7.7.7.7
+address=/edgekey.net/7.7.7.7
+address=/edgesuite.net/7.7.7.7
+address=/srip.net/7.7.7.7
+address=/footprint.net/7.7.7.7
+address=/level3.net/7.7.7.7
+address=/llnwd.net/7.7.7.7
+address=/edgecastcdn.net/7.7.7.7
+address=/cloudfront.net/7.7.7.7
+address=/netflix.com/7.7.7.7
+address=/netflix.net/7.7.7.7
+address=/nflximg.net/7.7.7.7
+address=/nflxvideo.net/7.7.7.7
+address=/nflxso.net/7.7.7.7
+address=/nflxext.com/7.7.7.7
+address=/hulu.com/7.7.7.7
+address=/huluim.com/7.7.7.7
+address=/hbonow.com/7.7.7.7
+address=/hbogo.com/7.7.7.7
+address=/hbo.com/7.7.7.7
+address=/amazon.com/7.7.7.7
+address=/amazon.co.uk/7.7.7.7
+address=/amazonvideo.com/7.7.7.7
+address=/crackle.com/7.7.7.7
+address=/pandora.com/7.7.7.7
+address=/vudu.com/7.7.7.7
+address=/blinkbox.com/7.7.7.7
+address=/abc.com/7.7.7.7
+address=/fox.com/7.7.7.7
+address=/theplatform.com/7.7.7.7
+address=/nbc.com/7.7.7.7
+address=/nbcuni.com/7.7.7.7
+address=/ip2location.com/7.7.7.7
+address=/pbs.org/7.7.7.7
+address=/warnerbros.com/7.7.7.7
+address=/southpark.cc.com/7.7.7.7
+address=/cbs.com/7.7.7.7
+address=/brightcove.com/7.7.7.7
+address=/cwtv.com/7.7.7.7
+address=/spike.com/7.7.7.7
+address=/go.com/7.7.7.7
+address=/mtv.com/7.7.7.7
+address=/mtvnservices.com/7.7.7.7
+address=/playstation.net/7.7.7.7
+address=/uplynk.com/7.7.7.7
+address=/maxmind.com/7.7.7.7
+address=/disney.com/7.7.7.7
+address=/disneyjunior.com/7.7.7.7
+address=/xboxlive.com/7.7.7.7
+address=/lovefilm.com/7.7.7.7
+address=/turner.com/7.7.7.7
+address=/amctv.com/7.7.7.7
+address=/sho.com/7.7.7.7
+address=/mog.com/7.7.7.7
+address=/wdtvlive.com/7.7.7.7
+address=/beinsportsconnect.tv/7.7.7.7
+address=/beinsportsconnect.net/7.7.7.7
+address=/fig.bbc.co.uk/7.7.7.7
+address=/open.live.bbc.co.uk/7.7.7.7
+address=/sa.bbc.co.uk/7.7.7.7
+address=/www.bbc.co.uk/7.7.7.7
+address=/crunchyroll.com/7.7.7.7
+address=/ifconfig.co/7.7.7.7
+address=/omtrdc.net/7.7.7.7
+address=/sling.com/7.7.7.7
+address=/movetv.com/7.7.7.7
+address=/happyon.jp/7.7.7.7
+address=/abema.tv/7.7.7.7
+address=/hulu.jp/7.7.7.7
+address=/optus.com.au/7.7.7.7
+address=/optusnet.com.au/7.7.7.7
+address=/gamer.com.tw/7.7.7.7
+address=/bahamut.com.tw/7.7.7.7
+address=/hinet.net/7.7.7.7
+
+```
+
+
+
+
