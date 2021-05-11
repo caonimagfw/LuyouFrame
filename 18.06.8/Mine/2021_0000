@@ -1,0 +1,198 @@
+yum -y install wget 
+yum -y install firewalld && systemctl start firewalld
+```
+# systemctl status firewalld 
+# vi /etc/firewalld/firewalld.conf
+# AllowZoneDrifting to no
+```
+# bbr plus 
+```
+modprobe ip_conntrack
+wget --no-check-certificate -O onefast.sh https://raw.githubusercontent.com/caonimagfw/onefast/master/onefast.sh && bash onefast.sh
+
+# please restart the machine 
+
+systemctl start firewalld
+modprobe ip_conntrack
+sysctl net.ipv4.tcp_available_congestion_control
+sysctl net.ipv4.tcp_congestion_control
+sysctl net.core.default_qdisc
+lsmod | grep bbr
+sysctl -w net.ipv4.ip_forward=1
+# set ssh port
+# #Port 22
+sed -i.bak '0,/#Port 22/s//Port 58899/' /etc/ssh/sshd_config
+firewall-cmd --zone=public --add-port=58899/tcp --permanent
+firewall-cmd --reload && firewall-cmd --permanent --list-all --zone=public
+systemctl restart sshd
+yum provides semanage
+yum -y install policycoreutils-python
+semanage port -a -t ssh_port_t -p tcp 58899
+semanage port -l | grep ssh
+semanage port -d -t ssh_port_t -p tcp 22
+semanage port -l | grep ssh
+systemctl start firewalld
+firewall-cmd --zone=public --remove-port=22/tcp --permanent && firewall-cmd --reload 
+firewall-cmd --zone=trusted --remove-port=22/tcp --permanent && firewall-cmd --reload 
+
+# set all firewall , 
+systemctl stop firewalld && yum -y upgrade firewalld
+systemctl enable firewalld && systemctl restart firewalld
+firewall-cmd --permanent --zone=public --add-port=10111/tcp 
+firewall-cmd --permanent --zone=public --add-port=20677/tcp --add-port=20688/tcp
+firewall-cmd --permanent --zone=public --add-port=30677/tcp --add-port=30688/tcp
+firewall-cmd --permanent --zone=public --add-port=40677/tcp --add-port=40688/tcp
+firewall-cmd --permanent --zone=public  --add-forward-port=port=20677:proto=tcp:toport=10111
+firewall-cmd --permanent --zone=public  --add-forward-port=port=20688:proto=tcp:toport=10111
+firewall-cmd --permanent --zone=public  --add-forward-port=port=30677:proto=tcp:toport=10111
+firewall-cmd --permanent --zone=public  --add-forward-port=port=30688:proto=tcp:toport=10111
+firewall-cmd --permanent --zone=public  --add-forward-port=port=40677:proto=tcp:toport=10111
+firewall-cmd --permanent --zone=public  --add-forward-port=port=40688:proto=tcp:toport=10111
+firewall-cmd --permanent --zone=public  --add-masquerade 
+firewall-cmd --permanent --zone=trusted --add-masquerade
+echo "net.ipv4.icmp_echo_ignore_all=1" >> /etc/sysctl.conf
+sysctl -p
+firewall-cmd --reload
+firewall-cmd --permanent --zone=public --direct --add-rule ipv4 filter INPUT_direct 0 -p tcp --tcp-flags RST,RST RST -j DROP	
+firewall-cmd --permanent --zone=public --direct --add-rule ipv4 filter INPUT 0 -p tcp --tcp-flags RST,RST RST -j DROP	
+firewall-cmd --permanent --zone=trusted --direct --add-rule ipv4 filter INPUT_direct 0 -p tcp --tcp-flags RST,RST RST -j DROP	
+firewall-cmd --permanent --zone=trusted --direct --add-rule ipv4 filter INPUT 0 -p tcp --tcp-flags RST,RST RST -j DROP	
+firewall-cmd --reload
+#install all tools and caddy 
+yum -y install wget net-tools bridge-utils && yum -y install epel-release && yum -y install unar
+wget --no-check-certificate -O caddy_install.sh https://raw.githubusercontent.com/caonimagfw/Caddy/master/caddy_install.sh && bash caddy_install.sh
+cat > /usr/local/caddy/Caddyfile <<-EOF
+	:8099 {
+		root /usr/local/caddy/www
+		gzip
+	}
+EOF
+cat /usr/local/caddy/Caddyfile 
+service caddy restart 
+#docker 
+yum install -y yum-utils device-mapper-persistent-data lvm2
+yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+yum makecache fast
+yum list docker-ce --showduplicates | sort -r
+yum -y install docker-ce-19.03.11 docker-ce-cli-19.03.11 containerd.io
+systemctl enable docker && systemctl restart docker  
+
+mkdir /root/docker && cd /root/docker
+wget --no-check-certificate  https://github.com/caonimagfw/LuyouFrame/raw/master/18.06.8/Mine/2021/trojan-gnu.rar
+unar -D -p xxxx trojan-gnu.rar && rm -rf *.rar 
+docker import trojan-gnu.tar trojan-gnu
+docker run --name trojan-gnu-r -itd --cpu-period=10000 --cpu-quota=8999 --network host trojan-gnu /usr/local/bin/tr-gnu 0.0.0.0:10111 xxxx -c /etc/trojan/server.cert.pem -t 8 -k /etc/trojan/server.key.pem -d 8.8.4.4 -s TLS13_CHACHA20_POLY1305_SHA256
+
+------------------------------------------------------------------------
+docker exec -it trojan-gnu-r /bin/sh
+```
+# DD Centos 7.6
+```
+
+cd /tmp
+
+MAINIP=$(ip route get 1 | awk -F 'src ' '{print $2}' | awk '{print $1}')
+GATEWAYIP=$(ip route | grep default | awk '{print $3}' | head -1)
+SUBNET=$(ip -o -f inet addr show | awk '/scope global/{sub(/[^.]+\//,"0/",$4);print $4}' | head -1 | awk -F '/' '{print $2}')
+value=$(( 0xffffffff ^ ((1 << (32 - $SUBNET)) - 1) ))
+NETMASK="$(( (value >> 24) & 0xff )).$(( (value >> 16) & 0xff )).$(( (value >> 8) & 0xff )).$(( value & 0xff ))"
+NETSTR="--ip-addr ${MAINIP} --ip-gate ${GATEWAYIP} --ip-mask ${NETMASK}"
+
+ #wget https://moeclub.org/attachment/LinuxShell/InstallNET.sh
+
+sed -i 's/$1$4BJZaD0A$y1QykUnJ6mXprENfwpseH0/$1$7R4IuxQb$J8gcq7u9K0fNSsDNFEfr90/' InstallNET.sh
+sed -i '/force-efi-extra-removable/d' InstallNET.sh
+bash InstallNET.sh $NETSTR -dd 'http://9.9.9.9:8099/CentOS-7.img.gz'
+
+wget --no-check-certificate -O AutoReinstall.sh https://git.io/AutoReinstall.sh && bash AutoReinstall.sh
+
+wget --no-check-certificate -O AutoReinstall.sh https://git.io/AutoReinstall.sh && bash AutoReinstall.sh
+
+
+Ctrl+B = Left, Ctrl+F = Right (mnemonic: backward/forward)
+Ctrl+P = Up, Ctrl+N = Down (mnemonic: up/down)
+Ctrl+A = Home, Ctrl+E = End (mnemonic: A=beginning/end)
+
+console=tty0 
+console=ttyS0,115200n8
+crashkernel=auto
+console=ttyS0,115200
+LANG=en-US.UTF-8
+/boot/vmlinuz-3.10.0-1160.24.1.el7.x86_64
+8C3LsvqyKoJI
+Pwd@CentOS
+
+```
+
+
+```
+console=tty0 console=ttyS0,115200n8 crashkernel=auto console=ttyS0,115200
+
+
+menuentry 'CentOS Linux (3.1 xxx
+	load_video
+	set gfxpayload=keep
+	insmod gzio
+	insmod part_msdos
+	insmod ext2
+	set root='hd0,msdos1'
+	if [ x$feature_platform_search_hint = xy ]; then
+	  search --no-floppy --fs-uuid --set=root --hint-bios=hd0,msdos1 --hint-efi=hd0,msdos1 --hint-baremetal=ahci0,msdos1 --hint='hd0,msdos1'  e06290cf-8120-479a-a0a6-a8ae01983e9f
+	else
+	  search --no-floppy --fs-uuid --set=root e06290cf-8120-479a-a0a6-a8ae01983e9f
+	fi
+	linux16 /boot/vmlinuz-3.10.0-1062.el7.x86_64 root=UUID=e06290cf-8120-479a-a0a6-a8ae01983e9f ro console=tty0 console=ttyS0,115200n8 crashkernel=auto console=ttyS0,115200 biosdevname=0 net.ifnames=0 LANG=en_US.UTF-8
+	initrd16 /boot/initramfs-3.10.0-1062.el7.x86_64.img
+```
+
+```
+
+#ipv6  vi /etc/sysctl.conf
+
+sysctl -w net.ipv6.conf.all.disable_ipv6=1
+sysctl -w net.ipv6.conf.default.disable_ipv6=1
+sysctl -w net.ipv4.tcp_window_scaling=0
+
+tcp_timestamps
+sysctl -w net.ipv4.tcp_window_scaling=0
+sysctl -p
+```
+
+```
+---cpu
+
+yum install epel-release
+yum install cpulimit
+cpulimit --exe trojan-go --limit 40 &
+
+
+------
+lsmod |grep conntrack
+
+modprobe ip_conntrack
+
+
+sudo yum install centos-release-scl
+sudo yum install devtoolset-7-gcc*
+scl enable devtoolset-7 bash
+which gcc
+gcc --version
+
+---------
+
+wget --no-check-certificate  https://github.com/caonimagfw/LuyouFrame/raw/master/18.06.8/Mine/2021/trojangfw.rar
+unar -D -p xxxx trojangfw.rar && rm -rf *.rar
+systemctl restart docker  
+docker import trojangfw.tar trojangfw:2021
+
+docker run --name trojan-gfw -itd --cpu-period=10000 --cpu-quota=3000 --network host trojangfw:2021 /usr/local/bin/trojan /etc/trojan/config-gfw.json
+
+firewall-cmd --permanent --zone=public --add-port=10222/tcp 
+firewall-cmd --reload
+
+
+
+
+
