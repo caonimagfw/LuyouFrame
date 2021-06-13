@@ -1,0 +1,45 @@
+
+-----Start 
+yum install -y tigervnc-server matchbox-window-manager xterm xorg-x11-fonts-misc.noarch
+
+vncserver -kill :1
+cd /home/centos
+cat > .Xclients <<-EOF
+xterm &
+exec /usr/bin/matchbox-window-manager
+EOF
+chmod +x .Xclients
+
+cat > .Xresources <<-EOF
+xterm*background: black
+xterm*foreground: lightgray
+EOF
+chmod +x .Xresources
+
+vncserver -ac 
+netstat -an | grep 59
+
+
+
+-localhost no 
+
+vncserver -list 
+
+
+:1
+
+cat /root/.vnc/ip-172-26-4-198.ap-northeast-1.compute.internal:1.log
+
+
+
+
+sudo -s
+su - centos
+
+
+firewall-cmd --permanent --zone=public --add-port=22233/tcp 
+firewall-cmd --permanent --zone=public  --add-forward-port=port=22233:proto=tcp:toport=5901
+firewall-cmd --reload
+
+
+
