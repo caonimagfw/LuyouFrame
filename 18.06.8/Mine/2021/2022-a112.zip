@@ -1,0 +1,95 @@
+var scene, renderer, camera, control;
+var divElem, divObj;
+
+var w = 500;
+var h = 500;
+//init();
+//animate();
+camera = new THREE.PerspectiveCamera(75, w / h, 0.1, 1000); 
+camera.position.z = 200;
+function createVector(x, y, z, camera, width, height) {
+        var p = new THREE.Vector3(x, y, z);
+        var vector = p.project(camera);
+
+        vector.x = (vector.x + 1) / 2 * width;
+        vector.y = -(vector.y - 1) / 2 * height;
+
+        return vector;
+    }
+    
+   var bb = createVector(-0.0118844,0.0332508,-0.668303, camera, w,h);
+   console.log(bb);
+
+function init()
+{
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000); 
+    camera.position.z = 200;
+    
+    renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+    
+    control = new THREE.OrbitControls(camera, renderer.domElement);
+    control.addEventListener('change', function() {
+        onCameraChange();
+    });
+    
+    var sphereGeo = new THREE.SphereGeometry();
+    var sphereMesh = new THREE.Mesh(sphereGeo);
+    scene.add(sphereMesh);
+    
+    divElem = document.getElementsByClassName('myDiv')[0];
+    divObj = new THREE.Object3D();
+   // divObj.position = sphereGeo.vertices[0].clone();
+    scene.add(divObj);
+}
+
+function animate()
+{
+    requestAnimationFrame( animate );
+    update();
+    render();
+}
+
+function update()
+{
+    control.update();
+}
+
+function render()
+{
+    renderer.render(scene, camera);
+}
+
+function onCameraChange()
+{
+    var proj = toScreenPosition(divObj, camera);
+    
+    divElem.style.left = proj.x + 'px';
+    divElem.style.top = proj.y + 'px';
+    
+}
+
+function toScreenPosition(obj, camera)
+{
+    var vector = new THREE.Vector3();
+    
+    // TODO: need to update this when resize window
+    var widthHalf = 0.5*renderer.context.canvas.width;
+    var heightHalf = 0.5*renderer.context.canvas.height;
+    
+    obj.updateMatrixWorld();
+    vector.setFromMatrixPosition(obj.matrixWorld);
+    vector.project(camera);
+    
+    vector.x = ( vector.x * widthHalf ) + widthHalf;
+    vector.y = - ( vector.y * heightHalf ) + heightHalf;
+    
+    return { 
+        x: vector.x,
+        y: vector.y
+    };
+
+}
+    
