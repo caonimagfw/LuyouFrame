@@ -2,7 +2,7 @@
 
 ## Install tools and Get files
 ```
-yum install epel-release
+yum -y install epel-release
 yum -y install wget 
 yum -y install firewalld && systemctl start firewalld
 
