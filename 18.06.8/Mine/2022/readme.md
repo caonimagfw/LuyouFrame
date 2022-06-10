@@ -9,6 +9,7 @@ yum -y install firewalld && systemctl start firewalld
 # get files
 
 wget https://raw.githubusercontent.com/caonimagfw/onefast/master/18.06.8/Mine/2022/one.sh
+
 wget https://raw.githubusercontent.com/caonimagfw/onefast/master/18.06.8/Mine/2022/two.sh
 
 # run install core 5.10.0
