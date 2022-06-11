@@ -22,3 +22,12 @@ bash two.sh d4 ######
 bash two.sh d6 ######
 
 ```
+
+## Other Info
+```
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+nameserver 2001:4860:4860::8888
+nameserver 2001:4860:4860::8844
+
+```
