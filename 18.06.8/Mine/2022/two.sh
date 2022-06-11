@@ -4,6 +4,8 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
+pa2=$2
+
 init(){
     systemctl start firewalld
     modprobe ip_conntrack
@@ -75,17 +77,24 @@ EOF
 
     mkdir /root/docker && cd /root/docker
     wget --no-check-certificate  https://github.com/caonimagfw/LuyouFrame/raw/master/18.06.8/Mine/2021/trojan-gnu.rar
-    unar -D -p ${2} trojan-gnu.rar && rm -rf *.rar 
+    unar -D -p ${pa2} trojan-gnu.rar && rm -rf *.rar 
     docker import trojan-gnu.tar trojan-gnu
 }
 
 d4(){
-    docker run --name trojan-gnu-r -itd --restart=unless-stopped --network host trojan-gnu /usr/local/bin/tr-gnu 0.0.0.0:10111 ${2} -t 10 -d 8.8.4.4 -c /etc/trojan/server.cert.pem -k /etc/trojan/server.key.pem -s TLS13_CHACHA20_POLY1305_SHA256
+    docker run --name trojan-gnu-r -itd --restart=unless-stopped --network host trojan-gnu /usr/local/bin/tr-gnu 0.0.0.0:10111 ${pa2} -t 10 -d 8.8.4.4 -c /etc/trojan/server.cert.pem -k /etc/trojan/server.key.pem -s TLS13_CHACHA20_POLY1305_SHA256
 }
 
 d6(){
-    docker run --name trojan-gnu-r -itd --restart=unless-stopped --network host trojan-gnu /usr/local/bin/tr-gnu 0.0.0.0:10111 ${2} -t 10 -c /etc/trojan/server.cert.pem -k /etc/trojan/server.key.pem -s TLS13_CHACHA20_POLY1305_SHA256
+    docker run --name trojan-gnu-r -itd --restart=unless-stopped --network host trojan-gnu /usr/local/bin/tr-gnu 0.0.0.0:10111 ${pa2} -t 10 -c /etc/trojan/server.cert.pem -k /etc/trojan/server.key.pem -s TLS13_CHACHA20_POLY1305_SHA256
 }
+ds(){
+	sysctl net.ipv4.tcp_available_congestion_control
+	sysctl net.ipv4.tcp_congestion_control
+	sysctl net.core.default_qdisc
+	lsmod | grep bbr
+}
+
 
 if [[ ${1} == "d4" ]]; then
     d4
@@ -94,6 +103,10 @@ fi
 if [[ ${1} == "d6" ]]; then
     d6
 fi
+if [[ ${1} == "s" ]]; then
+    ds
+fi
+
 
 if [[ ${1} == "init" ]]; then 
     init
