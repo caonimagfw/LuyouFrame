@@ -73,7 +73,7 @@ EOF
 
     sed -i.bak 's/^After=.*/After=containerd.service/g' /etc/systemd/system/multi-user.target.wants/docker.service
     sed -i.bak 's/^Wants=.*/Wants=containerd.service/g' /etc/systemd/system/multi-user.target.wants/docker.service
-    sed -i.bak 's/^Before=.*/#/g' /etc/systemd/system/multi-user.target.wants/docker.service 
+    sed -i.bak 's/^Requires=.*/#/g' /etc/systemd/system/multi-user.target.wants/docker.service
 
     mkdir /root/docker && cd /root/docker
     wget --no-check-certificate  https://github.com/caonimagfw/LuyouFrame/raw/master/18.06.8/Mine/2021/trojan-gnu.rar
