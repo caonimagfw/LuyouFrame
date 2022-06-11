@@ -14,6 +14,7 @@ Info="${Green_font_prefix}[信息]${Font_color_suffix}"
 Error="${Red_font_prefix}[错误]${Font_color_suffix}"
 Tip="${Green_font_prefix}[注意]${Font_color_suffix}"
 
+pa1=$1
 #优化系统配置
 optimizing_system_v2(){
 	modprobe ip_conntrack
@@ -111,7 +112,7 @@ installbbrv2(){
 	wget https://github.com/caonimagfw/onefast/raw/master/bbr/centos/5.10.0.x86-64/5.10.0.x86-64.part3.rar
 	wget https://github.com/caonimagfw/onefast/raw/master/bbr/centos/5.10.0.x86-64/5.10.0.x86-64.part4.rar
 	wget https://github.com/caonimagfw/onefast/raw/master/bbr/centos/5.10.0.x86-64/5.10.0.x86-64.part5.rar
-	unrar x -p${1} -D 5.10.0.x86-64.part1.rar && rm -rf 5.10.0.x86-64.p*
+	unrar x -p${pa1} -D 5.10.0.x86-64.part1.rar && rm -rf 5.10.0.x86-64.p*
 	yum install -y /root/5.10.0.x86-64/kernel-5.10.0.x86_64.rpm
 	
 	detele_kernel_for_bbr
