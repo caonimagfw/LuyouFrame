@@ -4,7 +4,9 @@
 ```
 yum -y install epel-release
 yum -y install wget 
-yum -y install firewalld && systemctl start firewalld
+systemctl stop firewalld
+yum -y install firewalld && yum -y upgrade firewalld
+systemctl enable firewalld && systemctl restart firewalld
 
 # get files
 
