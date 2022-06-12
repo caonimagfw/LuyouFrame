@@ -30,8 +30,8 @@ init(){
     firewall-cmd --zone=trusted --remove-port=22/tcp --permanent && firewall-cmd --reload 
 
     # set all firewall 
-    systemctl stop firewalld && yum -y upgrade firewalld
-    systemctl enable firewalld && systemctl restart firewalld
+    #systemctl stop firewalld && yum -y upgrade firewalld
+    #systemctl enable firewalld && systemctl restart firewalld
     firewall-cmd --permanent --zone=public --add-port=10111/tcp 
     firewall-cmd --permanent --zone=public --add-port=20677/tcp --add-port=20688/tcp
     firewall-cmd --permanent --zone=public --add-port=30677/tcp --add-port=30688/tcp
